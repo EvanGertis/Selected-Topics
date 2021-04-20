@@ -6,7 +6,7 @@
 <body>
     <div>
        You are seeing this because your request could not be processed.
-       <a href="/home">click here to go back to the home page</a>
+       <a href="/avs/show/1">click here to go back to the the visualizations</a>
     </div>
 </body>
 </html>
