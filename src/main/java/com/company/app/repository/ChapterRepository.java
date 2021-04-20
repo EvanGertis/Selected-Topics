@@ -1,5 +1,10 @@
 package com.company.app.repository;
 
+/*
+ * ChapterRepository.java
+ * Author: Evan Gertis
+ */
+
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,5 +1,10 @@
 package com.company.app.controller;
 
+/*
+ * ExerciseController.java
+ * Author: Evan Gertis
+ */
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;

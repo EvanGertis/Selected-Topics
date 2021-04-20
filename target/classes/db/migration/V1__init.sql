@@ -27,4 +27,4 @@ create table if not exists exercise(
 );
 
 INSERT INTO av (id,title,author) VALUES (1, 'Algorithmic Intuition', 'Evan Gertis');
-INSERT INTO chapter (id, title, av_id) VALUES (1,'Graph Traversals',1);
+INSERT INTO chapter (id, title, av_id) VALUES (1,'Tree Traversals',1);

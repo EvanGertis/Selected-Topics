@@ -1,4 +1,10 @@
 package com.company.app.service;
+
+/*
+ * ExerciseService.java
+ * Author: Evan Gertis
+ */
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;

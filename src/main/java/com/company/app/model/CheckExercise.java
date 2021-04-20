@@ -1,5 +1,10 @@
 package com.company.app.model;
 
+/*
+ * CheckExercise.java
+ * Author: Evan Gertis
+ */
+
 import lombok.Data;
 
 @Data

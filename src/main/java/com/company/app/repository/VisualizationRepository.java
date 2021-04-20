@@ -1,5 +1,10 @@
 package com.company.app.repository;
 
+/*
+ * VisualizationRepository.java
+ * Author: Evan Gertis
+ */
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

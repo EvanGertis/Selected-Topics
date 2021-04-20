@@ -1,5 +1,8 @@
 package com.company.app.controller;
 
+//ChapterController.java
+//Author: Evan Gertis 04/20/2021
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;

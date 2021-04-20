@@ -1,5 +1,10 @@
 package com.company.app.test;
 
+/*
+ * ExerciseServiceTest.java
+ * Author: Evan Gertis
+ */
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 

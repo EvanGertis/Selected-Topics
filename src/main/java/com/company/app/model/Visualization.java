@@ -1,5 +1,10 @@
 package com.company.app.model;
 
+/*
+ * Visualization.java
+ * Author: Evan Gertis
+ */
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
