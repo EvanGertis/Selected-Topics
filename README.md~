@@ -2,8 +2,9 @@
 # algorthmic intuition
 
 ## Research
-[a link](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
-[a link](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
+1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
+
+2.[TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 
 ## Stack
 - Spring Boot 2.2.0.RELEASE

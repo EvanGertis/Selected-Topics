@@ -3,8 +3,7 @@
 
 ## Research
 1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
-
-2.[TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
+2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 
 ## Stack
 - Spring Boot 2.2.0.RELEASE
@@ -34,7 +33,8 @@ docker run -p 3307:3306 -e MYSQL_ROOT_PASSWORD=test123 -e MYSQL_DATABASE=Algorit
     ```bash
     $ mvn spring-boot:run
     ```
-
+## Example
+[Algorithmic Visualization App](https://algorithmic-intuition.herokuapp.com/avs/show/1)
 ## Author
 Evan Gertis
 
