@@ -12,8 +12,8 @@
 <body>
 	<div id="title">Tree Traversals</div>
 	<div id="button-wrapper">
-		<button id="dft" onclick="dft()">Depth First</button>
-		<button id="bft" onclick="bft()">Breadth First</button>
+		<button id="dft" onclick="dft()">Depth First Search</button>
+		<button id="bft" onclick="bft()">Breadth First Search</button>
 		<button id="reset" onclick="resetTraversal()">Reset</button>
 	</div>
 	<div id="tree-container"></div>
