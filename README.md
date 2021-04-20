@@ -7,14 +7,18 @@
 - JSP, HTML, JS, CSS
 - Tomcat 9
 
-## Set up
+## Windows Set up
+``` bash
 set AV_DATABASE_URL=jdbc:mysql://localhost:3306/AlgorithmVisualization?serverTimezone=UTC
 set DATABASE_USER=root
 set DATABASE_PASSWORD=test123
 set AV_SCHEMA=AlgorithmVisualization
+```
 
 ## Docker
+```bash
 docker run -p 3307:3306 -e MYSQL_ROOT_PASSWORD=test123 -e MYSQL_DATABASE=AlgorithmVisualization mysql:5.7
+```
 
 ## Install
 1. To clean and build maven project, use:
