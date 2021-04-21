@@ -5,7 +5,7 @@
 1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
 2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 
-## Demonstration 2
+## Demonstration
 1. [youtube video demonstration 1](https://www.youtube.com/watch?v=KFO0vJ1Ihwg)
 2. [youtube video demonstration 2](https://www.youtube.com/watch?v=Eysu65LyC04)
 
