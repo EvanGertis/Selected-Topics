@@ -5,6 +5,9 @@
 1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
 2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 
+## Demonstration
+[youtube video demonstration](https://www.youtube.com/watch?v=KFO0vJ1Ihwg)
+
 ## Stack
 - Spring Boot 2.2.0.RELEASE
 - Servlet API 2.5
