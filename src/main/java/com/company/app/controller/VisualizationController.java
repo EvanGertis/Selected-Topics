@@ -49,8 +49,27 @@ public class VisualizationController {
     public String getVisualizationViewById(Model model, @PathVariable int exerciseId) {
     	logger.info("Request to /visualization/{}",exerciseId);
     	Visualization visualization = visualizationService.findByExerciseId(exerciseId);
-    	model.addAttribute("visualization", visualization);
-    	logger.info("Response {}", visualization);
-    	return "visualization";
+    	if(visualization.getVisualization().equals("treeTraversal")) {
+    		logger.info("visualization {}", visualization.getVisualization());
+    		model.addAttribute("visualization", visualization);
+    		return "treeTraversal";
+    	}
+    	else if(visualization.getVisualization().equals("BFS")) {
+    		logger.info("visualization {}", visualization.getVisualization());
+    		model.addAttribute("visualization", visualization);
+    		return "BFS_tic_tac_toe";
+    	}
+    	else if(visualization.getVisualization().equals("DFS")) {
+    		logger.info("visualization {}", visualization.getVisualization());
+    		model.addAttribute("visualization", visualization);
+    		return "DFS_tic_tac_toe";
+    	}
+    	else if(visualization.getVisualization().equals("Tic_Tac_Toe")) {
+    		logger.info("visualization {}", visualization.getVisualization());
+    		model.addAttribute("visualization", visualization);
+    		return "Tic_Tac_Toe";
+    	}
+    	else 
+    		return "error";
     }
 }
