@@ -9,7 +9,7 @@
 <script src="${pageContext.request.contextPath}/static/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/backbone.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/d3.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/mauler-0.0.4.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/mauler.js"></script>
 <script>
 
 var margin = { top: 50, right: 50, bottom: 50, left: 50 },
@@ -139,7 +139,7 @@ var update = function() {
     currentNode = bfs();
 };
 
-var duration = 500,
+var duration = 1000,
     timer = setInterval(update, duration);
 </script>
 <a href="/exercises/show/${visualization.exerciseId}">Go back to exercise</a>

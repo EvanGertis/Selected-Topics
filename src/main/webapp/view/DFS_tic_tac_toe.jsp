@@ -140,7 +140,7 @@ t.selectAll(".node-group")
 currentNode = dfs(currentNode);
 };
 
-var duration = 250,
+var duration = 1000,
 timer = setInterval(update, duration);
 </script>
 </body>
