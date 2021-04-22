@@ -12,9 +12,9 @@
 <body>
 	<div id="title">Tree Traversals</div>
 	<div id="button-wrapper">
-		<button id="dft" onclick="dft()">Depth First Search</button>
-		<button id="bft" onclick="bft()">Breadth First Search</button>
-		<button id="reset" onclick="resetTraversal()">Reset</button>
+		<button id="dft" onclick="dfs_traversal()">Depth First Search</button>
+		<button id="bft" onclick="bfs_traversal()">Breadth First Search</button>
+		<button id="reset" onclick="reset()">Reset</button>
 	</div>
 	<div id="tree-container"></div>
 	<a href="/exercises/show/${visualization.exerciseId}">Go back to exercise</a>

@@ -17,14 +17,14 @@ width = 960 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom,
 nodeSize = 45;
 
-var depthFirstIteration = function(node) {
+var dfs = function(node) {
 if (!node) {
     return;
 }
 var moves = node.game.moves();
 // go to parent node
 if (!moves.length || (node.children && node.children.length === moves.length)) {
-    return depthFirstIteration(node.parent);
+    return dfs(node.parent);
 }
 else {
     if (!node.children) {
@@ -74,14 +74,14 @@ nodes = tree(root);
 root.px = root.x;
 root.py = root.y;
 
-var curNode = root;
+var currentNode = root;
 
 var update = function() {
-if (!curNode) {
+if (!currentNode) {
     return clearInterval(timer);
 }
 
-nodes.push(curNode);
+nodes.push(currentNode);
 
 // Enter nodes
 svg.selectAll(".node-group")
@@ -137,7 +137,7 @@ t.selectAll(".node-group")
         return "translate(" + (d.x - (nodeSize / 2)) + ", " + (d.y - (nodeSize / 2)) + ")"
     });
 
-curNode = depthFirstIteration(curNode);
+currentNode = dfs(currentNode);
 };
 
 var duration = 250,

@@ -18,7 +18,7 @@ var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     nodeSize = 45,
     counter = 1;
 
-var breadthFirstIteration = function() {
+var bfs = function() {
     if (queue.length > 0) {
         var node = queue.shift();
         if (node.parent != node) {
@@ -74,16 +74,16 @@ root.parent = root;
 root.px = root.x;
 root.py = root.y;
 
-var curNode = root;
+var currentNode = root;
 var queue = [root];
 
 var update = function() {
     
-    if (!curNode) {
+    if (!currentNode) {
         return clearInterval(timer);
     }
 
-    nodes.push(curNode);
+    nodes.push(currentNode);
 
     // Enter nodes
     svg.selectAll(".node-group")
@@ -136,10 +136,10 @@ var update = function() {
             return "translate(" + (d.x - (nodeSize / 2)) + ", " + (d.y - (nodeSize / 2)) + ")"
         });
 
-    curNode = breadthFirstIteration();
+    currentNode = bfs();
 };
 
-var duration = 250,
+var duration = 500,
     timer = setInterval(update, duration);
 </script>
 <a href="/exercises/show/${visualization.exerciseId}">Go back to exercise</a>

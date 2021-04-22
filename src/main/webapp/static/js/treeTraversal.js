@@ -1,11 +1,11 @@
-var margin = {top: 20, right: 0, bottom: 20, left: 0},
-  width = document.getElementById("tree-container").offsetWidth - margin.right - margin.left,
-  height = document.getElementById("tree-container").offsetHeight - margin.top - margin.bottom;
+var m = {top: 20, right: 0, bottom: 20, left: 0},
+  w = document.getElementById("tree-container").offsetWidth - m.right - m.left,
+  h = document.getElementById("tree-container").offsetHeight - m.top - m.bottom;
 
-var i=0, animDuration=500,root;
+var i=0, duration=500,root;
 
 var tree = d3.layout.tree()
-  .size([height, width]);
+  .size([h, w]);
 
 
 d3.selection.prototype.moveToFront = function() {  
@@ -15,17 +15,17 @@ d3.selection.prototype.moveToFront = function() {
 };
 
 var svg = d3.select("#tree-container").append("svg")
-  .attr("width", width + margin.right + margin.left)
-  .attr("height", height + margin.top + margin.bottom)
+  .attr("width", w + m.right + m.left)
+  .attr("height", h + m.top + m.bottom)
   .append("g")
-  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  .attr("transform", "translate(" + m.left + "," + m.top + ")");
   
 root= treeData[0];
 update(treeData[0]);
 
-function resetTraversal(root){
+function reset(root){
   d3.selectAll(".node")
-    .transition().duration(animDuration)
+    .transition().duration(duration)
     .style("fill","#fff")
     .style("stroke","steelblue");
 
@@ -33,27 +33,22 @@ function resetTraversal(root){
 
 function update(root) {
 
-  resetTraversal(root);
+  reset(root);
 
-  // Compute the new tree layout.
   var nodes = tree.nodes(root).reverse(),
     links = tree.links(nodes);
 
-  // Normalize for fixed-depth.
   nodes.forEach(function(d) { d.y = d.depth *100; });
 
-  // Declare and append the nodes
   var nodeWrapper = svg.append("g").attr("id","nodes").selectAll("g.node")
     .data(nodes, function(d) {return d.id || (d.id = ++i); })
     .enter().append("circle")
     .attr("class", "node")
-    //Root is the highest ID
     .attr("id",function(d){return "node-"+d.id})
     .attr("cx",function(d){return d.x;})
     .attr("cy",function(d){return d.y;})
     .attr("r", 10);
 
-  // Declare and append the links
   var linkWrapper = svg.append("g").attr("id","links").selectAll("path.link")
     .data(links, function(d) { return d.target.id; })
     .enter()
@@ -67,25 +62,23 @@ function update(root) {
     .attr('y1',function(d){return d.source.y;})
     .attr('y2',function(d){return d.target.y;});
 
-  //Styling consideration
   d3.select("#nodes").moveToFront();
 
 }
-function visitElement(element,animX){
- // d3.select("#node-"+element.id).classed("visited",true);
+function visitElement(element,ax){
   d3.select("#node-"+element.id)
-    .transition().duration(animDuration).delay(animDuration*animX)
-    .style("fill","red").style("stroke","red");
+    .transition().duration(duration).delay(duration*ax)
+    .style("fill","green").style("stroke","green");
 }
 
-function dft(){
+function dfs_traversal(){
   var stack=[];
-  var animX=0;
+  var ax=0;
   stack.push(root);
   while(stack.length!==0){
     var element = stack.pop();
-    visitElement(element,animX);
-    animX=animX+1;
+    visitElement(element,ax);
+    ax=ax+1;
     if(element.children!==undefined){
       for(var i=0; i<element.children.length; i++){
         stack.push(element.children[element.children.length-i-1]);
@@ -94,17 +87,17 @@ function dft(){
   }
 }
 
-function bft(){
-  var queue=[];
-  var animX=0;
-  queue.push(root);
-  while(queue.length!==0){
-    var element = queue.shift();
-    visitElement(element,animX);
-    animX= animX+1;
+function bfs_traversal(){
+  var frontier=[];
+  var ax=0;
+  frontier.push(root);
+  while(frontier.length!==0){
+    var element = frontier.shift();
+    visitElement(element,ax);
+    ax= ax+1;
     if(element.children!==undefined){
       for(var i=0; i<element.children.length; i++){
-        queue.push(element.children[i]);
+        frontier.push(element.children[i]);
       }
     }
   }
