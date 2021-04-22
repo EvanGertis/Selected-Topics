@@ -18,7 +18,7 @@ var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     nodeSize = 45,
     counter = 1;
 
-var bfs = function() {
+var breadthFirstIteration = function() {
     if (queue.length > 0) {
         var node = queue.shift();
         if (node.parent != node) {
@@ -74,16 +74,16 @@ root.parent = root;
 root.px = root.x;
 root.py = root.y;
 
-var currentNode = root;
+var curNode = root;
 var queue = [root];
 
 var update = function() {
     
-    if (!currentNode) {
+    if (!curNode) {
         return clearInterval(timer);
     }
 
-    nodes.push(currentNode);
+    nodes.push(curNode);
 
     // Enter nodes
     svg.selectAll(".node-group")
@@ -136,7 +136,7 @@ var update = function() {
             return "translate(" + (d.x - (nodeSize / 2)) + ", " + (d.y - (nodeSize / 2)) + ")"
         });
 
-    currentNode = bfs();
+    curNode = breadthFirstIteration();
 };
 
 var duration = 1000,

@@ -9,7 +9,7 @@
 <script src="${pageContext.request.contextPath}/static/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/backbone.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/d3.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/mauler-0.0.4.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/mauler.js"></script>
 <script>
 
 var margin = { top: 50, right: 50, bottom: 50, left: 50 },
@@ -17,14 +17,14 @@ width = 960 - margin.left - margin.right,
 height = 500 - margin.top - margin.bottom,
 nodeSize = 45;
 
-var dfs = function(node) {
+var depthFirstIteration = function(node) {
 if (!node) {
     return;
 }
 var moves = node.game.moves();
 // go to parent node
 if (!moves.length || (node.children && node.children.length === moves.length)) {
-    return dfs(node.parent);
+    return depthFirstIteration(node.parent);
 }
 else {
     if (!node.children) {
@@ -74,14 +74,14 @@ nodes = tree(root);
 root.px = root.x;
 root.py = root.y;
 
-var currentNode = root;
+var curNode = root;
 
 var update = function() {
-if (!currentNode) {
+if (!curNode) {
     return clearInterval(timer);
 }
 
-nodes.push(currentNode);
+nodes.push(curNode);
 
 // Enter nodes
 svg.selectAll(".node-group")
@@ -137,7 +137,7 @@ t.selectAll(".node-group")
         return "translate(" + (d.x - (nodeSize / 2)) + ", " + (d.y - (nodeSize / 2)) + ")"
     });
 
-currentNode = dfs(currentNode);
+curNode = depthFirstIteration(curNode);
 };
 
 var duration = 1000,
