@@ -9,7 +9,7 @@
 <script src="${pageContext.request.contextPath}/static/js/underscore.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/backbone.js"></script>
 <script src="${pageContext.request.contextPath}/static/js/d3.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/mauler-0.0.4.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/mauler.js"></script>
 
 <script>
 
