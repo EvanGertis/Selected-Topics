@@ -1,0 +1,187 @@
+/* Prevent font scaling in iPhone */
+html {
+    -webkit-text-size-adjust: 100%; 
+}
+
+pre {
+    -webkit-text-size-adjust: 100%; 
+}
+
+
+body {font-family: "Courier New", sans-serif; font-size: 100%; color: black}
+/*
+.keyword {color: #37826c !important; }
+.comment {color: darkred !importaant; }
+      .comment {color: darkred !important; background: #d1e0f0;}
+.literal {color: darkblue !important;}
+.constant {color: teal !important;}
+*/
+
+/*For C++ 4e
+.keyword {color: #000fd6 !important; font-weight: bold;}
+.comment {color: #005500 !important; }
+      .comment {color: darkred !important; background: #d1e0f0;}
+.literal {color: #007d9f !important;}
+.constant {color: #007d9f !important;}*/
+
+/*For C++ 5e* old/
+*/.keyword {color: black !important; font-weight: bold;}
+.comment {color: rgb(153, 153, 136) !important; }
+.literal {color: rgb(221, 17, 68) !important;}
+.constant {color: rgb(30, 130, 130) !important;}/*
+
+/*For new C++ 5e*/
+.keyword {color: rgb(51, 51, 51) !important; font-weight: bold;}
+.comment {color: rgb(113, 113, 96) !important; font-style: italic;}
+.literal {color: rgb(221, 17, 68) !important;}
+.constant {color: rgb(29, 124, 124) !important;}
+
+
+#highlight {
+    background-color:#fcffb0;
+    opacity: 0.35;
+    position:absolute;
+    width:18px;
+    height: 10px;
+    padding: 3px;
+    margin: 0px;
+    top: 89px;
+    left: 72px;
+    border: solid 1px #EB0D1B;    
+}
+
+#highlight2 {
+    background-color:#37826c;
+    opacity: 0.25;
+    position:absolute;
+    width:18px;
+    height: 10px;
+    padding: 3px;
+    margin-top: 0px;
+    top: 89px;
+    left: 72px;
+}
+
+#explanation {
+    /*    color: purple;*/
+    color: #EB0D1B; /*#6E0F47; /* new color */
+    position:absolute;
+    width: 158px;
+    padding: 3px;
+    margin-top:5px;
+    top: 75px;
+    left: 48px;
+    font-size: 90%;
+    font-family: Times New Roman;
+}
+
+#commandPrompt {
+    font-family: times;  border: 0px solid gray; text-align: left;  
+    position:absolute;         
+    width: 217.515px;
+    height: 10px;
+    top: 90px;
+    left: 600px;
+    font-size: 80%;
+}
+
+#commandPromptHeader {
+    background-color: navy; color: white; font-size: 90%;
+    border-bottom: 0px solid gray; border-right: 0px solid gray;
+    text-align: center;
+}
+
+#commandPromptContent {
+    background-color: white;
+    color: black;
+    width: 212px;
+    height: 40px;
+    font-family: courier; 
+    font-size: 80%;
+    font-weight: bold;
+}
+
+#startButton {
+    display:inline; 
+    width: 150px;
+    height: 30px;
+    color:#fff;
+    font-size: 14px;
+    /*    background: #6193CB;*/
+    background: #3070a8;
+    border: none;
+    cursor:pointer;
+}
+
+#startButton:hover {
+    /*    background-color: #3f74af; */
+    background-color: #1c5282; 
+    color: white;
+}
+#nextButton:hover {
+    background-color: #1c5282;
+    color: white;
+}
+#prevButton:hover {
+    background-color: #1c5282;
+    color: white;
+}
+#startOverButton:hover {
+    background-color: #1c5282; 
+    color: white;
+}
+#nextButton {
+    display:inline;
+    width: 60px;
+    height: 30px;
+    color:#fff;
+    font-size: 14px;
+    background: #3070a8;
+    border: none;
+    cursor:pointer;
+}
+
+#prevButton {
+    display:inline;
+    width: 60px;
+    height: 30px;
+    color:#fff;
+    font-size: 14px;
+    background: #3070a8;
+    border: none;
+    cursor:pointer;
+}
+
+#startOverButton {
+    display:inline;
+    width: 70px;
+    height: 30px;
+    color:#fff;
+    font-size: 14px;
+    background: #3070a8;
+    border: none;
+    cursor:pointer;
+}
+
+.stringindex {
+    display:inline;
+    font-family: courier; text-align: center;  
+    width: 20px; height: 20px;
+    position:absolute;  font-size: 100%;
+}
+
+.stringelement {
+    display:inline;
+    font-family: courier; text-align: center;  
+    border: 1px solid #37826c; width: 20px; height: 20px;
+    position:absolute;  font-size: 100%;
+}
+
+.animationbody {
+    width: 99%; 
+    margin: 0 auto;
+}
+
+.lightcoralbackgroud {
+    background-color:rgba(240,128,128,0.3);
+}
