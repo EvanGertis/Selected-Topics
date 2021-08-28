@@ -39,11 +39,6 @@
       highLight[1].left = 60 + 20;
       highLight[1].width = 417;
 
-      highLight[2] = new HighLight();
-      highLight[2].top = 125;
-      highLight[2].left = 60 + 20;
-      highLight[2].width = 457;
-
       highLight[3] = new HighLight();
       highLight[3].top = 169;
       highLight[3].left = 60 + 20;
@@ -110,17 +105,12 @@
       explanation[0].left = 508;
 
       explanation[1] = new Explanation();
-      explanation[1].innerHTML = "The statement assigns " + number1 + " to variable i.";
+      explanation[1].innerHTML = "The statement assigns " + number1 + " to variable n.";
       explanation[1].top = 107;
       explanation[1].left = 550;
 
-      explanation[2] = new Explanation();
-      explanation[2].innerHTML = "The statement assigns 3 to j.";
-      explanation[2].top = 107;
-      explanation[2].left = 570;
-
       explanation[3] = new Explanation();
-      explanation[3].innerHTML = "The statement will invoke the max method and assign the return value from the method to k.";
+      explanation[3].innerHTML = "The statement will invoke the fib method and assign the return value from the method to nth_fibonacci.";
       explanation[3].top = 117;
       explanation[3].left = 470;
       explanation[3].width = 430;
@@ -138,7 +128,7 @@
       explanation[5].width = 205;
 
       explanation[6] = new Explanation();
-      explanation[6].innerHTML = "Variable result is declared.";
+      explanation[6].innerHTML = "The base case is checked. The statement tests if n is <=0 ";
       explanation[6].top = 247;
       explanation[6].left = 325;
       explanation[6].width = 205;
@@ -283,7 +273,7 @@
           }
           else if (currentLine == 1) {
               number1 = tb1;
-              explanation[1].innerHTML = "The statement assigns " + number1 + " to variable i.";
+              explanation[1].innerHTML = "The statement assigns " + number1 + " to variable n.";
 
               document.getElementById('variable').style.visibility = 'visible';
               document.getElementById('radius').style.visibility = 'visible';
@@ -357,42 +347,7 @@ explanation[currentLine].innerHTML = "";
                                         });
                             });
           }
-          else if (currentLine == 5) {
-              num1 = number1;
-              num2 = number2;
-
-              document.getElementById('num1').style.visibility = 'visible';
-              document.getElementById('num2').style.visibility = 'visible';
-              document.getElementById('flyingNum1').style.visibility = 'visible';
-              document.getElementById('flyingNum2').style.visibility = 'visible';
-              document.getElementById('flyingNum1').innerHTML = num1;
-              document.getElementById('flyingNum2').innerHTML = num2;
-
-              explanation[5].innerHTML = "The values of i and j are passed to num1 and num2.";
-              commandPrompt[5].innerHTML = commandPrompt[4].innerHTML + num1;
-              commandPrompt[6].innerHTML = commandPrompt[5].innerHTML + "\n" + number1 + " + " + number2 + " = " + num1 + " is " + result;
-              commandPrompt[7].innerHTML = commandPrompt[6].innerHTML + "";
-
-              pos = getElementPos(document.getElementById('line5'));
-              $("#explanation").animate({top: pos.y - 65,
-                  left: (pos.x + pos.w) - 40,
-                  width: 200}, 'fast');
-
-              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
-                  document.getElementById('flyingNum1').innerHTML = num1;
-                  $("#flyingNum1").css('top', value1Top);
-                  $("#flyingNum2").css('top', value1Top + 20);
-                  $("#flyingNum1").css('left', value1Left);
-                  $("#flyingNum2").css('left', value1Left);
-                  $("#flyingNum1").animate(
-                          {top: value3Top + 15, left: value1Left}, slowAnimationSpeed);
-                  document.getElementById('flyingNum2').innerHTML = num2;
-                  $("#flyingNum2").animate(
-                          {top: value3Top + 35, left: value1Left}, slowAnimationSpeed);
-              });
-              document.getElementById('result').style.visibility = 'hidden';
-          }
-          else if (currentLine == 6) {
+         if (currentLine == 6) {
               document.getElementById('result').style.visibility = 'visible';
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
@@ -408,7 +363,7 @@ explanation[currentLine].innerHTML = "";
                   width: 200}, 'fast');
 
               if (num1 > num2) {
-                  explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is true in this case.";
+                  explanation[currentLine].innerHTML = "The condition (n <= 0) is tested. It is false in this case.";
               }
               else {
                   explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is false in this case.";
@@ -642,7 +597,7 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
       <div id ="radius">
         <div id="memory1" style = "font-family: times; text-align: left; font-style: italic;
              position:absolute; top: 70px; left: 133px; font-size: 80%;">
-          &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspi</div> 
+          &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspn</div> 
         <div id="value1" style = "font-family: courier; text-align: center; 
              border: 1px solid #37826C; width: 80px; top: 70px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div> 
@@ -722,8 +677,8 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
  10&nbsp;&nbsp;
  11&nbsp;&nbsp;  <span class = "comment">/** Return the nth fibonacci number */</span>
  12&nbsp;&nbsp;  <span id="line5"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fibonacci(<span class = "keyword">int</span> n) {</span>
- 13&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span>(n &lt;&equals; 0)</span>
- 14&nbsp;&nbsp;        <span id="line7"><span class = "keyword">return</span>1;</span>
+ 13&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span>(n &lt;&equals; 1)</span>
+ 14&nbsp;&nbsp;        <span id="line7"><span class = "keyword">return</span> 1;</span>
  15&nbsp;&nbsp;   
  16&nbsp;&nbsp;    <span id="line8"><span class = "keyword">return fib(n-1) + fib(n-2);</span>
  17&nbsp;&nbsp;  }
