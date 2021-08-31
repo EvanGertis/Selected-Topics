@@ -242,9 +242,9 @@
           document.getElementById('area').style.visibility = 'hidden';
           document.getElementById('flyingI').style.visibility = 'hidden';
           document.getElementById('flyingJ').style.visibility = 'hidden';
-          document.getElementById('num1').style.visibility = 'hidden';
-          document.getElementById('num2').style.visibility = 'hidden';
-          document.getElementById('result').style.visibility = 'hidden';
+          document.getElementById('fib(2)+fib(1)').style.visibility = 'hidden';
+          document.getElementById('fib(3)+fib(2)').style.visibility = 'hidden';
+          document.getElementById('fib(4)+fib(3)').style.visibility = 'hidden';
           document.getElementById('flyingNum2').style.visibility = 'hidden';
           document.getElementById('flyingResult').style.visibility = 'hidden';
           document.getElementById('flyingReturnValue').style.visibility = 'hidden';
@@ -409,8 +409,6 @@ explanation[currentLine].innerHTML = "";
               explanation[currentLine].innerHTML = "num2 is assigned to result.";
           }
           else if (currentLine == 10) {
-              document.getElementById('num1').style.visibility = 'visible';
-              document.getElementById('num2').style.visibility = 'visible';
               document.getElementById('result').style.visibility = 'visible';
               document.getElementById('flyingNum1').style.visibility = 'visible';
               document.getElementById('flyingNum2').style.visibility = 'visible';
@@ -423,8 +421,6 @@ explanation[currentLine].innerHTML = "";
                   width: 200}, 'fast');
           }
           else if (currentLine == 11) {
-              document.getElementById('num1').style.visibility = 'hidden';
-              document.getElementById('num2').style.visibility = 'hidden';
               document.getElementById('result').style.visibility = 'hidden';
               document.getElementById('flyingNum1').style.visibility = 'hidden';
               document.getElementById('flyingNum2').style.visibility = 'hidden';
@@ -618,27 +614,27 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
              border: 1px solid #37826C; width: 80px; top: 110px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div>
       </div>
-      <div id ="num1">
+      <div id ="fib(2)+fib(1)">
         <div id="memory3" style = "font-family: times; text-align: left;  font-style: italic;
-             position:absolute; top: 210px; left: 133px; font-size: 80%;">num1</div> 
+             position:absolute; top: 210px; left: 133px; font-size: 80%;">fib(2)+fib(1)</div> 
         <div id="value3" style = "font-family: courier; text-align: center;  
              border: 1px solid #37826C; width: 80px; top: 210px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div>
       </div>
-      <div id ="num2">
+      <div id ="fib(3)+fib(2)">
+        <div id="memory3" style = "font-family: times; text-align: left;  font-style: italic;
+             position:absolute; top: 210px; left: 133px; font-size: 80%;">fib(3)+fib(2)</div> 
+        <div id="value3" style = "font-family: courier; text-align: center;  
+             border: 1px solid #37826C; width: 80px; top: 210px; left: 133px; height: 20px;
+             position:absolute;  font-size: 80%;"></div>
+      </div>
+      <div id ="fib(4)+fib(3)">
         <div id="memory4" style = "font-family: times; text-align: left;  font-style: italic;
-             position:absolute; top: 230px; left: 133px; font-size: 80%;">num2</div> 
+             position:absolute; top: 230px; left: 133px; font-size: 80%;">fib(4)+fib(3)</div> 
         <div id="value4" style = "font-family: courier; text-align: center;  
              border: 1px solid #37826C; width: 80px; top: 230px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div>
       </div>
-      <div id ="fib(5)">
-        <div id="memory5" style = "font-family: times; text-align: left;  font-style: italic;
-             position:absolute; top: 250px; left: 133px; font-size: 80%;">fib(4)+fib(3)</div> 
-        <div id="value5" style = "font-family: courier; text-align: center;  
-             border: 1px solid #37826C; width: 80px; top: 250px; left: 133px; height: 20px;
-             position:absolute;  font-size: 80%;"></div>
-      </div>    
     </div>
 
     <div id="flyingI" style = "font-family: courier; text-align: center; 
@@ -722,9 +718,9 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
           document.getElementById('flyingI').style.visibility = 'hidden';
           document.getElementById('flyingJ').style.visibility = 'hidden';
           document.getElementById('flyingNum1').style.visibility = 'hidden';
-          document.getElementById('num1').style.visibility = 'hidden';
-          document.getElementById('num2').style.visibility = 'hidden';
-          document.getElementById('result').style.visibility = 'hidden';
+          document.getElementById('fib(4)+fib(3)').style.visibility = 'hidden';
+          document.getElementById('fib(3)+fib(2)').style.visibility = 'hidden';
+          document.getElementById('fib(2)+fib(1)').style.visibility = 'hidden';
           document.getElementById('variable').style.visibility = 'hidden';
           document.getElementById('flyingI').innerHTML = '';
           document.getElementById('flyingJ').innerHTML = '';
@@ -751,16 +747,11 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
           document.getElementById('variable').style.top = pos1.y - 50 + 'px';
           document.getElementById('memory1').style.top = pos1.y - 30 + 'px';
           document.getElementById('value1').style.top = pos1.y - 30 + 'px';
-          document.getElementById('memory2').style.top = pos1.y - 30 + 20 + 'px';
           document.getElementById('value2').style.top = pos1.y - 30 + 20 + 'px';
           document.getElementById('memory6').style.top = pos1.y - 10 + 20 + 'px';
           document.getElementById('value6').style.top = pos1.y - 10 + 20 + 'px';
-          document.getElementById('memory3').style.top = pos5.y - 20 + 20 + 'px';
-          document.getElementById('memory4').style.top = pos5.y + 20 + 'px';
           document.getElementById('value3').style.top = pos5.y - 20 + 20 + 'px';
           document.getElementById('value4').style.top = pos5.y + 20 + 'px';
-          document.getElementById('memory5').style.top = pos5.y + 20 + 20 + 'px';
-          document.getElementById('value5').style.top = pos5.y + 20 + 20 + 'px';
 
           document.getElementById('variable').style.left = pos.x + pos.w + 30 + 'px';
           document.getElementById('memory1').style.left = pos.x + pos.w + 30 + 'px';
@@ -775,12 +766,10 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
           document.getElementById('value6').style.left = value1Left + 'px';
           document.getElementById('memory3').style.left = pos5.x + pos5.w + 20 + 'px';
           document.getElementById('memory4').style.left = pos5.x + pos5.w + 20 + 'px';
-          document.getElementById('memory5').style.left = pos5.x + pos5.w + 20 + 'px';
           value3Left = pos5.x + pos5.w + 30 + 85;
           value3Top = pos5.y - 30 + 20;
           document.getElementById('value3').style.left = value1Left + 'px';
           document.getElementById('value4').style.left = value1Left + 'px';
-          document.getElementById('value5').style.left = value1Left + 'px';
 
           $("#flyingNum1").css('top', value1Top);
           $("#flyingNum2").css('top', value1Top + 20);

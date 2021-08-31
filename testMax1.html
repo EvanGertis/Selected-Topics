@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Code animation by Evan Gertis</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--    <script type="text/javascript" src="jquery-latest.js"></script>-->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js">
+</script><script src="jquery.alerts.js"></script> 
+<link href="jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="GetElementPosition3.js"></script><script src="jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="codecolor1.css" />
+
+<style>
+    *:focus {outline: 2px solid blue; outline-offset: 2px;}
+    details {padding:3px;}
+    </style>
+
+    <script>
+        n = 5;
+        animationSpeed = 500;
+        slowAnimationSpeed = 3000;
+        lineOffSet = 15;
+        highLight = [];
+        highLight[0] = new HighLight();
+        highLight[0].top = 95;
+        highLight[0].left = 62;
+        highLight[0].width = 318;
+
+        highLight[1] = new HighLight();
+        highLight[1].top = 109;
+        highLight[1].left = 60 + 20;
+        highLight[1].width = 417;
+
+        function init() {
+          document.getElementById('startOverButton').style.display = 'none';
+          document.getElementById('prevButton').style.display = 'none';
+
+          document.getElementById('nextButton').style.display = 'none';
+          document.getElementById('highlight').style.visibility = 'hidden';
+          document.getElementById('nextButton').style.visibility = 'hidden';
+          document.getElementById('commandPrompt').style.visibility = 'hidden';
+          document.getElementById('memory').style.visibility = 'hidden';
+          document.getElementById('area').style.visibility = 'hidden';
+          document.getElementById('flyingI').style.visibility = 'hidden';
+          document.getElementById('flyingJ').style.visibility = 'hidden';
+          document.getElementById('num1').style.visibility = 'hidden';
+          document.getElementById('num2').style.visibility = 'hidden';
+          document.getElementById('result').style.visibility = 'hidden';
+          document.getElementById('flyingNum2').style.visibility = 'hidden';
+          document.getElementById('flyingResult').style.visibility = 'hidden';
+          document.getElementById('flyingReturnValue').style.visibility = 'hidden';
+          document.getElementById('valuek').style.visibility = 'hidden';
+      }
+
+        function step(){
+            if(currentLine == 0){
+                document.getElementById('variable').style.visibility = 'hidden';
+                document.getElementById('radius').style.visibliity = 'hidden';
+                document.getElementById('flyingI').style.visibility = 'hidden';
+                document.getElementById('flyingI').innerHTML = '';
+                document.getElementById('value1').innerHTML = '';
+                document.getElementById('prevButton').style.visibility = 'hidden';
+                $("#nextButton").focus();
+                $("#explanation").animate({top: pos0.y - 45,
+                left: (pos0.x + pos0.w)* 2/3,
+                width: 200}, 'fast');
+                $('#commandPrompt').animate({top: pos8.y,
+                left: pos8.x + pos8.w + 20, }, 'fast');
+                document.getElementById('commandPrompt').style.visibility = 'hidden';
+            }
+        }
+        else if (currentLine == 1){
+            number1 = tb1;
+            explanation[1].innerHTML = "The statement assigns " + number1 + " to variable n.";
+            document.getElementById('variable').style.visibility = 'visible';
+            document.getElementById('radius').style.visibility = 'visible';
+            document.getElementById('flyingI').style.visibility = 'visible';
+            document.getElementById('flyingI').innerHTML = '';
+            document.getElementById('value1').innerHTML = '';
+            document.getElementById('prevButton').style.visibility = 'visible';
+            document.getElementById('prevButton').style.display = 'inline';
+
+            document.getElementById('area').style.visibility = 'hidden';
+            document.getElementById('flyingJ').style.visibility = 'hidden';
+            document.getElementById('value2').innerHTML = '';
+            document.getElementById('area').style.visibility = 'hidden';
+
+            pos = getElementPos(document.getElementById('line1'));
+            $("#explanation").animate({top: pos.y - 5,
+                left: (pos.x + pos.w) + 20,
+                width: 280}, 'fast');
+            $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                posLoc1 = getElementPos(document.getElementById('loc1'));
+                $("#flyingI").css("top", posLoc1.y).css("left", posLoc1.x - 35);
+                document.getElementById('flyingI').innerHTML = number1;
+                $("#flyingI").animate({top: value1Top, left: value1Left}, slowAnimationSpeed);
+            });
+        }
+        
+   </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>
+
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments)};
+    gtag('js', new Date());
+    gtag('config', 'UA-89940905-27');
+</script>
+
+<script type="text/javascript" src="../logging.js"></script>
+</head>
+<body onload="init()" onresize="draw()" class='animationbody'> 
+    <div style="text-align: left; margin-top: 1em; margin-bottom: .5em;">
+        <span style="padding: 3px">
+          <button id ="startButton" type="button">Start Animation</button>
+          <button id = "startOverButton" type="button">Reset</button> 
+          <button id = "nextButton" type="button">Next</button>
+          <button id = "prevButton" type="button">Prev</button>
+          <span id = "note" style="text-align: center; font-size: 68%; margin-bottom: 0.2em; color: navy; font-family: Verdana, Helvetica, sans-serif">
+            You can change values in i and j before starting animation</span>
+                  <span style="float: right;">
+            <button aria-pressed="false" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;
+                    background: white; height:30px; border: 1px solid white;"><img id="bg" src="audioOff.png" alt="Text-to-Speech Off" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/>    
+            </button>
+              </span>
+        </span>    
+    </div>
+    <div id="flyingI" style = "font-family: courier; text-align: center; 
+         width: 80px; top: 187px; left: 100px; height: 20px; color:#EB0D1B; font-weight: bold;
+         position:absolute;  font-size: 80%;"></div>
+    <div id="flyingJ" style = "font-family: courier; text-align: center; 
+    width: 80px; top: 187px; left: 100px; height: 20px; color:#EB0D1B; font-weight: bold;
+    position:absolute;  font-size: 80%;"></div> 
+    <div id="flyingNum1" style = "font-family: courier; text-align: center; 
+    width: 80px; top: 75px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
+    position:absolute;  font-size: 80%;"></div>
+    <div id="flyingNum2" style = "font-family: courier; text-align: center; 
+    width: 80px; top: 95px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
+    position:absolute;  font-size: 80%;"></div> 
+    <div id="flyingResult" style = "font-family: courier; text-align: center; 
+    width: 80px; top: 95px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
+    position:absolute;  font-size: 80%;"></div>
+    <div id="flyingReturnValue" style = "font-family: courier; text-align: center; 
+    width: 80px; top: 95px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
+    position:absolute;  font-size: 80%;"></div>
+    <div id = "program" style="border: 1px solid #EB0D1B; font-family: courier; font-size: 100.5%; margin: 0px auto; text-align: left">
+        <pre>
+    1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> TestMax {
+    2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
+    3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
+    4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> n = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
+    6&nbsp;&nbsp;    <span id="line11"><span id="line3"><span class = "keyword">int</span> nth_fibonacci = <span id="line4"><span id="loc5">fib(n)</span></span>;</span></span>
+    7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The nth fibonacci number is "</span> + nth_fibonacci)</span>
+    9&nbsp;&nbsp;  <span id="line13">}</span>
+   10&nbsp;&nbsp;
+   11&nbsp;&nbsp;  <span class = "comment">/** Return the nth fibonacci number */</span>
+   12&nbsp;&nbsp;  <span id="line5"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fibonacci(<span class = "keyword">int</span> n) {</span>
+   13&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span>(n &lt;&equals; 1)</span>
+   14&nbsp;&nbsp;        <span id="line7"><span class = "keyword">return</span> 1;</span>
+   15&nbsp;&nbsp;   
+   16&nbsp;&nbsp;    <span id="line8"><span class = "keyword">return fib(n-1) + fib(n-2);</span>
+   17&nbsp;&nbsp;  }
+   18&nbsp;&nbsp;}
+        </pre>
+  
+      </div>
+</body>
+</html>
