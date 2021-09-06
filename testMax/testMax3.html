@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang='en'>
+    <head>
+        <title> Fibonacci animation</title>
+        <meta http-equiv='Content-Type' content="text/html; charset=UTF-8">
+<script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="jqueyr.ui.touch-punch.min.js"></script>
+<link href="jquery.alerts.js" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="GetElementPosition3.js"></script><script src="jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="codecolor1.css"/>
+</html>
+<style>
+    *:focus {outline: 2px solid blue; outline-offset: 2px;}
+    details {padding:3px;}
+</style>
+
+    <script>
+        num1 = 0;
+        steps = 1;
+
+        animationSpeed = 500;
+        slowAnimationSpeed = 3000;
+        lineOffset = 15;
+        highLight = [];
+        highLight[0] = new HighLight();
+        highLight[0].top = 95;
+        highLight[0].left = 62;
+        highLight[0].width = 318;
+
+        explanation = [];
+        explanation[0] = new Explanation();
+        explanation[0].innerHTML = "New explanation";
+        explanation[0].top = 75;
+        explanation[0].left = 508;
+
+        currentLine = 0;
+
+        function init() {
+            document.getElementById('startOverButton').style.display = 'none';
+            document.getElementById('prevButton').style.display = 'none';
+            document.getElementById('nextButton').style.display = 'none';
+            document.getElementById('prevButton').style.display = 'none';
+            document.getElementById('highlight').style.visibility = 'hidden';
+        }
+
+        function step() {
+            if(currentLine == 1){
+                console.log('executing currentLine'+currentLine);
+                pos = getElementPos(document.getElementById('line0'));
+                $("#explanation").animate({top: pos.y -5,
+                left: (pos.x +pos.w) +20,
+                width: 280}, 'fast');
+                $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h},animationSpeed, function(){
+                    posLoc1 = getElementPos(document.getElementById('loc1'));
+                    $('#x').css("top", posLoc1.y).css('left', posLox1.x-35);
+                    document.getElementById('x').innerHTML = num1;
+                    $('#x').animate({top: pos8.y - 45,
+                        left: (ps0.x +pos0.w) + 20,}, 'fast');
+                })
+            }
+        }
+
+        $("#startButton").click(function(){
+            currentLine = 0;
+            pos0 = pos = getElementPos(document.getElementById('line0'));
+            value1Left = pos.x + pos.w + 30 + 95;
+            value1Top = pos.y - 30 + 20;
+        })
+        
+        
+    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments)};
+      gtag('js', new Date());
+      gtag('config', 'UA-89940905-27');
+    </script>
+    
+    <script type="text/javascript" src="../logging.js"></script>
+</head>
+    <body onload="init()" onresize="draw()" class="animationbody">
+        <div style="padding: 3px">
+            <button id="startButton" type="button">Start Animation</button>
+            <button id="startOverButton" type="button">Reset</button>
+            <button id="nextButton" type="button">Next</button>
+            <button id="prevButton" type="button">Prev</button>
+        </div>
+    <div id="highlight"></div>
+    <div id = "program" style="border: 1px solid #EB0D1B; font-family: courier; font-size:100.5%; margin: 0px auto; text-align: left">
+        <pre>
+3&nbsp;&nbsp; <span id="line0"><span class = "keyword">public</span><span class="keyword"> static </span><span class="keyword">void</span></span>
+        </pre>
+    </div>
+    </body>

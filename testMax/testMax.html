@@ -18,13 +18,15 @@
     </style>
 
     <script>
+      // set up variables
       number1 = 8;
       number2 = 7;
       num1 = 5;
       num2 = 2;
       result = true;
       steps = 13;
-
+     
+      // set animation speed
       animationSpeed = 500;
       slowAnimationSpeed = 3000;
       lineOffSet = 15;
@@ -110,7 +112,8 @@
       highLight[14].top = 333;
       highLight[14].width = 6;
       highLight[14].left = 62;
-
+      
+      // set up explanations
       explanation = [];
       explanation[0] = new Explanation();
       explanation[0].innerHTML = "The program starts the execution from the main method.";
@@ -158,7 +161,7 @@
       explanation[7].width = 205;
 
       explanation[8] = new Explanation();
-      explanation[8].innerHTML = "num1 is assigned to num2.";
+      explanation[8].innerHTML = "num1 is assigned to result.";
       explanation[8].top = 270;
       explanation[8].left = 228;
       explanation[8].width = 205;
@@ -253,11 +256,12 @@
       commandPrompt[13] = new CommandPrompt();
 
       currentLine = 0;
-
+      
+      // set up the initialization function
       function init() {
+          // start overbutton
           document.getElementById('startOverButton').style.display = 'none';
           document.getElementById('prevButton').style.display = 'none';
-
           document.getElementById('nextButton').style.display = 'none';
           document.getElementById('highlight').style.visibility = 'hidden';
           document.getElementById('nextButton').style.visibility = 'hidden';
@@ -279,8 +283,10 @@
 //          pos = getElementPos(document.getElementById('line' + currentLine));
 //          $("#explanation").animate({top: explanation[currentLine].top, left: explanation[currentLine].left,
 //              width: explanation[currentLine].width}, animationSpeed);
-
+          
           if (currentLine == 0) {
+              //animates variable being sent to text box.
+              console.log("executing currentLine"+currentLine);
               document.getElementById('variable').style.visibility = 'hidden';
               document.getElementById('radius').style.visibility = 'hidden';
               document.getElementById('flyingI').style.visibility = 'hidden';
@@ -296,6 +302,7 @@
               document.getElementById('commandPrompt').style.visibility = 'hidden';
           }
           else if (currentLine == 1) {
+              console.log("executing currentLine"+currentLine);
               number1 = tb1;
               explanation[1].innerHTML = "The statement assigns " + number1 + " to variable i.";
 
@@ -324,6 +331,7 @@
               });
           }
           else if (currentLine == 2) {
+              console.log("executing currentLine"+currentLine);
               number2 = tb2;
               explanation[2].innerHTML = "The statement assigns " + number2 + " to variable j.";
               commandPrompt[4].innerHTML = "What is " + number1 + " + " + number2 + "? ";
@@ -346,12 +354,14 @@
               });
           }
           else if (currentLine == 3) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 25,
                   left: (pos.x + pos.w) + 20,
                   width: 280}, 'fast');
           }
           else if (currentLine == 4) {
+              console.log("executing currentLine"+currentLine);
               result = number1 < number2 ? number2 : number1;
 explanation[currentLine].innerHTML = "";
                     document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
@@ -372,6 +382,7 @@ explanation[currentLine].innerHTML = "";
                             });
           }
           else if (currentLine == 5) {
+              console.log("executing currentLine"+currentLine);
               num1 = number1;
               num2 = number2;
 
@@ -407,7 +418,8 @@ explanation[currentLine].innerHTML = "";
               document.getElementById('result').style.visibility = 'hidden';
           }
           else if (currentLine == 6) {
-              document.getElementById('result').style.visibility = 'visible';
+            console.log("executing currentLine"+currentLine);  
+            document.getElementById('result').style.visibility = 'visible';
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 5,
@@ -415,16 +427,19 @@ explanation[currentLine].innerHTML = "";
                   width: 200}, 'fast');
           }
           else if (currentLine == 7) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y + 5,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
 
-              if (num1 > num2) {
+              if (number1 > number2) {
+                  console.log("in the conditional statement for the condition (num1 > num2) is tested. It is true in this case.");
                   explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is true in this case.";
               }
               else {
+                  console.log("in the conditional statement for line 7 (num1 < num2) the condition (num1 > num2) is tested. It is false in this case.");
                   explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is false in this case.";
                   display(currentLine);
                   currentLine = 8;
@@ -432,6 +447,7 @@ explanation[currentLine].innerHTML = "";
               }
           }
           else if (currentLine == 8) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('flyingResult').style.visibility = 'visible';
               pos = getElementPos(document.getElementById('line8'));
               $("#explanation").animate({top: pos.y + 5,
@@ -450,6 +466,7 @@ explanation[currentLine].innerHTML = "";
               return;
           }
           else if (currentLine == 9) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('flyingResult').style.visibility = 'visible';
               pos = getElementPos(document.getElementById('line8'));
               $("#explanation").animate({top: pos.y + 5,
@@ -468,6 +485,7 @@ explanation[currentLine].innerHTML = "";
               explanation[currentLine].innerHTML = "num2 is assigned to result.";
           }
           else if (currentLine == 10) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('num1').style.visibility = 'visible';
               document.getElementById('num2').style.visibility = 'visible';
               document.getElementById('result').style.visibility = 'visible';
@@ -482,6 +500,7 @@ explanation[currentLine].innerHTML = "";
                   width: 200}, 'fast');
           }
           else if (currentLine == 11) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('num1').style.visibility = 'hidden';
               document.getElementById('num2').style.visibility = 'hidden';
               document.getElementById('result').style.visibility = 'hidden';
@@ -509,6 +528,7 @@ explanation[currentLine].innerHTML = "";
               });
           }
           else if (currentLine == 12) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
@@ -518,7 +538,7 @@ explanation[currentLine].innerHTML = "";
                   left: pos8.x + pos8.w + 20, }, 'fast');
           }
           else if (currentLine == 13) {
-              console.log("currentLine is 14");
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
               $("#explanation").animate({top: pos.y - 5,
@@ -547,6 +567,7 @@ explanation[currentLine].innerHTML = "";
 
           }
           else if (currentLine == 14) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
               $("#explanation").animate({top: pos.y - 5,

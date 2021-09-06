@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <title>Listing 6.1 Animation by Y. Daniel Liang</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<!--    <script type="text/javascript" src="jquery-latest.js"></script>-->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js">
+</script><script src="jquery.alerts.js"></script> 
+<link href="jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="GetElementPosition3.js"></script><script src="jquery.ui.touch-punch.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="codecolor1.css" />
+
+<style>
+    *:focus {outline: 2px solid blue; outline-offset: 2px;}
+    details {padding:3px;}
+    </style>
+
+    <script>
+        x = 5;
+        steps = 2;
+
+        animationSpeed = 500;
+        slowAnimationSpeed = 3000;
+        lineOffSet = 15;
+        hgihLight = [];
+        highLight[0] = new HighLight();
+        highLight[0].top = 95;
+        highLight[0].left = 62;
+        highLight[0].width = 318;
+
+        explanation = [];
+        explanation[0] = new Explanation();
+        explanation[0].innerHTML = "The program starts the execution from the main method.";
+        explanation[0].top = 75;
+        explanation[0].left = 508;
+
+        currentLine = 0;
+
+        function init() {
+          document.getElementById('startOverButton').style.display = 'none';
+          document.getElementById('prevButton').style.display = 'none';
+          document.getElementById('nextButton').style.display = 'none';
+          document.getElementById('highlight').style.visibility = 'hidden';
+          document.getElementById('nextButton').style.visibility = 'hidden';
+          document.getElementById('commandPrompt').style.visibility = 'hidden';
+          document.getElementById('memory').style.visibility = 'hidden';
+          document.getElementById('area').style.visibility = 'hidden';
+          document.getElementById('flyingN').style.visibility = 'hidden';
+          document.getElementById('flyingResult').style.visibility = 'hidden';
+          document.getElementById('flyingReturnValue').style.visibility = 'hidden';
+      }
+
+     $("#startButton").click(function (){
+         currentLine = 0;
+         pos0 = getElementPos(document.getElementById('line0'));
+         $("#explanation").animate({top: pos0.y - 45,
+              left: (pos0.x + pos0.w) * 2 / 3,
+              width: 200}, 'fast');
+     })
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)};
+  gtag('js', new Date());
+  gtag('config', 'UA-89940905-27');
+</script>
+
+<script type="text/javascript" src="../logging.js"></script>
+</head>
+
+    <body onload="init()" onresize="draw()" class="animationbody">
+        <div style="text-align: left; margin-top: 1em; margin-bottom: .5em;">
+        <span style="padding: 3px">
+            <button id ="startButton" type="button">Start Animation</button>
+            <button id = "startOverButton" type="button">Reset</button> 
+            <button id = "nextButton" type="button">Next</button>
+            <button id = "prevButton" type="button">Prev</button>
+            <span id = "note" style="text-align: center; font-size: 68%; margin-bottom: 0.2em; color: navy; font-family: Verdana, Helvetica, sans-serif">
+            You can change the value of n before starting animation</span>
+                    <span style="float: right;">
+            <button aria-pressed="false" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;
+                    background: white; height:30px; border: 1px solid white;"><img id="bg" src="audioOff.png" alt="Text-to-Speech Off" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/>    
+            </button>
+                </span>
+        </span>    
+        </div>
+        <div id="highlight"></div>
+        <div id="explanation" role="alert"></div>
+        <div id="commandPrompt">
+        <h2 id="commandPromptHeader"> Output </h2>
+        <textarea id="commandPromptContent" readonly="readonly" style="text-align: left; font-family: courier; margin-top: -8px; 
+                    font-size: 80%; color: black; background-color: white; border: 1px solid; border-color: gold"></textarea>
+        </div>
+        <div id = "program" style="border: 1px solid #EBOD1B; font-family: courier; font-size:100.5%; margin: 0px auto; text-align:left">
+            <pre>
+                3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args)</span>
+            </pre>
+        </div>
+    </body>

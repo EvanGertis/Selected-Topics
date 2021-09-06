@@ -18,10 +18,14 @@
     </style>
 
     <script>
-      n = 5;
-      result = false;
-      steps = 10;
-
+      // set up variables
+      number1 = 8;
+      num1 = 5;
+      num2 = 0;
+      result = true;
+      steps = 13;
+     
+      // set animation speed
       animationSpeed = 500;
       slowAnimationSpeed = 3000;
       lineOffSet = 15;
@@ -35,7 +39,7 @@
       highLight[1].top = 109;
       highLight[1].left = 60 + 20;
       highLight[1].width = 417;
-      
+
       highLight[2] = new HighLight();
       highLight[2].top = 125;
       highLight[2].left = 60 + 20;
@@ -83,6 +87,32 @@
       highLight[10].width = 6;
       highLight[10].left = 62;
 
+      highLight[11] = new HighLight();
+      highLight[11].top = 314;
+      highLight[11].width = 6;
+      highLight[11].left = 62;
+
+      highLight[12] = new HighLight();
+      highLight[12].top = 314;
+      highLight[12].width = 6;
+      highLight[12].left = 62;
+
+      highLight[12] = new HighLight();
+      highLight[12].top = 314;
+      highLight[12].width = 6;
+      highLight[12].left = 62;
+
+      highLight[13] = new HighLight();
+      highLight[13].top = 333;
+      highLight[13].width = 6;
+      highLight[13].left = 62;
+
+      highLight[14] = new HighLight();
+      highLight[14].top = 333;
+      highLight[14].width = 6;
+      highLight[14].left = 62;
+      
+      // set up explanations
       explanation = [];
       explanation[0] = new Explanation();
       explanation[0].innerHTML = "The program starts the execution from the main method.";
@@ -90,64 +120,77 @@
       explanation[0].left = 508;
 
       explanation[1] = new Explanation();
-      explanation[1].innerHTML = "The statement assigns " + n + " to variable n.";
+      explanation[1].innerHTML = "The statement assigns " + number1 + " to variable i.";
       explanation[1].top = 107;
       explanation[1].left = 550;
 
       explanation[2] = new Explanation();
-      explanation[2].innerHTML = "test.";
-      explanation[2].top = 107;
-      explanation[2].left = 570;
+      explanation[2].innerHTML = "The statement will invoke the max method and assign the return value from the method to k.";
+      explanation[2].top = 117;
+      explanation[2].left = 470;
+      explanation[2].width = 430;
 
       explanation[3] = new Explanation();
-      explanation[3].innerHTML = "The statement will invoke the fib method and assign the return value from the method to nth_fibonacci.";
-      explanation[3].top = 117;
-      explanation[3].left = 470;
-      explanation[3].width = 430;
+      explanation[3].innerHTML = "The max method is invoked.";
+      explanation[3].top = 130;
+      explanation[3].left = 480;
+      explanation[3].width = 260;
 
       explanation[4] = new Explanation();
-      explanation[4].innerHTML = "The fibonacci method is invoked";
-      explanation[4].top = 130;
-      explanation[4].left = 480;
-      explanation[4].width = 260;
+      explanation[4].innerHTML = "The statement receives an input from the user.";
+      explanation[4].top = 245;
+      explanation[4].left = 285;
+      explanation[4].width = 205;
 
       explanation[5] = new Explanation();
-      explanation[5].innerHTML = "The statement receives an input from the user.";
-      explanation[5].top = 245;
-      explanation[5].left = 285;
+      explanation[5].innerHTML = "Variable result is declared.";
+      explanation[5].top = 247;
+      explanation[5].left = 325;
       explanation[5].width = 205;
 
       explanation[6] = new Explanation();
-      explanation[6].innerHTML = "The base case is checked. The statement tests if n is <=0 ";
-      explanation[6].top = 247;
-      explanation[6].left = 325;
+      explanation[6].innerHTML = "The statement tests if num1 is greater than num2.";
+      explanation[6].top = 250;
+      explanation[6].left = 228;
       explanation[6].width = 205;
 
       explanation[7] = new Explanation();
-      explanation[7].innerHTML = "The statement tests if n <= 1.";
-      explanation[7].top = 250;
+      explanation[7].innerHTML = "num1 is assigned to result.";
+      explanation[7].top = 270;
       explanation[7].left = 228;
       explanation[7].width = 205;
 
       explanation[8] = new Explanation();
-      explanation[8].innerHTML = "the call fib(n-1) + fib(n-2) is placed onto the callstack.";
-      explanation[8].top = 270;
+
+      explanation[9] = new Explanation();
+      explanation[9].innerHTML = "The result will be returned from the max method. The max method is finished.";
+      explanation[8].top = 330;
       explanation[8].left = 228;
-      explanation[8].width = 205;
-
-      explanation[9] = new Explanation();
-
-      explanation[9] = new Explanation();
-      explanation[9].innerHTML = "The result will be returned from the fibonacci method.";
-      explanation[9].top = 330;
-      explanation[9].left = 228;
-      explanation[9].width = 255;
+      explanation[8].width = 255;
 
       explanation[10] = new Explanation();
-      explanation[10].innerHTML = "The returned value is assigned to variable nth_fibonacci.";
-      explanation[10].top = 118;
-      explanation[10].left = 248;
-      explanation[10].width = 280;
+      explanation[10].innerHTML = "The returned value is assigned to variable k.";
+      explanation[9].top = 118;
+      explanation[9]].left = 248;
+      explanation[9].width = 280;
+
+      explanation[11] = new Explanation();
+      explanation[11].innerHTML = "The statement displays the result.";
+      explanation[10].top = 130;
+      explanation[10].left = 468;
+      explanation[10].width = 155;
+
+      explanation[12] = new Explanation();
+      explanation[12].innerHTML = "The main method exits. The program is finished.";
+      explanation[11].top = 158;
+      explanation[11].left = 348;
+      explanation[11].width = 150;
+
+      explanation[14] = new Explanation();
+      explanation[14].innerHTML = "Explanation 14";
+      explanation[14].top = 158;
+      explanation[14].left = 348;
+      explanation[14].width = 150;
 
       commandPrompt = [];
       commandPrompt[0] = new CommandPrompt();
@@ -189,9 +232,28 @@
       commandPrompt[10] = new CommandPrompt();
       commandPrompt[10].isVisible = false;
 
-      currentLine = 0;
+      commandPrompt[11] = new CommandPrompt();
+      commandPrompt[11].isVisible = false;
+      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The maximum between 5 and 0 is 5";
+      commandPrompt[11].top = 139;
+      commandPrompt[11].left = 650;
+      commandPrompt[11].width = 480;
 
+      commandPrompt[12] = new CommandPrompt();
+      commandPrompt[12].isVisible = true;
+      commandPrompt[12].innerHTML = commandPrompt[11].innerHTML + "";
+      commandPrompt[12].top = 159;
+      commandPrompt[12].left = 500;
+      commandPrompt[12].width = 480;
+      commandPrompt[12].height = 70;
+
+      commandPrompt[13] = new CommandPrompt();
+
+      currentLine = 0;
+      
+      // set up the initialization function
       function init() {
+          // start overbutton
           document.getElementById('startOverButton').style.display = 'none';
           document.getElementById('prevButton').style.display = 'none';
           document.getElementById('nextButton').style.display = 'none';
@@ -200,21 +262,29 @@
           document.getElementById('commandPrompt').style.visibility = 'hidden';
           document.getElementById('memory').style.visibility = 'hidden';
           document.getElementById('area').style.visibility = 'hidden';
-          document.getElementById('flyingN').style.visibility = 'hidden';
+          document.getElementById('flyingI').style.visibility = 'hidden';
+          document.getElementById('flyingJ').style.visibility = 'hidden';
+          document.getElementById('num1').style.visibility = 'hidden';
+          document.getElementById('num2').style.visibility = 'hidden';
+          document.getElementById('result').style.visibility = 'hidden';
+          document.getElementById('flyingNum2').style.visibility = 'hidden';
           document.getElementById('flyingResult').style.visibility = 'hidden';
           document.getElementById('flyingReturnValue').style.visibility = 'hidden';
+          document.getElementById('valuek').style.visibility = 'hidden';
       }
 
       function step() {
 //          pos = getElementPos(document.getElementById('line' + currentLine));
 //          $("#explanation").animate({top: explanation[currentLine].top, left: explanation[currentLine].left,
 //              width: explanation[currentLine].width}, animationSpeed);
-
+          
           if (currentLine == 0) {
+              //animates variable being sent to text box.
+              console.log("executing currentLine"+currentLine);
               document.getElementById('variable').style.visibility = 'hidden';
               document.getElementById('radius').style.visibility = 'hidden';
-              document.getElementById('flyingN').style.visibility = 'hidden';
-              document.getElementById('flyingN').innerHTML = '';
+              document.getElementById('flyingI').style.visibility = 'hidden';
+              document.getElementById('flyingI').innerHTML = '';
               document.getElementById('value1').innerHTML = '';
               document.getElementById('prevButton').style.visibility = 'hidden';
               $("#nextButton").focus();
@@ -226,18 +296,21 @@
               document.getElementById('commandPrompt').style.visibility = 'hidden';
           }
           else if (currentLine == 1) {
-              n = tb1;
-              explanation[1].innerHTML = "The statement assigns " + n + " to variable n.";
+              console.log("executing currentLine"+currentLine);
+              number1 = tb1;
+              explanation[1].innerHTML = "The statement assigns " + number1 + " to variable i.";
 
               document.getElementById('variable').style.visibility = 'visible';
               document.getElementById('radius').style.visibility = 'visible';
-              document.getElementById('flyingN').style.visibility = 'visible';
-              document.getElementById('flyingN').innerHTML = '';
+              document.getElementById('flyingI').style.visibility = 'visible';
+              document.getElementById('flyingI').innerHTML = '';
               document.getElementById('value1').innerHTML = '';
               document.getElementById('prevButton').style.visibility = 'visible';
               document.getElementById('prevButton').style.display = 'inline';
 
               document.getElementById('area').style.visibility = 'hidden';
+              document.getElementById('flyingJ').style.visibility = 'hidden';
+              document.getElementById('value2').innerHTML = '';
               document.getElementById('area').style.visibility = 'hidden';
 
               pos = getElementPos(document.getElementById('line1'));
@@ -246,28 +319,50 @@
                   width: 280}, 'fast');
               $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
                   posLoc1 = getElementPos(document.getElementById('loc1'));
-                  $("#flyingN").css("top", posLoc1.y).css("left", posLoc1.x - 35);
-                  document.getElementById("flyingN").innerHTML = n;
-                  $("#flyingN").animate({top: value1Top, left: value1Left}, slowAnimationSpeed);
+                  $("#flyingI").css("top", posLoc1.y).css("left", posLoc1.x - 35);
+                  document.getElementById('flyingI').innerHTML = number1;
+                  $("#flyingI").animate({top: value1Top, left: value1Left}, slowAnimationSpeed);
               });
           }
           else if (currentLine == 2) {
-              explanation[2].innerHTML = "The statement assigns the return from fib(n) to variable nth_fibonacci.";
-              commandPrompt[4].innerHTML = "What is nth_fibonacci? ";
+              console.log("executing currentLine"+currentLine);
+              number2 = tb2;
+              explanation[2].innerHTML = "The statement assigns 0 to variable j.";
+              commandPrompt[4].innerHTML = "What is " + number1 + " + 0? ";
+
+              document.getElementById('area').style.visibility = 'visible';
+              document.getElementById('flyingJ').style.visibility = 'visible';
+              document.getElementById('value2').innerHTML = '';
+              document.getElementById('area').style.visibility = 'visible';
+              pos = getElementPos(document.getElementById('line2'));
+              $("#explanation").animate({top: pos.y - 9,
+                  left: (pos.x + pos.w) + 20,
+                  width: 280}, 'fast');
+
+              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                  posLoc2 = getElementPos(document.getElementById('loc2'));
+                  $("#flyingJ").css("top", posLoc2.y).css("left", posLoc2.x - 35);
+                  document.getElementById('flyingJ').innerHTML = number2;
+                  $("#flyingJ").animate(
+                          {top: value1Top + 20, left: value1Left}, slowAnimationSpeed);
+              });
           }
           else if (currentLine == 3) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 25,
                   left: (pos.x + pos.w) + 20,
                   width: 280}, 'fast');
           }
           else if (currentLine == 4) {
+              console.log("executing currentLine"+currentLine);
+              result = number1 < 0 ? 0 : number1;
 explanation[currentLine].innerHTML = "";
                     document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
 
                     var myArea = " ";
-      speak("Check Your Understanding: " + "Note that in all code animation, you can use mouse/finger to move highlight, \nexplanation, output, and Check Your Understanding box freely. Is the \nvalue of k passed to n when invoking fib(n)? Answer Yes or No:");
-                    jPrompt("Note that in all code animation, you can use mouse/finger to move highlight, \nexplanation, output, and Check Your Understanding box freely. Is the \nvalue of k passed to nu when invoking fib(n)? Answer Yes or No:", '',
+      speak("Check Your Understanding: " + "Note that in all code animation, you can use mouse/finger to move highlight, \nexplanation, output, and Check Your Understanding box freely. Is the \nvalue of i passed to num1 when invoking max(i, j)? Answer Yes or No:");
+                    jPrompt("Note that in all code animation, you can use mouse/finger to move highlight, \nexplanation, output, and Check Your Understanding box freely. Is the \nvalue of i passed to num1 when invoking max(i, j)? Answer Yes or No:", '',
                             'Check Your Understanding', function (r) {
                                 if (r) {
                                     myArea = r.trim();
@@ -280,8 +375,45 @@ explanation[currentLine].innerHTML = "";
                                         });
                             });
           }
-         if (currentLine == 6) {
-              document.getElementById('result').style.visibility = 'visible';
+          else if (currentLine == 5) {
+              console.log("executing currentLine"+currentLine);
+              num1 = number1;
+              num2 = 0;
+
+              document.getElementById('num1').style.visibility = 'visible';
+              document.getElementById('num2').style.visibility = 'visible';
+              document.getElementById('flyingNum1').style.visibility = 'visible';
+              document.getElementById('flyingNum2').style.visibility = 'visible';
+              document.getElementById('flyingNum1').innerHTML = num1;
+              document.getElementById('flyingNum2').innerHTML = num2;
+
+              explanation[5].innerHTML = "The values of i and j are passed to num1 and num2.";
+              commandPrompt[5].innerHTML = commandPrompt[4].innerHTML + num1;
+              commandPrompt[6].innerHTML = commandPrompt[5].innerHTML + "\n" + number1 + " + 0 = " + num1 + " is " + result;
+              commandPrompt[7].innerHTML = commandPrompt[6].innerHTML + "";
+
+              pos = getElementPos(document.getElementById('line5'));
+              $("#explanation").animate({top: pos.y - 65,
+                  left: (pos.x + pos.w) - 40,
+                  width: 200}, 'fast');
+
+              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                  document.getElementById('flyingNum1').innerHTML = num1;
+                  $("#flyingNum1").css('top', value1Top);
+                  $("#flyingNum2").css('top', value1Top + 20);
+                  $("#flyingNum1").css('left', value1Left);
+                  $("#flyingNum2").css('left', value1Left);
+                  $("#flyingNum1").animate(
+                          {top: value3Top + 15, left: value1Left}, slowAnimationSpeed);
+                  document.getElementById('flyingNum2').innerHTML = num2;
+                  $("#flyingNum2").animate(
+                          {top: value3Top + 35, left: value1Left}, slowAnimationSpeed);
+              });
+              document.getElementById('result').style.visibility = 'hidden';
+          }
+          else if (currentLine == 6) {
+            console.log("executing currentLine"+currentLine);  
+            document.getElementById('result').style.visibility = 'visible';
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 5,
@@ -289,15 +421,46 @@ explanation[currentLine].innerHTML = "";
                   width: 200}, 'fast');
           }
           else if (currentLine == 7) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y + 5,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
 
-              explanation[currentLine].innerHTML = "The condition (n <= 0) is tested. It is false in this case.";
+              if (number1 > 0) {
+                  console.log("in the conditional statement for the condition (num1 > 0) is tested. It is true in this case.");
+                  explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is true in this case.";
+              }
+              else {
+                  console.log("in the conditional statement for line 7 (num1 < 0) the condition (num1 > num2) is tested. It is false in this case.");
+                  explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is false in this case.";
+                  display(currentLine);
+                  currentLine = 8;
+                  return;
+              }
           }
           else if (currentLine == 8) {
+              console.log("executing currentLine"+currentLine);
+              document.getElementById('flyingResult').style.visibility = 'visible';
+              pos = getElementPos(document.getElementById('line8'));
+              $("#explanation").animate({top: pos.y + 5,
+                  left: (pos.x + pos.w) + 20,
+                  width: 200}, 'fast');
+
+              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                  result = document.getElementById('flyingResult').innerHTML = num1;
+                  posLoc3 = getElementPos(document.getElementById('loc3'));
+                  $("#flyingResult").css("top", posLoc3.y).css("left", posLoc3.x);
+                  $("#flyingResult").animate(
+                          {top: value3Top + 50 + 5, left: value1Left}, slowAnimationSpeed);
+              });
+              display(currentLine);
+              currentLine = 9;
+              return;
+          }
+          else if (currentLine == 9) {
+              console.log("executing currentLine"+currentLine);
               document.getElementById('flyingResult').style.visibility = 'visible';
               pos = getElementPos(document.getElementById('line8'));
               $("#explanation").animate({top: pos.y + 5,
@@ -306,25 +469,70 @@ explanation[currentLine].innerHTML = "";
 
               pos = getElementPos(document.getElementById('line9'));
               $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                  result = document.getElementById('flyingResult').innerHTML = num2;
                   posLoc3 = getElementPos(document.getElementById('locNum2'));
                   $("#flyingResult").css("top", posLoc3.y).css("left", posLoc3.x);
                   $("#flyingResult").animate(
                           {top: value3Top + 50 + 5, left: value1Left}, slowAnimationSpeed);
               });
 
-              explanation[currentLine].innerHTML = "fib(n) is assigned to nth_fibonacci.";
+              explanation[currentLine].innerHTML = "0 is assigned to result.";
           }
-          else if (currentLine == 9) {
+          else if (currentLine == 10) {
+              console.log("executing currentLine"+currentLine);
+              document.getElementById('num1').style.visibility = 'visible';
+              document.getElementById('num2').style.visibility = 'visible';
+              document.getElementById('result').style.visibility = 'visible';
+              document.getElementById('flyingNum1').style.visibility = 'visible';
+              document.getElementById('flyingNum2').style.visibility = 'visible';
+              document.getElementById('flyingResult').style.visibility = 'visible';
+              document.getElementById('valuek').style.visibility = 'hidden';
+              document.getElementById('flyingReturnValue').style.visibility = 'hidden';
+              pos = getElementPos(document.getElementById('line' + currentLine));
+              $("#explanation").animate({top: pos.y - 20,
+                  left: (pos.x + pos.w) + 20,
+                  width: 200}, 'fast');
+          }
+          else if (currentLine == 11) {
+              console.log("executing currentLine"+currentLine);
+              document.getElementById('num1').style.visibility = 'hidden';
+              document.getElementById('num2').style.visibility = 'hidden';
+              document.getElementById('result').style.visibility = 'hidden';
+              document.getElementById('flyingNum1').style.visibility = 'hidden';
+              document.getElementById('flyingNum2').style.visibility = 'hidden';
+              document.getElementById('flyingResult').style.visibility = 'hidden';
+              document.getElementById('valuek').style.visibility = 'visible';
+              document.getElementById('flyingReturnValue').style.visibility = 'visible';
+
+              pos = getElementPos(document.getElementById('line11'));
+              $("#explanation").animate({top: pos.y - 28,
+                  left: (pos.x + pos.w) + 10,
+                  width: 200}, 'fast');
+
+              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
+                  posLoc4 = getElementPos(document.getElementById('loc4'));
+                  posLoc5 = getElementPos(document.getElementById('loc5'));
+
+                  document.getElementById('flyingReturnValue').innerHTML = result;
+
+                  $("#flyingReturnValue").css("top", posLoc4.y)
+                          .css("left", posLoc4.x - 35);
+                  $("#flyingReturnValue").animate({top: posLoc5.y, left: posLoc5.x}, slowAnimationSpeed);
+                  $("#flyingReturnValue").animate({top: value1Top + 40, left: value1Left}, slowAnimationSpeed);
+              });
+          }
+          else if (currentLine == 12) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
                   width: 200}, 'fast');
-              commandPrompt[12].innerHTML = "The value of nth_fibonacci is " + result;
+              commandPrompt[12].innerHTML = "The maximum between " + num1 + " and " + num2 + " is " + result;
               $("#commandPrompt").animate({top: pos8.y,
                   left: pos8.x + pos8.w + 20, }, 'fast');
           }
-          else if (currentLine == 10) {
-              console.log("line 10 getting executed");
+          else if (currentLine == 13) {
+              console.log("executing currentLine"+currentLine);
               pos = getElementPos(document.getElementById('line' + currentLine));
               document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
               $("#explanation").animate({top: pos.y - 5,
@@ -348,6 +556,36 @@ explanation[currentLine].innerHTML = "";
 
               document.getElementById('note').style.display = 'inline';
               $('#tb1').prop("disabled", false);
+              $('#tb2').prop("disabled", false);
+              $('#note').show();
+
+          }
+          else if (currentLine == 14) {
+              console.log("executing currentLine"+currentLine);
+              pos = getElementPos(document.getElementById('line' + currentLine));
+              document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
+              $("#explanation").animate({top: pos.y - 5,
+                  left: (pos.x + pos.w) + 20,
+                  width: 400}, 'fast');
+              $("#commandPrompt").animate({top: pos8.y,
+                  left: pos8.x + pos8.w + 20, }, 'fast');
+
+              document.getElementById('startButton').style.visibility = 'visible';
+              document.getElementById('startButton').style.display = 'inline';
+              document.getElementById('startButton').innerHTML = 'Restart Animation';
+
+              document.getElementById('nextButton').style.visibility = 'hidden';
+              document.getElementById('nextButton').style.display = 'none';
+
+              document.getElementById('prevButton').style.visibility = 'hidden';
+              document.getElementById('prevButton').style.display = 'none';
+
+              document.getElementById('startOverButton').style.visibility = 'hidden';
+              document.getElementById('startOverButton').style.display = 'none';
+
+              document.getElementById('note').style.display = 'inline';
+              $('#tb1').prop("disabled", false);
+              $('#tb2').prop("disabled", false);
               $('#note').show();
 
           }
@@ -362,10 +600,12 @@ explanation[currentLine].innerHTML = "";
               document.getElementById('startButton').style.visibility = 'visible';
               document.getElementById('startButton').innerHTML = 'Restart Animation';
               document.getElementById('flyingI').style.visibility = 'hidden';
+              document.getElementById('flyingJ').style.visibility = 'hidden';
               document.getElementById('flyingNum1').style.visibility = 'hidden';
               document.getElementById('flyingResult').style.visibility = 'hidden';
               document.getElementById('num1').style.visibility = 'hidden';
               document.getElementById('flyingI').innerHTML = '';
+              document.getElementById('flyingJ').innerHTML = '';
               document.getElementById('flyingNum1').innerHTML = '';
               document.getElementById('flyingResult').style.visibility = 'hidden';
 //              document.getElementById('highlight').style.visibility = 'hidden';
@@ -376,14 +616,17 @@ explanation[currentLine].innerHTML = "";
 $("#startButton").focus();
           }
           else {
-              if (true) {
+              document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
+
+              if (commandPrompt[currentLine].isVisible) {
                   document.getElementById('commandPrompt').style.visibility = 'visible';
+                  document.getElementById('commandPromptContent').innerHTML = commandPrompt[currentLine].innerHTML;
               }
               else {
                   document.getElementById('commandPrompt').style.visibility = 'hidden';
               }
           }
-          console.log('line' + currentLine);
+
           pos = getElementPos(document.getElementById('line' + currentLine));
           $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed);
               speak(document.getElementById('explanation').innerHTML);
@@ -394,12 +637,13 @@ $("#startButton").focus();
               document.getElementById('num1').style.visibility = 'hidden';
               document.getElementById('num2').style.visibility = 'hidden';
               document.getElementById('flyingNum1').style.visibility = 'hidden';
+              document.getElementById('flyingNum2').style.visibility = 'hidden';
 
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 20,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
-document.getElementById('explanation').innerHTML = "The fib method is invoked";
+document.getElementById('explanation').innerHTML = "The max method is invoked";
               speak(document.getElementById('explanation').innerHTML);
 
       }
@@ -427,7 +671,7 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
         <button id = "nextButton" type="button">Next</button>
         <button id = "prevButton" type="button">Prev</button>
         <span id = "note" style="text-align: center; font-size: 68%; margin-bottom: 0.2em; color: navy; font-family: Verdana, Helvetica, sans-serif">
-          You can change the value of n before starting animation</span>
+          You can change values in i and j before starting animation</span>
                 <span style="float: right;">
           <button aria-pressed="false" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;
                   background: white; height:30px; border: 1px solid white;"><img id="bg" src="audioOff.png" alt="Text-to-Speech Off" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/>    
@@ -456,7 +700,7 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
       <div id ="radius">
         <div id="memory1" style = "font-family: times; text-align: left; font-style: italic;
              position:absolute; top: 70px; left: 133px; font-size: 80%;">
-          &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspn</div> 
+          &nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbspi</div> 
         <div id="value1" style = "font-family: courier; text-align: center; 
              border: 1px solid #37826C; width: 80px; top: 70px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div> 
@@ -477,14 +721,43 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
              border: 1px solid #37826C; width: 80px; top: 110px; left: 133px; height: 20px;
              position:absolute;  font-size: 80%;"></div>
       </div>
+      <div id ="num1">
+        <div id="memory3" style = "font-family: times; text-align: left;  font-style: italic;
+             position:absolute; top: 210px; left: 133px; font-size: 80%;">num1</div> 
+        <div id="value3" style = "font-family: courier; text-align: center;  
+             border: 1px solid #37826C; width: 80px; top: 210px; left: 133px; height: 20px;
+             position:absolute;  font-size: 80%;"></div>
+      </div>
+      <div id ="num2">
+        <div id="memory4" style = "font-family: times; text-align: left;  font-style: italic;
+             position:absolute; top: 230px; left: 133px; font-size: 80%;">num2</div> 
+        <div id="value4" style = "font-family: courier; text-align: center;  
+             border: 1px solid #37826C; width: 80px; top: 230px; left: 133px; height: 20px;
+             position:absolute;  font-size: 80%;"></div>
+      </div>
+      <div id ="result">
+        <div id="memory5" style = "font-family: times; text-align: left;  font-style: italic;
+             position:absolute; top: 250px; left: 133px; font-size: 80%;">result</div> 
+        <div id="value5" style = "font-family: courier; text-align: center;  
+             border: 1px solid #37826C; width: 80px; top: 250px; left: 133px; height: 20px;
+             position:absolute;  font-size: 80%;"></div>
+      </div>    
     </div>
 
-    <div id="flyingN" style = "font-family: courier; text-align: center; 
+    <div id="flyingI" style = "font-family: courier; text-align: center; 
          width: 80px; top: 187px; left: 100px; height: 20px; color:#EB0D1B; font-weight: bold;
          position:absolute;  font-size: 80%;"></div> 
-         
+
+    <div id="flyingJ" style = "font-family: courier; text-align: center; 
+         width: 80px; top: 187px; left: 100px; height: 20px; color:#EB0D1B; font-weight: bold;
+         position:absolute;  font-size: 80%;"></div> 
+
     <div id="flyingNum1" style = "font-family: courier; text-align: center; 
          width: 80px; top: 75px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
+         position:absolute;  font-size: 80%;"></div> 
+
+    <div id="flyingNum2" style = "font-family: courier; text-align: center; 
+         width: 80px; top: 95px; left: 133px; height: 20px; color:#EB0D1B; font-weight: bold;
          position:absolute;  font-size: 80%;"></div> 
 
     <div id="flyingResult" style = "font-family: courier; text-align: center; 
@@ -500,19 +773,25 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
   1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> TestMax {
   2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
   3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
-  4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> n = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
-  6&nbsp;&nbsp;    <span id="line10"><span class = "keyword">int</span> nth_fibonacci = <span id="line4"><span id="loc5">fib(n)</span>;</span></span>
-  7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The nth fibonacci number is "</span> + nth_fibonacci);</span>
+  4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
+  5&nbsp;&nbsp;    <span id="line2"><span class = "keyword">int</span> j = <span class = "constant">0</span>;</span>
+  6&nbsp;&nbsp;    <span id="line11"><span id="line3"><span class = "keyword">int</span> k = <span id="line4"><span id="loc5">max(i, j)</span></span>;</span></span>
+  7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The maximum between "</span> + i +
+  8&nbsp;&nbsp;      <span class = "literal">" and "</span> + j + <span class = "literal">" is "</span> + k);</span>
   9&nbsp;&nbsp;  <span id="line13">}</span>
  10&nbsp;&nbsp;
- 11&nbsp;&nbsp;  <span class = "comment">/** Return the nth fibonacci number */</span>
- 12&nbsp;&nbsp;  <span id="line3"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fibonacci(<span class = "keyword">int</span> n) {</span>
- 13&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span>(n &lt;&equals; 1)</span>
- 14&nbsp;&nbsp;        <span id="line7"><span class = "keyword">return</span> 1;</span>
- 15&nbsp;&nbsp;   
- 16&nbsp;&nbsp;    <span id="line8"><span class = "keyword">return fib(n-1) + fib(n-2);</span>
- 17&nbsp;&nbsp;  }
- 18&nbsp;&nbsp;}
+ 11&nbsp;&nbsp;  <span class = "comment">/** Return the max between two numbers */</span>
+ 12&nbsp;&nbsp;  <span id="line5"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> max(<span class = "keyword">int</span> num1, <span class = "keyword">int</span> num2) {</span>
+ 13&nbsp;&nbsp;    <span id="line6"><span class = "keyword">int</span> result;</span>
+ 14&nbsp;&nbsp;
+ 15&nbsp;&nbsp;    <span id="line7"><span class = "keyword">if</span> (num1 &gt; num2)</span>
+ 16&nbsp;&nbsp;      <span id="line8">result = <span id="loc3">num1</span>;</span>
+ 17&nbsp;&nbsp;    <span class = "keyword">else</span>
+ 18&nbsp;&nbsp;      <span id="line9">result = <span id="locNum2">num2;</span></span>
+ 19&nbsp;&nbsp;
+ 20&nbsp;&nbsp;    <span id="line10"><span class = "keyword">return</span> <span id="loc4">result</span>;</span>
+ 21&nbsp;&nbsp;  }
+ 22&nbsp;&nbsp;}
       </pre>
 
     </div>
@@ -549,10 +828,16 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
           document.getElementById('startButton').style.visibility = 'visible';
           document.getElementById('startButton').style.display = 'inline';
           document.getElementById('startButton').innerHTML = 'Restart Animation';
-          document.getElementById('flyingN').style.visibility = 'hidden';
+          document.getElementById('flyingI').style.visibility = 'hidden';
+          document.getElementById('flyingJ').style.visibility = 'hidden';
           document.getElementById('flyingNum1').style.visibility = 'hidden';
+          document.getElementById('num1').style.visibility = 'hidden';
+          document.getElementById('num2').style.visibility = 'hidden';
+          document.getElementById('result').style.visibility = 'hidden';
           document.getElementById('variable').style.visibility = 'hidden';
-          document.getElementById('flyingN').innerHTML = '';
+          document.getElementById('flyingI').innerHTML = '';
+          document.getElementById('flyingJ').innerHTML = '';
+          document.getElementById('flyingNum2').innerHTML = '';
           document.getElementById('explanation').style.visibility = 'hidden';
           document.getElementById('highlight').style.visibility = 'hidden';
           document.getElementById('commandPrompt').style.visibility = 'hidden';
@@ -561,6 +846,7 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
           currentLine = 0;
           finished = false;
           $('#tb1').prop("disabled", false);
+          $('#tb2').prop("disabled", false);
           $('#note').show();
       }
 
@@ -569,16 +855,21 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
           pos1 = getElementPos(document.getElementById('line1'));
           pos0 = pos = getElementPos(document.getElementById('line0'));
           pos8 = getElementPos(document.getElementById('line8'));
-          pos5 = getElementPos(document.getElementById('line0'));
+          pos5 = getElementPos(document.getElementById('line5'));
 
           document.getElementById('variable').style.top = pos1.y - 50 + 'px';
           document.getElementById('memory1').style.top = pos1.y - 30 + 'px';
           document.getElementById('value1').style.top = pos1.y - 30 + 'px';
+          document.getElementById('memory2').style.top = pos1.y - 30 + 20 + 'px';
           document.getElementById('value2').style.top = pos1.y - 30 + 20 + 'px';
           document.getElementById('memory6').style.top = pos1.y - 10 + 20 + 'px';
           document.getElementById('value6').style.top = pos1.y - 10 + 20 + 'px';
-        //   document.getElementById('value3').style.top = pos5.y - 20 + 20 + 'px';
-        //   document.getElementById('value4').style.top = pos5.y + 20 + 'px';
+          document.getElementById('memory3').style.top = pos5.y - 20 + 20 + 'px';
+          document.getElementById('memory4').style.top = pos5.y + 20 + 'px';
+          document.getElementById('value3').style.top = pos5.y - 20 + 20 + 'px';
+          document.getElementById('value4').style.top = pos5.y + 20 + 'px';
+          document.getElementById('memory5').style.top = pos5.y + 20 + 20 + 'px';
+          document.getElementById('value5').style.top = pos5.y + 20 + 20 + 'px';
 
           document.getElementById('variable').style.left = pos.x + pos.w + 30 + 'px';
           document.getElementById('memory1').style.left = pos.x + pos.w + 30 + 'px';
@@ -591,15 +882,19 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
           document.getElementById('value2').style.left = value1Left + 'px';
           document.getElementById('memory6').style.left = pos.x + pos.w + 30 + 'px';
           document.getElementById('value6').style.left = value1Left + 'px';
-        //   document.getElementById('memory3').style.left = pos5.x + pos5.w + 20 + 'px';
-        //   document.getElementById('memory4').style.left = pos5.x + pos5.w + 20 + 'px';
+          document.getElementById('memory3').style.left = pos5.x + pos5.w + 20 + 'px';
+          document.getElementById('memory4').style.left = pos5.x + pos5.w + 20 + 'px';
+          document.getElementById('memory5').style.left = pos5.x + pos5.w + 20 + 'px';
           value3Left = pos5.x + pos5.w + 30 + 85;
           value3Top = pos5.y - 30 + 20;
-        //   document.getElementById('value3').style.left = value1Left + 'px';
-        //   document.getElementById('value4').style.left = value1Left + 'px';
+          document.getElementById('value3').style.left = value1Left + 'px';
+          document.getElementById('value4').style.left = value1Left + 'px';
+          document.getElementById('value5').style.left = value1Left + 'px';
 
           $("#flyingNum1").css('top', value1Top);
+          $("#flyingNum2").css('top', value1Top + 20);
           $("#flyingNum1").css('left', value1Left);
+          $("#flyingNum2").css('left', value1Left);
 
           $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, 'fast');
           $("#explanation").animate({top: pos0.y - 45,
@@ -622,7 +917,9 @@ document.getElementById('explanation').innerHTML = "The fib method is invoked";
           document.getElementById('explanation').style.visibility = 'visible';
 
           tb1 = parseInt($('#tb1').val());
+          tb2 = parseInt($('#tb2').val());
           $('#tb1').prop("disabled", true);
+          $('#tb2').prop("disabled", true);
           $('#note').hide();
 
           document.getElementById('startOverButton').style.visibility = 'visible';
