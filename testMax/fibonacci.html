@@ -23,7 +23,7 @@
       number1 = 8;
       num1 = 5;
       result = true;
-      steps = 13;
+      steps = 12;
      
       // set animation speed
       animationSpeed = 500;
@@ -125,18 +125,18 @@
       explanation[1].left = 550;
 
       explanation[2] = new Explanation();
-      explanation[2].innerHTML = "The statement assigns 0 to j.";
+      explanation[2].innerHTML = "The statement calls fib(i) and returns the output to k.";
       explanation[2].top = 107;
       explanation[2].left = 570;
 
       explanation[3] = new Explanation();
-      explanation[3].innerHTML = "The statement will invoke the min method and assign the return value from the method to k.";
+      explanation[3].innerHTML = "The statement will invoke the fib method and assign the return value from the method to k.";
       explanation[3].top = 117;
       explanation[3].left = 470;
       explanation[3].width = 430;
 
       explanation[4] = new Explanation();
-      explanation[4].innerHTML = "The min method is invoked.";
+      explanation[4].innerHTML = "The fib method is invoked.";
       explanation[4].top = 130;
       explanation[4].left = 480;
       explanation[4].width = 260;
@@ -154,7 +154,7 @@
       explanation[6].width = 205;
 
       explanation[7] = new Explanation();
-      explanation[7].innerHTML = "The statement tests if num1 is greater than num2.";
+      explanation[7].innerHTML = "The statement tests if num1 is greater than or equal to 0.";
       explanation[7].top = 250;
       explanation[7].left = 228;
       explanation[7].width = 205;
@@ -168,7 +168,7 @@
       explanation[9] = new Explanation();
 
       explanation[10] = new Explanation();
-      explanation[10].innerHTML = "The result will be returned from the min method. The min method is finished.";
+      explanation[10].innerHTML = "The result will be returned from the fib method. The fib method is finished.";
       explanation[9].top = 330;
       explanation[9].left = 228;
       explanation[9].width = 255;
@@ -239,7 +239,7 @@
 
       commandPrompt[11] = new CommandPrompt();
       commandPrompt[11].isVisible = false;
-      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The maximum between 5 and 0 is 5";
+      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The ith fibonacci number is"+fib(num1);
       commandPrompt[11].top = 139;
       commandPrompt[11].left = 650;
       commandPrompt[11].width = 480;
@@ -359,14 +359,10 @@
           }
           else if (currentLine == 4) {
               console.log("executing currentLine"+currentLine);
-              num1 = number1;
+              num1 = fib(number1);
             //   num2 = number2;
 
-              document.getElementById('num1').style.visibility = 'visible';
-              document.getElementById('flyingNum1').style.visibility = 'visible';
-              document.getElementById('flyingNum1').innerHTML = num1;
-
-              explanation[5].innerHTML = "The values of i and j are passed to num1 and num2.";
+              explanation[5].innerHTML = "The variable result is declared";
               commandPrompt[5].innerHTML = commandPrompt[4].innerHTML + num1;
             //   commandPrompt[6].innerHTML = commandPrompt[5].innerHTML + "\n" + number1 + " + " + number2 + " = " + num1 + " is " + result;
               commandPrompt[7].innerHTML = commandPrompt[6].innerHTML + "";
@@ -375,21 +371,10 @@
               $("#explanation").animate({top: pos.y - 65,
                   left: (pos.x + pos.w) - 40,
                   width: 200}, 'fast');
-
-              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
-                  document.getElementById('flyingNum1').innerHTML = num1;
-                  $("#flyingNum1").css('top', value1Top);
-                  $("#flyingNum1").css('left', value1Left);
-                  $("#flyingNum1").animate(
-                          {top: value3Top + 15, left: value1Left}, slowAnimationSpeed);
-                  document.getElementById('flyingNum2').innerHTML = num2;
-              });
               document.getElementById('result').style.visibility = 'hidden';
           }
           else if (currentLine == 5) {
             console.log("executing currentLine"+currentLine);  
-            document.getElementById('result').style.visibility = 'visible';
-              document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 5,
                   left: (pos.x + pos.w) + 20,
@@ -402,16 +387,19 @@
               $("#explanation").animate({top: pos.y + 5,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
-
-              if (number1 <= 1) {
-                  explanation[currentLine].innerHTML = "The condition (num1 < num2) is tested. It is true in this case.";
-              }
-              else {
-                  explanation[currentLine].innerHTML = "The condition (num1 < num2) is tested. It is false in this case.";
-                  display(currentLine);
-                  currentLine = 7;
-                  return;
-              }
+              while(number1 > 1){
+                  if (number1 <= 1) {
+                      explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is true in this case.";
+                      display(currentLine);
+                      currentLine = 9;
+                      return;
+                  }
+                  else {
+                      explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is false in this case.";
+                      currentLine = 9;
+                      number1--;
+                  }
+              }  
           }
           else if (currentLine == 7) {
               console.log("executing currentLine"+currentLine);
@@ -429,19 +417,15 @@
                           {top: value3Top + 50 + 5, left: value1Left}, slowAnimationSpeed);
               });
               display(currentLine);
-              currentLine = 8;
+              currentLine = 9;
               return;
           }
           else if (currentLine == 9) {
               console.log("executing currentLine"+currentLine);
-              document.getElementById('num1').style.visibility = 'visible';
-              document.getElementById('num2').style.visibility = 'visible';
-              document.getElementById('result').style.visibility = 'visible';
-              document.getElementById('flyingNum1').style.visibility = 'visible';
-              document.getElementById('flyingNum2').style.visibility = 'visible';
-              document.getElementById('flyingResult').style.visibility = 'visible';
-              document.getElementById('valuek').style.visibility = 'hidden';
-              document.getElementById('flyingReturnValue').style.visibility = 'hidden';
+              if(number1 >= 1){
+                currentLine = 6;
+                return;
+              }
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 20,
                   left: (pos.x + pos.w) + 20,
@@ -467,7 +451,7 @@
                   posLoc4 = getElementPos(document.getElementById('loc4'));
                   posLoc5 = getElementPos(document.getElementById('loc5'));
 
-                  document.getElementById('flyingReturnValue').innerHTML = result;
+                  document.getElementById('flyingReturnValue').innerHTML = fib(num1);
 
                   $("#flyingReturnValue").css("top", posLoc4.y)
                           .css("left", posLoc4.x - 35);
@@ -481,7 +465,7 @@
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
                   width: 200}, 'fast');
-              commandPrompt[12].innerHTML = "The maximum between " + num1 + " and " + num2 + " is " + result;
+              commandPrompt[12].innerHTML = "The " + num1 + "th fibonacci number is" + result;
               $("#commandPrompt").animate({top: pos7.y,
                   left: pos7.x + pos7.w + 20, }, 'fast');
           }
@@ -873,6 +857,13 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
               speak(document.getElementById('explanation').innerHTML);
 $("#nextButton").focus();
       });
+
+      function fib(i){
+          if(i <= 1){
+              return 1;
+          }
+          return fib(i-1)+fib(i-2);
+      }
     </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.min.js"></script>
    <script>
