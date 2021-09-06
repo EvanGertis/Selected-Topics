@@ -125,18 +125,18 @@
       explanation[1].left = 550;
 
       explanation[2] = new Explanation();
-      explanation[2].innerHTML = "The statement calls fib(i) and returns the output to k.";
+      explanation[2].innerHTML = "The statement calls fac(i) and returns the output to k.";
       explanation[2].top = 107;
       explanation[2].left = 570;
 
       explanation[3] = new Explanation();
-      explanation[3].innerHTML = "The statement will invoke the fib method and assign the return value from the method to k.";
+      explanation[3].innerHTML = "The statement will invoke the fac method and assign the return value from the method to k.";
       explanation[3].top = 117;
       explanation[3].left = 470;
       explanation[3].width = 430;
 
       explanation[4] = new Explanation();
-      explanation[4].innerHTML = "The fib method is invoked.";
+      explanation[4].innerHTML = "The fac method is invoked.";
       explanation[4].top = 130;
       explanation[4].left = 480;
       explanation[4].width = 260;
@@ -154,48 +154,46 @@
       explanation[6].width = 205;
 
       explanation[7] = new Explanation();
-      explanation[7].innerHTML = "The statement tests if num1 is greater than or equal to 0.";
+      explanation[7].innerHTML = "The statement tests if num1 is less than or equal to 1.";
       explanation[7].top = 250;
       explanation[7].left = 228;
       explanation[7].width = 205;
 
       explanation[8] = new Explanation();
-      explanation[8].innerHTML = "num1 is assigned to result.";
+      explanation[8].innerHTML = "return 1.";
       explanation[8].top = 270;
       explanation[8].left = 228;
       explanation[8].width = 205;
 
       explanation[9] = new Explanation();
+      explanation[9].innerHTML = "The return statement places n*fac(n-1) on the callstack"
+      explanation[9].top = 300;
+      explanation[9].left = 258;
+      explanation[9].width = 235;
 
       explanation[10] = new Explanation();
-      explanation[10].innerHTML = "The result will be returned from the fib method. The fib method is finished.";
+      explanation[10].innerHTML = "The result will be returned from the fac method. The fac method is finished.";
       explanation[9].top = 330;
       explanation[9].left = 228;
       explanation[9].width = 255;
 
       explanation[11] = new Explanation();
-      explanation[11].innerHTML = "The returned value is assigned to variable k.";
+      explanation[11].innerHTML = "The System.out.println method displays the program output.";
       explanation[10].top = 118;
       explanation[10].left = 248;
       explanation[10].width = 280;
 
       explanation[12] = new Explanation();
-      explanation[12].innerHTML = "The statement displays the result.";
-      explanation[11].top = 130;
-      explanation[11].left = 468;
-      explanation[11].width = 155;
+      explanation[12].innerHTML = "The main method exits. The program is finished.";
+      explanation[11].top = 158;
+      explanation[11].left = 348;
+      explanation[11].width = 150;
 
       explanation[13] = new Explanation();
-      explanation[13].innerHTML = "The main method exits. The program is finished.";
-      explanation[12].top = 158;
-      explanation[12].left = 348;
-      explanation[12].width = 150;
-
-      explanation[14] = new Explanation();
-      explanation[14].innerHTML = "Explanation 14";
-      explanation[14].top = 158;
-      explanation[14].left = 348;
-      explanation[14].width = 150;
+      explanation[13].innerHTML = "Explanation 14";
+      explanation[13].top = 158;
+      explanation[13].left = 348;
+      explanation[13].width = 150;
 
       commandPrompt = [];
       commandPrompt[0] = new CommandPrompt();
@@ -239,7 +237,7 @@
 
       commandPrompt[11] = new CommandPrompt();
       commandPrompt[11].isVisible = false;
-      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The ith fibonacci number is"+fib(num1);
+      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The factorial of"+num1+" is "+fac(num1);
       commandPrompt[11].top = 139;
       commandPrompt[11].left = 650;
       commandPrompt[11].width = 480;
@@ -255,6 +253,16 @@
       commandPrompt[13] = new CommandPrompt();
 
       currentLine = 0;
+
+      
+      function fac(i){
+          console.log("In the factorial method");
+          console.log(i);
+          if(i <= 0){
+              return 1;
+          }
+          return i*fac(i-1);
+      }
       
       // set up the initialization function
       function init() {
@@ -359,7 +367,7 @@
           }
           else if (currentLine == 4) {
               console.log("executing currentLine"+currentLine);
-              num1 = fib(number1);
+              num1 = fac(number1);
             //   num2 = number2;
 
               explanation[5].innerHTML = "The variable result is declared";
@@ -382,54 +390,46 @@
           }
           else if (currentLine == 6) {
               console.log("executing currentLine"+currentLine);
+              console.log(number1);
               document.getElementById('flyingResult').style.visibility = 'hidden';
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y + 5,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
-              while(number1 > 1){
-                  if (number1 <= 1) {
-                      explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is true in this case.";
-                      display(currentLine);
-                      currentLine = 9;
-                      return;
-                  }
-                  else {
-                      explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is false in this case.";
-                      currentLine = 9;
-                      number1--;
-                  }
-              }  
+
+              if (number1 == 0) {
+                  explanation[currentLine].innerHTML = "The condition (num1 == 0) is tested. It is true in this case.";
+                  display(current)
+                  currentLine = 7;
+                  return;
+              }
+              else {
+                  explanation[currentLine].innerHTML = "The condition (num1 == 0) is tested. It is false in this case.";
+                  display(currentLine);
+                  currentLine = 8;
+                  return;
+              }
           }
           else if (currentLine == 7) {
               console.log("executing currentLine"+currentLine);
-              document.getElementById('flyingResult').style.visibility = 'visible';
               pos = getElementPos(document.getElementById('line7'));
               $("#explanation").animate({top: pos.y + 5,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
-
-              $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
-                  result = document.getElementById('flyingResult').innerHTML = num1;
-                  posLoc3 = getElementPos(document.getElementById('loc3'));
-                  $("#flyingResult").css("top", posLoc3.y).css("left", posLoc3.x);
-                  $("#flyingResult").animate(
-                          {top: value3Top + 50 + 5, left: value1Left}, slowAnimationSpeed);
-              });
               display(currentLine);
-              currentLine = 9;
+              currentLine = 10;
               return;
           }
           else if (currentLine == 9) {
               console.log("executing currentLine"+currentLine);
-              if(number1 >= 1){
-                currentLine = 6;
-                return;
-              }
+              console.log(number1);
               pos = getElementPos(document.getElementById('line' + currentLine));
               $("#explanation").animate({top: pos.y - 20,
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
+              if(number1 > 1){
+                  console.log("this should redirect back to currentLine == 6")
+              }
           }
           else if (currentLine == 10) {
               console.log("executing currentLine"+currentLine);
@@ -450,9 +450,10 @@
               $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
                   posLoc4 = getElementPos(document.getElementById('loc4'));
                   posLoc5 = getElementPos(document.getElementById('loc5'));
-
-                  document.getElementById('flyingReturnValue').innerHTML = fib(num1);
-
+                  console.log("In currentLine"+currentLine);
+                  num1 = fac(num1);
+                  document.getElementById('flyingReturnValue').innerHTML = fac(num1);
+                  console.log("sent flying return value");
                   $("#flyingReturnValue").css("top", posLoc4.y)
                           .css("left", posLoc4.x - 35);
                   $("#flyingReturnValue").animate({top: posLoc5.y, left: posLoc5.x}, slowAnimationSpeed);
@@ -465,7 +466,7 @@
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
                   width: 200}, 'fast');
-              commandPrompt[12].innerHTML = "The " + num1 + "th fibonacci number is" + result;
+              commandPrompt[11].innerHTML = "The " + num1 + "th fac number is" + fac(result);
               $("#commandPrompt").animate({top: pos7.y,
                   left: pos7.x + pos7.w + 20, }, 'fast');
           }
@@ -552,6 +553,7 @@
 $("#startButton").focus();
           }
           else {
+              console.log("explanation["+currentLine+"].innerHTML:"+explanation[currentLine].innerHTML);
               document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
 
               if (commandPrompt[currentLine].isVisible) {
@@ -706,23 +708,23 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
 
     <div id = "program" style="border: 1px solid #EB0D1B; font-family: courier; font-size: 100.5%; margin: 0px auto; text-align: left">
       <pre>
-  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> Fibonacci {
+  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> fac {
   2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
   3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
   4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
-  5&nbsp;&nbsp;    <span id="line10"><span id="line2"><span class = "keyword">int</span> k = <span id="line3"><span id="loc5">fib(i)</span></span>;</span></span>
-  6&nbsp;&nbsp;    <span id="line11">System.out.println(<span class = "literal">"The "</span> + i +<span class = "literal">"th fibonacci number "</span>
+  5&nbsp;&nbsp;    <span id="line10"><span id="line2"><span class = "keyword">int</span> k = <span id="line3"><span id="loc5">fac(i)</span></span>;</span></span>
+  6&nbsp;&nbsp;    <span id="line11">System.out.println(<span class = "literal">"The factorial of"</span> + i +<span class = "literal">" is "</span>
   7&nbsp;&nbsp;      <span class = "literal">" is "</span> + k);</span>
   8&nbsp;&nbsp;  <span id="line12">}</span>
   9&nbsp;&nbsp;
  10&nbsp;&nbsp;  <span class = "comment">/** Return the min between two numbers */</span>
- 11&nbsp;&nbsp;  <span id="line4"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fib(<span class = "keyword">int</span> num1) {</span>
+ 11&nbsp;&nbsp;  <span id="line4"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fac(<span class = "keyword">int</span> n) {</span>
  12&nbsp;&nbsp;    <span id="line5"><span class = "keyword">int</span> result;</span>
  13&nbsp;&nbsp;
- 14&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span> (num1 &lt;= 1)</span>
- 15&nbsp;&nbsp;      <span id="line7">result = <span id="loc3">1</span>;</span>
+ 14&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span> (num1 == 1)</span>
+ 15&nbsp;&nbsp;      <span id="line7">return <span id="loc3">1</span>;</span>
  16&nbsp;&nbsp;
- 17&nbsp;&nbsp;    <span id="line9"><span class = "keyword">return</span> <span id="loc4">fib(i-1)+fib(n-2)</span>;</span>
+ 17&nbsp;&nbsp;    <span id="line9"><span class = "keyword">return</span> <span id="loc4">n*fac(n)</span>;</span>
  18&nbsp;&nbsp;  }
  19&nbsp;&nbsp;}
       </pre>
@@ -858,12 +860,6 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
 $("#nextButton").focus();
       });
 
-      function fib(i){
-          if(i <= 1){
-              return 1;
-          }
-          return fib(i-1)+fib(i-2);
-      }
     </script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/materialize/0.95.1/js/materialize.min.js"></script>
    <script>
