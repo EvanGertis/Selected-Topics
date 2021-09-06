@@ -20,6 +20,7 @@
     <script>
       // set up variables
       number1 = 8;
+      number2 = 0;
       num1 = 5;
       num2 = 0;
       result = true;
@@ -125,66 +126,71 @@
       explanation[1].left = 550;
 
       explanation[2] = new Explanation();
-      explanation[2].innerHTML = "The statement will invoke the max method and assign the return value from the method to k.";
-      explanation[2].top = 117;
-      explanation[2].left = 470;
-      explanation[2].width = 430;
+      explanation[2].innerHTML = "The statement assigns 0 to j.";
+      explanation[2].top = 107;
+      explanation[2].left = 570;
 
       explanation[3] = new Explanation();
-      explanation[3].innerHTML = "The max method is invoked.";
-      explanation[3].top = 130;
-      explanation[3].left = 480;
-      explanation[3].width = 260;
+      explanation[3].innerHTML = "The statement will invoke the max method and assign the return value from the method to k.";
+      explanation[3].top = 117;
+      explanation[3].left = 470;
+      explanation[3].width = 430;
 
       explanation[4] = new Explanation();
-      explanation[4].innerHTML = "The statement receives an input from the user.";
-      explanation[4].top = 245;
-      explanation[4].left = 285;
-      explanation[4].width = 205;
+      explanation[4].innerHTML = "The max method is invoked.";
+      explanation[4].top = 130;
+      explanation[4].left = 480;
+      explanation[4].width = 260;
 
       explanation[5] = new Explanation();
-      explanation[5].innerHTML = "Variable result is declared.";
-      explanation[5].top = 247;
-      explanation[5].left = 325;
+      explanation[5].innerHTML = "The statement receives an input from the user.";
+      explanation[5].top = 245;
+      explanation[5].left = 285;
       explanation[5].width = 205;
 
       explanation[6] = new Explanation();
-      explanation[6].innerHTML = "The statement tests if num1 is greater than num2.";
-      explanation[6].top = 250;
-      explanation[6].left = 228;
+      explanation[6].innerHTML = "Variable result is declared.";
+      explanation[6].top = 247;
+      explanation[6].left = 325;
       explanation[6].width = 205;
 
       explanation[7] = new Explanation();
-      explanation[7].innerHTML = "num1 is assigned to result.";
-      explanation[7].top = 270;
+      explanation[7].innerHTML = "The statement tests if num1 is greater than num2.";
+      explanation[7].top = 250;
       explanation[7].left = 228;
       explanation[7].width = 205;
 
       explanation[8] = new Explanation();
+      explanation[8].innerHTML = "num1 is assigned to result.";
+      explanation[8].top = 270;
+      explanation[8].left = 228;
+      explanation[8].width = 205;
 
       explanation[9] = new Explanation();
-      explanation[9].innerHTML = "The result will be returned from the max method. The max method is finished.";
-      explanation[8].top = 330;
-      explanation[8].left = 228;
-      explanation[8].width = 255;
 
       explanation[10] = new Explanation();
-      explanation[10].innerHTML = "The returned value is assigned to variable k.";
-      explanation[9].top = 118;
-      explanation[9]].left = 248;
-      explanation[9].width = 280;
+      explanation[10].innerHTML = "The result will be returned from the max method. The max method is finished.";
+      explanation[9].top = 330;
+      explanation[9].left = 228;
+      explanation[9].width = 255;
 
       explanation[11] = new Explanation();
-      explanation[11].innerHTML = "The statement displays the result.";
-      explanation[10].top = 130;
-      explanation[10].left = 468;
-      explanation[10].width = 155;
+      explanation[11].innerHTML = "The returned value is assigned to variable k.";
+      explanation[10].top = 118;
+      explanation[10].left = 248;
+      explanation[10].width = 280;
 
       explanation[12] = new Explanation();
-      explanation[12].innerHTML = "The main method exits. The program is finished.";
-      explanation[11].top = 158;
-      explanation[11].left = 348;
-      explanation[11].width = 150;
+      explanation[12].innerHTML = "The statement displays the result.";
+      explanation[11].top = 130;
+      explanation[11].left = 468;
+      explanation[11].width = 155;
+
+      explanation[13] = new Explanation();
+      explanation[13].innerHTML = "The main method exits. The program is finished.";
+      explanation[12].top = 158;
+      explanation[12].left = 348;
+      explanation[12].width = 150;
 
       explanation[14] = new Explanation();
       explanation[14].innerHTML = "Explanation 14";
@@ -326,9 +332,9 @@
           }
           else if (currentLine == 2) {
               console.log("executing currentLine"+currentLine);
-              number2 = tb2;
-              explanation[2].innerHTML = "The statement assigns 0 to variable j.";
-              commandPrompt[4].innerHTML = "What is " + number1 + " + 0? ";
+              number2 = 0;
+              explanation[2].innerHTML = "The statement assigns " + number2 + " to variable j.";
+              commandPrompt[4].innerHTML = "What is " + number1 + " + " + number2 + "? ";
 
               document.getElementById('area').style.visibility = 'visible';
               document.getElementById('flyingJ').style.visibility = 'visible';
@@ -356,7 +362,7 @@
           }
           else if (currentLine == 4) {
               console.log("executing currentLine"+currentLine);
-              result = number1 < 0 ? 0 : number1;
+              result = number1 < number2 ? number2 : number1;
 explanation[currentLine].innerHTML = "";
                     document.getElementById('explanation').innerHTML = explanation[currentLine].innerHTML;
 
@@ -378,7 +384,7 @@ explanation[currentLine].innerHTML = "";
           else if (currentLine == 5) {
               console.log("executing currentLine"+currentLine);
               num1 = number1;
-              num2 = 0;
+              num2 = number2;
 
               document.getElementById('num1').style.visibility = 'visible';
               document.getElementById('num2').style.visibility = 'visible';
@@ -389,7 +395,7 @@ explanation[currentLine].innerHTML = "";
 
               explanation[5].innerHTML = "The values of i and j are passed to num1 and num2.";
               commandPrompt[5].innerHTML = commandPrompt[4].innerHTML + num1;
-              commandPrompt[6].innerHTML = commandPrompt[5].innerHTML + "\n" + number1 + " + 0 = " + num1 + " is " + result;
+              commandPrompt[6].innerHTML = commandPrompt[5].innerHTML + "\n" + number1 + " + " + number2 + " = " + num1 + " is " + result;
               commandPrompt[7].innerHTML = commandPrompt[6].innerHTML + "";
 
               pos = getElementPos(document.getElementById('line5'));
@@ -428,12 +434,12 @@ explanation[currentLine].innerHTML = "";
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
 
-              if (number1 > 0) {
-                  console.log("in the conditional statement for the condition (num1 > 0) is tested. It is true in this case.");
+              if (number1 > number2) {
+                  console.log("in the conditional statement for the condition (num1 > num2) is tested. It is true in this case.");
                   explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is true in this case.";
               }
               else {
-                  console.log("in the conditional statement for line 7 (num1 < 0) the condition (num1 > num2) is tested. It is false in this case.");
+                  console.log("in the conditional statement for line 7 (num1 < num2) the condition (num1 > num2) is tested. It is false in this case.");
                   explanation[currentLine].innerHTML = "The condition (num1 > num2) is tested. It is false in this case.";
                   display(currentLine);
                   currentLine = 8;
@@ -476,7 +482,7 @@ explanation[currentLine].innerHTML = "";
                           {top: value3Top + 50 + 5, left: value1Left}, slowAnimationSpeed);
               });
 
-              explanation[currentLine].innerHTML = "0 is assigned to result.";
+              explanation[currentLine].innerHTML = "num2 is assigned to result.";
           }
           else if (currentLine == 10) {
               console.log("executing currentLine"+currentLine);
@@ -556,7 +562,6 @@ explanation[currentLine].innerHTML = "";
 
               document.getElementById('note').style.display = 'inline';
               $('#tb1').prop("disabled", false);
-              $('#tb2').prop("disabled", false);
               $('#note').show();
 
           }
@@ -585,7 +590,6 @@ explanation[currentLine].innerHTML = "";
 
               document.getElementById('note').style.display = 'inline';
               $('#tb1').prop("disabled", false);
-              $('#tb2').prop("disabled", false);
               $('#note').show();
 
           }
@@ -774,7 +778,7 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
   2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
   3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
   4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
-  5&nbsp;&nbsp;    <span id="line2"><span class = "keyword">int</span> j = <span class = "constant">0</span>;</span>
+  5&nbsp;&nbsp;    <span id="line2"><span class = "keyword">int</span> j = <span class = "constant"><span id="loc2">0</span></span>;</span>
   6&nbsp;&nbsp;    <span id="line11"><span id="line3"><span class = "keyword">int</span> k = <span id="line4"><span id="loc5">max(i, j)</span></span>;</span></span>
   7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The maximum between "</span> + i +
   8&nbsp;&nbsp;      <span class = "literal">" and "</span> + j + <span class = "literal">" is "</span> + k);</span>
@@ -787,7 +791,7 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
  15&nbsp;&nbsp;    <span id="line7"><span class = "keyword">if</span> (num1 &gt; num2)</span>
  16&nbsp;&nbsp;      <span id="line8">result = <span id="loc3">num1</span>;</span>
  17&nbsp;&nbsp;    <span class = "keyword">else</span>
- 18&nbsp;&nbsp;      <span id="line9">result = <span id="locNum2">num2;</span></span>
+ 18&nbsp;&nbsp;      <span id="line9">result = <span id="locNum2">j;</span></span>
  19&nbsp;&nbsp;
  20&nbsp;&nbsp;    <span id="line10"><span class = "keyword">return</span> <span id="loc4">result</span>;</span>
  21&nbsp;&nbsp;  }
@@ -846,7 +850,6 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
           currentLine = 0;
           finished = false;
           $('#tb1').prop("disabled", false);
-          $('#tb2').prop("disabled", false);
           $('#note').show();
       }
 
@@ -917,9 +920,7 @@ document.getElementById('explanation').innerHTML = "The max method is invoked";
           document.getElementById('explanation').style.visibility = 'visible';
 
           tb1 = parseInt($('#tb1').val());
-          tb2 = parseInt($('#tb2').val());
           $('#tb1').prop("disabled", true);
-          $('#tb2').prop("disabled", true);
           $('#note').hide();
 
           document.getElementById('startOverButton').style.visibility = 'visible';
