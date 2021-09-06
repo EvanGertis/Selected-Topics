@@ -240,7 +240,7 @@
 
       commandPrompt[11] = new CommandPrompt();
       commandPrompt[11].isVisible = false;
-      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The maximum between 5 and 0 is 5";
+      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The minimum between 5 and 0 is 5";
       commandPrompt[11].top = 139;
       commandPrompt[11].left = 650;
       commandPrompt[11].width = 480;
@@ -531,7 +531,7 @@ explanation[currentLine].innerHTML = "";
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
                   width: 200}, 'fast');
-              commandPrompt[12].innerHTML = "The maximum between " + num1 + " and " + num2 + " is " + result;
+              commandPrompt[12].innerHTML = "The minimum between " + num1 + " and " + num2 + " is " + result;
               $("#commandPrompt").animate({top: pos8.y,
                   left: pos8.x + pos8.w + 20, }, 'fast');
           }
@@ -778,7 +778,7 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
   4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
   5&nbsp;&nbsp;    <span id="line2"><span class = "keyword">int</span> j = <span class = "constant"><span id="loc2">0</span></span>;</span>
   6&nbsp;&nbsp;    <span id="line11"><span id="line3"><span class = "keyword">int</span> k = <span id="line4"><span id="loc5">min(i, j)</span></span>;</span></span>
-  7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The maximum between "</span> + i +
+  7&nbsp;&nbsp;    <span id="line12">System.out.println(<span class = "literal">"The minimum between "</span> + i +
   8&nbsp;&nbsp;      <span class = "literal">" and "</span> + j + <span class = "literal">" is "</span> + k);</span>
   9&nbsp;&nbsp;  <span id="line13">}</span>
  10&nbsp;&nbsp;

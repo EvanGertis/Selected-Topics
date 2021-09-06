@@ -166,7 +166,7 @@
       explanation[8].width = 205;
 
       explanation[9] = new Explanation();
-      explanation[9].innerHTML = "The return statement places n*fac(n-1) on the callstack"
+      explanation[9].innerHTML = "The return statement places fac(n - 1) + fac(n - 2) on the callstack"
       explanation[9].top = 300;
       explanation[9].left = 258;
       explanation[9].width = 235;
@@ -237,7 +237,7 @@
 
       commandPrompt[11] = new CommandPrompt();
       commandPrompt[11].isVisible = false;
-      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The factorial of"+num1+" is "+fac(num1);
+      commandPrompt[11].innerHTML = commandPrompt[0].innerHTML + "The ith fibonacci number is"+fib(num1);
       commandPrompt[11].top = 139;
       commandPrompt[11].left = 650;
       commandPrompt[11].width = 480;
@@ -255,13 +255,11 @@
       currentLine = 0;
 
       
-      function fac(i){
-          console.log("In the factorial method");
-          console.log(i);
-          if(i <= 0){
+      function fib(i){
+          if(i <= 1){
               return 1;
           }
-          return i*fac(i-1);
+          return fib(i-1)+fib(i-2);
       }
       
       // set up the initialization function
@@ -367,7 +365,7 @@
           }
           else if (currentLine == 4) {
               console.log("executing currentLine"+currentLine);
-              num1 = fac(number1);
+              num1 = fib(number1);
             //   num2 = number2;
 
               explanation[5].innerHTML = "The variable result is declared";
@@ -397,14 +395,14 @@
                   left: (pos.x + pos.w) + 20,
                   width: 200}, 'fast');
 
-              if (number1 == 0) {
-                  explanation[currentLine].innerHTML = "The condition (num1 == 0) is tested. It is true in this case.";
+              if (number1 <= 1) {
+                  explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is true in this case.";
                   display(current)
                   currentLine = 7;
                   return;
               }
               else {
-                  explanation[currentLine].innerHTML = "The condition (num1 == 0) is tested. It is false in this case.";
+                  explanation[currentLine].innerHTML = "The condition (num1 <= 1) is tested. It is false in this case.";
                   display(currentLine);
                   currentLine = 8;
                   return;
@@ -450,10 +448,9 @@
               $("#highlight").animate({top: pos.y, left: pos.x, width: pos.w, height: pos.h}, animationSpeed, function () {
                   posLoc4 = getElementPos(document.getElementById('loc4'));
                   posLoc5 = getElementPos(document.getElementById('loc5'));
-                  console.log("In currentLine"+currentLine);
-                  num1 = fac(num1);
+
                   document.getElementById('flyingReturnValue').innerHTML = fac(num1);
-                  console.log("sent flying return value");
+
                   $("#flyingReturnValue").css("top", posLoc4.y)
                           .css("left", posLoc4.x - 35);
                   $("#flyingReturnValue").animate({top: posLoc5.y, left: posLoc5.x}, slowAnimationSpeed);
@@ -466,7 +463,7 @@
               $("#explanation").animate({top: pos.y + 25,
                   left: (pos.x + pos.w) - 60,
                   width: 200}, 'fast');
-              commandPrompt[11].innerHTML = "The " + num1 + "th fac number is" + fac(result);
+              commandPrompt[11].innerHTML = "The " + num1 + "th faconacci number is" + result;
               $("#commandPrompt").animate({top: pos7.y,
                   left: pos7.x + pos7.w + 20, }, 'fast');
           }
@@ -708,12 +705,12 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
 
     <div id = "program" style="border: 1px solid #EB0D1B; font-family: courier; font-size: 100.5%; margin: 0px auto; text-align: left">
       <pre>
-  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> fac {
+  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> faconacci {
   2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
   3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
   4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
   5&nbsp;&nbsp;    <span id="line10"><span id="line2"><span class = "keyword">int</span> k = <span id="line3"><span id="loc5">fac(i)</span></span>;</span></span>
-  6&nbsp;&nbsp;    <span id="line11">System.out.println(<span class = "literal">"The factorial of"</span> + i +<span class = "literal">" is "</span>
+  6&nbsp;&nbsp;    <span id="line11">System.out.println(<span class = "literal">"The "</span> + i +<span class = "literal">"th faconacci number "</span>
   7&nbsp;&nbsp;      <span class = "literal">" is "</span> + k);</span>
   8&nbsp;&nbsp;  <span id="line12">}</span>
   9&nbsp;&nbsp;
@@ -721,10 +718,10 @@ document.getElementById('explanation').innerHTML = "The min method is invoked";
  11&nbsp;&nbsp;  <span id="line4"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">int</span> fac(<span class = "keyword">int</span> n) {</span>
  12&nbsp;&nbsp;    <span id="line5"><span class = "keyword">int</span> result;</span>
  13&nbsp;&nbsp;
- 14&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span> (num1 == 1)</span>
+ 14&nbsp;&nbsp;    <span id="line6"><span class = "keyword">if</span> (num1 &lt;= 1)</span>
  15&nbsp;&nbsp;      <span id="line7">return <span id="loc3">1</span>;</span>
  16&nbsp;&nbsp;
- 17&nbsp;&nbsp;    <span id="line9"><span class = "keyword">return</span> <span id="loc4">n*fac(n)</span>;</span>
+ 17&nbsp;&nbsp;    <span id="line9"><span class = "keyword">return</span> <span id="loc4">fac(n-1)+fac(n-2)</span>;</span>
  18&nbsp;&nbsp;  }
  19&nbsp;&nbsp;}
       </pre>
