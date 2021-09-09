@@ -385,7 +385,7 @@
             }
             else if (currentLine == 4) {
                 console.log("executing currentLine" + currentLine);
-                num1 = fac(number1);
+                num1 = number1;
                 //   num2 = number2;
 
                 explanation[5].innerHTML = "The variable result is declared";
@@ -421,7 +421,7 @@
                     width: 200
                 }, 'fast');
 
-                if (number1 == 0) {
+                if (number1 == 0 || number1 == 1) {
                     explanation[currentLine].innerHTML = "The condition (n == 0 || n == 1) is tested. It is true in this case.";
                     display(current)
                     currentLine = 7;
@@ -430,6 +430,7 @@
                 else {
                     explanation[currentLine].innerHTML = "The condition (n == 0 || n == 1) is tested. It is false in this case.";
                     display(currentLine);
+                    number1--;
                     currentLine = 8;
                     return;
                 }
@@ -457,6 +458,9 @@
                 }, 'fast');
                 if (number1 > 1) {
                     console.log("this should redirect back to currentLine == 6")
+                    display(currentLine);
+                    currentLine = 5;
+                    return;
                 }
             }
             else if (currentLine == 10) {
@@ -481,7 +485,7 @@
                     posLoc4 = getElementPos(document.getElementById('loc4'));
                     posLoc5 = getElementPos(document.getElementById('loc5'));
                     console.log("In currentLine" + currentLine);
-                    document.getElementById('flyingReturnValue').innerHTML = "TODO place fac number here";
+                    document.getElementById('flyingReturnValue').innerHTML = fac(num1);
                     console.log("sent flying return value");
                     $("#flyingReturnValue").css("top", posLoc4.y)
                         .css("left", posLoc4.x - 35);
@@ -497,7 +501,7 @@
                     left: (pos.x + pos.w) - 60,
                     width: 200
                 }, 'fast');
-                commandPrompt[11].innerHTML = "The " + num1 + "th fac number is" + fac(result);
+                commandPrompt[11].innerHTML = "The factorial of " + num1 + " is " + fac(result);
                 $("#commandPrompt").animate({
                     top: pos7.y,
                     left: pos7.x + pos7.w + 20,
@@ -756,7 +760,7 @@
     <div id="program"
         style="border: 1px solid #EB0D1B; font-family: courier; font-size: 100.5%; margin: 0px auto; text-align: left">
         <pre>
-  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> fac {
+  1&nbsp;&nbsp;<span class = "keyword">public</span> <span class = "keyword">class</span> Fac {
   2&nbsp;&nbsp;  <span class = "comment">/** Main method */</span>
   3&nbsp;&nbsp;  <span id="line0"><span class = "keyword">public</span> <span class = "keyword">static</span> <span class = "keyword">void</span> main(String[] args) {</span>
   4&nbsp;&nbsp;    <span id="line1"><span class = "keyword">int</span> i = <span class = "constant"><span id="loc1"><input id="tb1" type="text" value="5" style="z-index: 10; width:18px; color: #EB0D1B"></span></span>;</span>
