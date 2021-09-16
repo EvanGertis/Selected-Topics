@@ -33,20 +33,16 @@ def save_file():
 def print_html():
     """Print html"""
     text = txt_edit.get(1.0, tk.END)
-    # single line comment (\/\*.+\*\/)
-    # multi-line line comment (\/*.+)|(.+*\/)
-    regex = r"(\/*.+)|(.+*\/)" 
+
+    # single line comment (?:\/\*.+\*\/)
+    # multi-line line comment (?:\/\*.+)|(?:.+\*\/)
+    regex = r"(?:\/\*.+)|(?:.+\*\/)"
     new_text = []
     enteredMatches = False
     for line in text.split("\n"):
         line_text = []
 
         matches = re.finditer(regex, line, re.MULTILINE)
-        for word in line.split(" "):
-            if word in keywords:
-                line_text.append('<span class="keyword">' + word + '</span>')
-            else:
-                line_text.append(word)
 
         for match in matches:
             line_text.append('<span class="comment">' + match.group() + '</span>')
@@ -56,6 +52,12 @@ def print_html():
             enteredMatches = False
             new_text.append(' '.join(line_text))
             continue
+
+        for word in line.split(" "):
+            if word in ['static', 'void', 'public', 'class']:
+                line_text.append('<span class="keyword">' + word + '</span>')
+            else:
+                line_text.append(word)
 
         new_text.append(' '.join(line_text))
     new_text = '\n'.join(new_text)
