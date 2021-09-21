@@ -89,37 +89,37 @@
           <table id="tablestyle">
             <tr id="row1">
               <td>
-                <div id="t4" class="ltarget"></div>
-              </td>
-              <td id = "d4">
-              </td>
-            </tr>  
-            <tr id="row2">
-              <td>
-                <div id="t5" class="ltarget"></div>
-              </td>
-              <td id = "d5">
-              </td>
-            </tr>  
-            <tr id="row3">
-              <td>
                 <div id="t1" class="ltarget"></div>
               </td>
               <td id = "d1">
               </td>
             </tr>  
-            <tr id="row4">
+            <tr id="row2">
               <td>
                 <div id="t2" class="ltarget"></div>
               </td>
               <td id = "d2">
               </td>
             </tr>  
-            <tr id="row5">
+            <tr id="row3">
               <td>
                 <div id="t3" class="ltarget"></div>
               </td>
               <td id = "d3">
+              </td>
+            </tr>  
+            <tr id="row4">
+              <td>
+                <div id="t4" class="ltarget"></div>
+              </td>
+              <td id = "d4">
+              </td>
+            </tr>  
+            <tr id="row5">
+              <td>
+                <div id="t5" class="ltarget"></div>
+              </td>
+              <td id = "d5">
               </td>
             </tr>  
           </table>
@@ -171,11 +171,11 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     function one() {
         jAlert(answer, 'Correct Match');
     }
-    el1 = document.getElementById("el1").value
-    el2 = document.getElementById("el2").value
+    el1 = document.getElementById("el3").value
+    el2 = document.getElementById("el4").value
     el3 = document.getElementById("el3").value
-    el4 = document.getElementById("el4").value
-    el5 = document.getElementById("el5").value
+    el4 = document.getElementById("el1").value
+    el5 = document.getElementById("el2").value
     s1 = document.getElementById("s1")
     s2 = document.getElementById("s2")
     s3 = document.getElementById("s3")
@@ -191,18 +191,17 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     d3 = document.getElementById("d3")
     d4 = document.getElementById("d4")
     d5 = document.getElementById("d5")
-    answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
     s1.innerHTML = el1
     s2.innerHTML = el2
     s3.innerHTML = el3
     s4.innerHTML = el4
     s5.innerHTML = el5
-    d1.innerHTML = dl1
-    d2.innerHTML = dl2
-    d3.innerHTML = dl3
-    d4.innerHTML = dl4
-    d5.innerHTML = dl5
-    answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
+    d3.innerHTML = dl1
+    d4.innerHTML = dl2
+    d5.innerHTML = dl3
+    d1.innerHTML = dl4
+    d2.innerHTML = dl5
+    answer = el4+": "+dl4+"\n"+el5+": "+dl5+"\n"+el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3
     function generate_html() {
       el1 = document.getElementById("el1").value
       el2 = document.getElementById("el2").value
@@ -224,29 +223,19 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       d3 = document.getElementById("d3")
       d4 = document.getElementById("d4")
       d5 = document.getElementById("d5")
-      answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
       s1.innerHTML = el1
       s2.innerHTML = el2
       s3.innerHTML = el3
       s4.innerHTML = el4
       s5.innerHTML = el5
-      d1.innerHTML = dl1
-      d2.innerHTML = dl2
-      d3.innerHTML = dl3
-      d4.innerHTML = dl4
-      d5.innerHTML = dl5
+      d3.innerHTML = dl1
+      d4.innerHTML = dl2
+      d5.innerHTML = dl3
+      d1.innerHTML = dl4
+      d2.innerHTML = dl5
 
-      el1.setAttribute("class","hidden");
-      el2.setAttribute("class","hidden");
-      el3.setAttribute("class","hidden");
-      el4.setAttribute("class","hidden");
-      el5.setAttribute("class","hidden");
-      dl1.setAttribute("class","hidden");
-      dl2.setAttribute("class","hidden");
-      dl3.setAttribute("class","hidden");
-      dl4.setAttribute("class","hidden");
-      dl5.setAttribute("class","hidden");
-    
+      answer = el4+": "+dl4+"\n"+el5+": "+dl5+"\n"+el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3
+      console.log(answer)
     }
 </script>
    
