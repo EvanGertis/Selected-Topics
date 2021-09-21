@@ -28,9 +28,10 @@
       <center>
         <div id="boxstyle">
           <h3 id="h3style">Section 5.2 Word Matching Exercise</h3>
-          User Input:
+
           <center>
             <div class="inputBoxes">
+              User Input:
               <table id="tablestyle">
                 <td>
                   <input id="el1" type="text" value="">
@@ -50,9 +51,9 @@
               </table>
             </div>
           </center>
-          Result in HTML:
           <center>
             <div class="inputBoxes">
+              Result in HTML:
               <table id="tablestyle">
                 <td>
                   <input id="dl1" type="text" value="">
@@ -70,59 +71,12 @@
                   <input id="dl5" type="text" value="">
                 </td>
               </table>
+              <span style="padding: 3px">
+                <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
+              </span>
             </div>
           </center>
           <center>
-            <span style="padding: 3px">
-              <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
-            </span>
-          </center>
-          <center>
-            <div class="source">
-              <div id="s1" class="draggyBox-small"></div>
-              <div id="s2" class="draggyBox-small"></div>
-              <div id="s3" class="draggyBox-large"></div>
-              <div id="s4" class="draggyBox-small"></div>
-              <div id="s5" class="draggyBox-small"></div>
-            </div>
-          </center>
-          <table id="tablestyle">
-            <tr id="row1">
-              <td>
-                <div id="t1" class="ltarget"></div>
-              </td>
-              <td id = "d1">
-              </td>
-            </tr>  
-            <tr id="row2">
-              <td>
-                <div id="t2" class="ltarget"></div>
-              </td>
-              <td id = "d2">
-              </td>
-            </tr>  
-            <tr id="row3">
-              <td>
-                <div id="t3" class="ltarget"></div>
-              </td>
-              <td id = "d3">
-              </td>
-            </tr>  
-            <tr id="row4">
-              <td>
-                <div id="t4" class="ltarget"></div>
-              </td>
-              <td id = "d4">
-              </td>
-            </tr>  
-            <tr id="row5">
-              <td>
-                <div id="t5" class="ltarget"></div>
-              </td>
-              <td id = "d5">
-              </td>
-            </tr>  
-          </table>
 <div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier;
           font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;">
          <span style="padding: 3px"> 
@@ -167,7 +121,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
 }
 </script>
     <script>
-    
+    var htmlGenerated = false;
     function one() {
         jAlert(answer, 'Correct Match');
     }
@@ -208,38 +162,31 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       el3 = document.getElementById("el3").value
       el4 = document.getElementById("el4").value
       el5 = document.getElementById("el5").value
-      s1 = document.getElementById("s1")
-      s2 = document.getElementById("s2")
-      s3 = document.getElementById("s3")
-      s4 = document.getElementById("s4")
-      s5 = document.getElementById("s5")
       dl1 = document.getElementById("dl1").value
       dl2 = document.getElementById("dl2").value
       dl3 = document.getElementById("dl3").value
       dl4 = document.getElementById("dl4").value
       dl5 = document.getElementById("dl5").value
-      d1 = document.getElementById("d1")
-      d2 = document.getElementById("d2")
-      d3 = document.getElementById("d3")
-      d4 = document.getElementById("d4")
-      d5 = document.getElementById("d5")
-      s1.innerHTML = el1
-      s2.innerHTML = el2
-      s3.innerHTML = el3
-      s4.innerHTML = el4
-      s5.innerHTML = el5
-      d3.innerHTML = dl1
-      d4.innerHTML = dl2
-      d5.innerHTML = dl3
-      d1.innerHTML = dl4
-      d2.innerHTML = dl5
 
       answer = el4+": "+dl4+"\n"+el5+": "+dl5+"\n"+el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3
-      generate_html()
+      generate_html(el1,el2,el3,el4,el5,dl1,dl2,dl3,dl4,dl5)
+      hide_user_input()
     }
 
     function generate_html(el1,el2,el3,el4,el5,dl1,dl2,dl3,dl4,dl5){
-      
+      word_matching = document.getElementById("boxstyle");
+      if(!htmlGenerated){
+        word_matching.innerHTML += '</center><center><div class="source"><div id="s1"class="draggyBox-small">'+el1+'</div> <div id="s2" class="draggyBox-small">'+el2+'</div> <div id="s3"class="draggyBox-large">'+el3+'</div> <div id="s4"class="draggyBox-small">'+el4+'</div> <div id="s5"class="draggyBox-small">'+el5+'</div> </div></center><table id="tablestyle"><trid="row1"><td><div id="t1" class="ltarget"></div></td><td id="d1">'+dl1+'</td></tr><tr id="row2"><td><div id="t2"class="ltarget"></div></td><td id="d2">'+dl2+'</td></tr><tr id="row3"><td><div id="t3"class="ltarget"></div></td><td id="d3">'+dl3+'</td></tr><t rid="row4"><td><div id="t4"class="ltarget"></div></td><td id="d4">'+dl4+'</td></tr><tr id="row5"><td><div id="t5"class="ltarget"></div></td><td id="d5">'+dl5+'</td></tr></table>'
+        htmlGenerated = true;
+      }
+    } 
+
+    function hide_user_input(){
+      user_input = document.getElementsByClassName("inputBoxes")
+      while(user_input.length > 0){
+        user_input[0].parentNode.removeChild(user_input[0])
+      }
+
     }
 </script>
    
