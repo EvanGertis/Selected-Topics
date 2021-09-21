@@ -28,46 +28,54 @@
       <center>
         <div id="boxstyle">
           <h3 id="h3style">Section 5.2 Word Matching Exercise</h3>
+          User Input:
           <center>
-            <table id="tablestyle">
-              <td>
-                <input id="el1" type="text" value="word 3">
-              </td>
-              <td>
-                <input id="el2" type="text" value="word 4">
-              </td>
-              <td>
-                <input id="el3" type="text" value="word 5">
-              </td>
-              <td>
-                <input id="el4" type="text" value="word 1">
-              </td>
-              <td>
-                <input id="el5" type="text" value="word 2">
-              </td>
-            </table>
+            <div class="inputBoxes">
+              <table id="tablestyle">
+                <td>
+                  <input id="el1" type="text" value="">
+                </td>
+                <td>
+                  <input id="el2" type="text" value="">
+                </td>
+                <td>
+                  <input id="el3" type="text" value="">
+                </td>
+                <td>
+                  <input id="el4" type="text" value="">
+                </td>
+                <td>
+                  <input id="el5" type="text" value="">
+                </td>
+              </table>
+            </div>
+          </center>
+          Result in HTML:
+          <center>
+            <div class="inputBoxes">
+              <table id="tablestyle">
+                <td>
+                  <input id="dl1" type="text" value="">
+                </td>
+                <td>
+                  <input id="dl2" type="text" value="">
+                </td>
+                <td>
+                  <input id="dl3" type="text" value="">
+                </td>
+                <td>
+                  <input id="dl4" type="text" value="">
+                </td>
+                <td>
+                  <input id="dl5" type="text" value="">
+                </td>
+              </table>
+            </div>
           </center>
           <center>
-            <table id="tablestyle">
-              <td>
-                <input id="dl1" type="text" value="description 1">
-              </td>
-              <td>
-                <input id="dl2" type="text" value="description 2">
-              </td>
-              <td>
-                <input id="dl3" type="text" value="description 3">
-              </td>
-              <td>
-                <input id="dl4" type="text" value="description 4">
-              </td>
-              <td>
-                <input id="dl5" type="text" value="description 5">
-              </td>
-            </table>
-          </center>
-          <center>
-            <button id ="one" class="button" type="button" onClick="generate_html()">generate html</button>
+            <span style="padding: 3px">
+              <button id ="one" class="button" type="button" onClick="generate_html()">generate html</button>
+            </span>
           </center>
           <center>
             <div class="source">
@@ -83,40 +91,35 @@
               <td>
                 <div id="t1" class="ltarget"></div>
               </td>
-              <td id = "d1">
-                <input type="text" value=" description 1 ">
+              <td id = "d4">
               </td>
             </tr>  
             <tr id="row2">
               <td>
                 <div id="t2" class="ltarget"></div>
               </td>
-              <td id = "d2">
-                <input type="text" value=" description 2 ">
+              <td id = "d5">
               </td>
             </tr>  
             <tr id="row3">
               <td>
                 <div id="t3" class="ltarget"></div>
               </td>
-              <td id = "d3">
-                <input type="text" value=" description 3 "> 
+              <td id = "d1">
               </td>
             </tr>  
             <tr id="row4">
               <td>
                 <div id="t4" class="ltarget"></div>
               </td>
-              <td id = "d4">
-                <input type="text" value=" description 4 ">
+              <td id = "d2">
               </td>
             </tr>  
             <tr id="row5">
               <td>
                 <div id="t5" class="ltarget"></div>
               </td>
-              <td id = "d5">
-                <input type="text" value=" description 5 ">
+              <td id = "d3">
               </td>
             </tr>  
           </table>
@@ -183,22 +186,23 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     dl3 = document.getElementById("dl3").value
     dl4 = document.getElementById("dl4").value
     dl5 = document.getElementById("dl5").value
-    d1 = document.getElementById("dl1")
-    d2 = document.getElementById("dl2")
-    d3 = document.getElementById("dl3")
-    d4 = document.getElementById("dl4")
-    d5 = document.getElementById("dl5")
-    answer = el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3+"\n"+el4+": "+dl4+"\n"+el5+": "+dl5
+    d1 = document.getElementById("d1")
+    d2 = document.getElementById("d2")
+    d3 = document.getElementById("d3")
+    d4 = document.getElementById("d4")
+    d5 = document.getElementById("d5")
+    answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
     s1.innerHTML = el1
     s2.innerHTML = el2
     s3.innerHTML = el3
     s4.innerHTML = el4
     s5.innerHTML = el5
-    d1.innerHTML = el1
-    d2.innerHTML = el2
-    d3.innerHTML = el3
-    d4.innerHTML = el4
-    answer = el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3+"\n"+el4+": "+dl4+"\n"+el5+": "+dl5
+    d1.innerHTML = dl1
+    d2.innerHTML = dl2
+    d3.innerHTML = dl3
+    d4.innerHTML = dl4
+    d5.innerHTML = dl5
+    answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
     function generate_html() {
       el1 = document.getElementById("el1").value
       el2 = document.getElementById("el2").value
@@ -215,22 +219,22 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       dl3 = document.getElementById("dl3").value
       dl4 = document.getElementById("dl4").value
       dl5 = document.getElementById("dl5").value
-      d1 = document.getElementById("dl1")
-      d2 = document.getElementById("dl2")
-      d3 = document.getElementById("dl3")
-      d4 = document.getElementById("dl4")
-      d5 = document.getElementById("dl5")
-      answer = el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3+"\n"+el4+": "+dl4+"\n"+el5+": "+dl5
+      d1 = document.getElementById("d1")
+      d2 = document.getElementById("d2")
+      d3 = document.getElementById("d3")
+      d4 = document.getElementById("d4")
+      d5 = document.getElementById("d5")
+      answer = el4+": "+dl1+"\n"+el2+": "+dl4+"\n"+el1+": "+dl3+"\n"+el5+": "+dl2+"\n"+el3+": "+dl5
       s1.innerHTML = el1
       s2.innerHTML = el2
       s3.innerHTML = el3
       s4.innerHTML = el4
       s5.innerHTML = el5
-      d1.innerHTML = el1
-      d2.innerHTML = el2
-      d3.innerHTML = el3
-      d4.innerHTML = el4
-      d5.innerHTML = el5
+      d1.innerHTML = dl1
+      d2.innerHTML = dl2
+      d3.innerHTML = dl3
+      d4.innerHTML = dl4
+      d5.innerHTML = dl5
 
       el1.setAttribute("class","hidden");
       el2.setAttribute("class","hidden");
