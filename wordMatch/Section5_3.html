@@ -30,6 +30,7 @@
           <div class="row">
             <div id="inputs" class="column column-1">
                 <div class="inputBoxes">
+                    <title>Input:</title>
                     <div class="row">
                       Title: <input id= "title" type="text">
                     </div>  
@@ -149,9 +150,10 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     function generate_html(el1,el2,el3,el4,el5,dl1,dl2,dl3,dl4,dl5){
       word_matching = document.getElementById("results");
       if(!htmlGenerated){
+        word_matching.innerHTML += '<title>Output:</title>'
         word_matching.innerHTML += '<h3 id="h3style">'+title+'</h3>'
-        word_matching.innerHTML += '</center><center><div class="source"><div id="s1"class="draggyBox-small">'+el1+'</div> <div id="s2" class="draggyBox-small">'+el2+'</div> <div id="s3"class="draggyBox-large">'+el3+'</div> <div id="s4"class="draggyBox-small">'+el4+'</div> <div id="s5"class="draggyBox-small">'+el5+'</div> </div></center><table id="tablestyle"><trid="row1"><td><div id="t1" class="ltarget"></div></td><td id="d1">'+dl1+'</td></tr><tr id="row2"><td><div id="t2"class="ltarget"></div></td><td id="d2">'+dl2+'</td></tr><tr id="row3"><td><div id="t3"class="ltarget"></div></td><td id="d3">'+dl3+'</td></tr><t rid="row4"><td><div id="t4"class="ltarget"></div></td><td id="d4">'+dl4+'</td></tr><tr id="row5"><td><div id="t5"class="ltarget"></div></td><td id="d5">'+dl5+'</td></tr></table>'
-        word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div> </center> </div>'
+        word_matching.innerHTML += '<div class="source"><div id="s1"class="draggyBox-small">'+el1+'</div> <div id="s2" class="draggyBox-small">'+el2+'</div> <div id="s3"class="draggyBox-large">'+el3+'</div> <div id="s4"class="draggyBox-small">'+el4+'</div> <div id="s5"class="draggyBox-small">'+el5+'</div> </div><table id="tablestyle"><trid="row1"><td><div id="t1" class="ltarget"></div></td><td id="d1">'+dl1+'</td></tr><tr id="row2"><td><div id="t2"class="ltarget"></div></td><td id="d2">'+dl2+'</td></tr><tr id="row3"><td><div id="t3"class="ltarget"></div></td><td id="d3">'+dl3+'</td></tr><t rid="row4"><td><div id="t4"class="ltarget"></div></td><td id="d4">'+dl4+'</td></tr><tr id="row5"><td><div id="t5"class="ltarget"></div></td><td id="d5">'+dl5+'</td></tr></table>'
+        word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div></div>'
         htmlGenerated = true;
       }
     } 
