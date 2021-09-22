@@ -25,58 +25,54 @@
 
   <body>
     <div id="maincontentstyle">
-      <center>
         <div id="boxstyle">
           <h3 id="h3style">Section 5.2 Word Matching Exercise</h3>
-
-          <center>
-            <div class="inputBoxes">
-              User Input:
-              <table id="tablestyle">
-                <td>
-                  <input id="el1" type="text" value="">
-                </td>
-                <td>
-                  <input id="el2" type="text" value="">
-                </td>
-                <td>
-                  <input id="el3" type="text" value="">
-                </td>
-                <td>
-                  <input id="el4" type="text" value="">
-                </td>
-                <td>
-                  <input id="el5" type="text" value="">
-                </td>
-              </table>
+          <div class="row">
+            <div class="column column-1">
+                <div class="inputBoxes">
+                  User Input:
+                    <div class="row">
+                      <input id="el1" type="text" value="">
+                    </div>
+                    <div class="row">
+                      <input id="el2" type="text" value="">
+                    </div>
+                    <div class="row">
+                      <input id="el3" type="text" value="">
+                    </div>
+                    <div class="row">
+                      <input id="el4" type="text" value="">
+                    </div>
+                    <div class="row">
+                      <input id="el5" type="text" value="">
+                    </div>
+                </div>
+                <span style="padding: 3px">
+                  <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
+                </span>
             </div>
-          </center>
-          <center>
-            <div class="inputBoxes">
-              Result in HTML:
-              <table id="tablestyle">
-                <td>
-                  <input id="dl1" type="text" value="">
-                </td>
-                <td>
-                  <input id="dl2" type="text" value="">
-                </td>
-                <td>
-                  <input id="dl3" type="text" value="">
-                </td>
-                <td>
-                  <input id="dl4" type="text" value="">
-                </td>
-                <td>
-                  <input id="dl5" type="text" value="">
-                </td>
-              </table>
-              <span style="padding: 3px">
-                <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
-              </span>
+            <div class="column column-2">
+              <div class="inputBoxes">
+                Result in HTML:
+                  <div class="row">
+                    <input id="dl1" type="text" value="">
+                  </div>
+                  <div class="row">
+                    <input id="dl2" type="text" value="">
+                  </div>
+                  <div class="row">
+                    <input id="dl3" type="text" value="">
+                  </div>
+                  <div class="row">
+                    <input id="dl4" type="text" value="">
+                  </div>
+                  <div class="row">
+                    <input id="dl5" type="text" value="">
+                  </div>
+              </div>
             </div>
-          </center>
-          <center>
+          </div>
+        </div>
 
 
     

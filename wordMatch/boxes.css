@@ -367,3 +367,21 @@
 #popup_prompt {
 	margin: .5em 0em;
 }
+
+/* CSS Sections */
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+    text-align: center;
+  }
+  
+  .column-1 {
+    background-color: red;
+  }
+  
+  .column-2 {
+    background-color: blue;
+  }
