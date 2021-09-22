@@ -31,41 +31,42 @@
             <div id="inputs" class="column column-1">
                 <div class="inputBoxes">
                     <div class="row">
-                      <input id="el1" type="text" value="">
+                      Title: <input id= "title" type="text">
+                    </div>  
+                    <div class="row">
+                      Key Term 1: <input id="el1" type="text" value="">
                     </div>
                     <div class="row">
-                      <input id="el2" type="text" value="">
+                      Description 1: <input id="dl1" type="text" value="">
                     </div>
                     <div class="row">
-                      <input id="el3" type="text" value="">
+                      Key Term 2: <input id="el2" type="text" value="">
                     </div>
                     <div class="row">
-                      <input id="el4" type="text" value="">
+                      Description 2: <input id="dl2" type="text" value="">
                     </div>
                     <div class="row">
-                      <input id="el5" type="text" value="">
+                      Key Term 3: <input id="el3" type="text" value="">
                     </div>
-                    <div class="inputBoxes">
-                        <div class="row">
-                          <input id="dl1" type="text" value="">
-                        </div>
-                        <div class="row">
-                          <input id="dl2" type="text" value="">
-                        </div>
-                        <div class="row">
-                          <input id="dl3" type="text" value="">
-                        </div>
-                        <div class="row">
-                          <input id="dl4" type="text" value="">
-                        </div>
-                        <div class="row">
-                          <input id="dl5" type="text" value="">
-                        </div>
+                    <div class="row">
+                      Description 3: <input id="dl3" type="text" value="">
                     </div>
+                    <div class="row">
+                      Key Term 4: <input id="el4" type="text" value="">
+                    </div>
+                    <div class="row">
+                      Description 4: <input id="dl4" type="text" value="">
+                    </div>
+                    <div class="row">
+                      Key Term 5: <input id="el5" type="text" value="">
+                    </div>
+                    <div class="row">
+                      Description 5: <input id="dl5" type="text" value="">
+                    </div>
+                    <span style="padding: 3px">
+                      <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
+                    </span>
                 </div>
-                <span style="padding: 3px">
-                  <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
-                </span>
             </div>
             <div id="results" class="column column-2">
               
@@ -126,18 +127,9 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     d3 = document.getElementById("d3")
     d4 = document.getElementById("d4")
     d5 = document.getElementById("d5")
-    s1.innerHTML = el1
-    s2.innerHTML = el2
-    s3.innerHTML = el3
-    s4.innerHTML = el4
-    s5.innerHTML = el5
-    d3.innerHTML = dl1
-    d4.innerHTML = dl2
-    d5.innerHTML = dl3
-    d1.innerHTML = dl4
-    d2.innerHTML = dl5
     answer = el4+": "+dl4+"\n"+el5+": "+dl5+"\n"+el1+": "+dl1+"\n"+el2+": "+dl2+"\n"+el3+": "+dl3
     function process_input() {
+      title =  document.getElementById("title").value
       el1 = document.getElementById("el1").value
       el2 = document.getElementById("el2").value
       el3 = document.getElementById("el3").value
@@ -157,6 +149,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     function generate_html(el1,el2,el3,el4,el5,dl1,dl2,dl3,dl4,dl5){
       word_matching = document.getElementById("results");
       if(!htmlGenerated){
+        word_matching.innerHTML += '<h3 id="h3style">'+title+'</h3>'
         word_matching.innerHTML += '</center><center><div class="source"><div id="s1"class="draggyBox-small">'+el1+'</div> <div id="s2" class="draggyBox-small">'+el2+'</div> <div id="s3"class="draggyBox-large">'+el3+'</div> <div id="s4"class="draggyBox-small">'+el4+'</div> <div id="s5"class="draggyBox-small">'+el5+'</div> </div></center><table id="tablestyle"><trid="row1"><td><div id="t1" class="ltarget"></div></td><td id="d1">'+dl1+'</td></tr><tr id="row2"><td><div id="t2"class="ltarget"></div></td><td id="d2">'+dl2+'</td></tr><tr id="row3"><td><div id="t3"class="ltarget"></div></td><td id="d3">'+dl3+'</td></tr><t rid="row4"><td><div id="t4"class="ltarget"></div></td><td id="d4">'+dl4+'</td></tr><tr id="row5"><td><div id="t5"class="ltarget"></div></td><td id="d5">'+dl5+'</td></tr></table>'
         word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div> </center> </div>'
         htmlGenerated = true;
