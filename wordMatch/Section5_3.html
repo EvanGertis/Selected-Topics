@@ -98,22 +98,39 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
     
     const generate_html = (elArray, dlArray, title) => {
-      word_matching = document.getElementById("results");
-      if(!htmlGenerated){
-        // title = document.getElementById("title");
-        // title.innerHTML = title_input; 
-        word_matching.innerHTML += '<textarea id="html" value='
-        let text = title + "\n";
-        for (let i = 0; i < elArray.length; i++) {
-            text += `${elArray[i]}:${dlArray[i]}\n`;
-            word_matching.innerHTML += '<div\s id="s'+i+'"class="draggyBox-small">'+elArray[i]+'</div>\n '
-        }
-        word_matching.innerHTML += "<div\s id="s2"\s class="draggyBox-small">'+array_el[1].value+'</div>\n<td \s id="d1">'+array_dl[0]+'</td >\n </tr>\n <tr\s id="row2">\n \t<td >\n \t\t<div\s id="t2"class="ltarget"></div>\n \t</td >\n \t<td \s id="d2">'+array_dl[1]+'</td >\n </tr>\n</table>'
-          word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div></div>'
-          htmlGenerated = true;
-        }
-        console.log(text);
+      let text = title + "\n";
+      for (let i = 0; i < elArray.length; i++) {
+          text += `${elArray[i]}:${dlArray[i]}\n`;
       }
+      console.log(text);
+
+      //fetch the results box
+      word_matching = document.getElementById("results");
+      
+      //has the html already been generated? 
+      if(!htmlGenerated){
+        word_matching.innerHTML = ""
+        console.log("generating textarea");
+        //create textarea
+        word_matching.innerHTML += '<textarea id="html" value="';
+
+        //create key inputs
+        for (let i = 0; i < elArray.length; i++){
+          word_matching.innerHTML += '<div\s id="s'+i+'"class="draggyBox-small">'+elArray[i]+'</div>\n'
+          console.log('<div\s id="s'+i+'"class="draggyBox-small">'+elArray[i]+'</div>\n');
+        }
+  
+        //create description inputs
+        for (let i = 0; i < dlArray.length; i++){
+          word_matching.innerHTML += '<table id="tablestyle"><td >\n \t\t<div\s id="t'+i+'"class="ltarget"></div>\n \t</td >\n \t<td \s id="d2">'+dlArray[i]+'</td >\n </tr>\n</table>'
+          console.log('<table id="tablestyle"><td >\n \t\t<div\s id="t'+i+'"class="ltarget"></div>\n \t</td >\n \t<td \s id="d2">'+dlArray[i]+'</td >\n </tr>\n</table>');
+        }
+
+        
+        word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div></div>"';
+        htmlGenerated = true;
+      }
+    }
 
     function process_input() {
       const e_inputs = document.querySelectorAll("[id^='el']");
@@ -123,26 +140,36 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       let dlArray = [];
       e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
       d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
+      console.log(elArray);
+      console.log(dlArray);
+      console.log(title);
       generate_html(elArray, dlArray, title);
     }
-    // answer = array_el[0].value+": "+array_dl[0].value+"\n"+array_el[1].value+": "+array_dl[1].value
-    function generate_html(){
-      var elData;
-      var dlData;
+    answer = array_el[0].value+": "+array_dl[0].value+"\n"+array_el[1].value+": "+array_dl[1].value
+    // function generate_html(){
+    //   var elData;
+    //   var dlData;
 
-      var length = $('#inputBoxes').children().length
-      var allData = []
+    //   var length = $('#inputBoxes').children().length
+    //   var allData = []
       
-      for(i=1; i<=length;i++){
-        elData = document.getElementById(`el${i}`).value
-        dlData = document.getElementById(`dl${i}`).value
-        e=`el${i}`;
-        d=`dl${i}`;
-        allData.push({e:elData,d:dlData})
-      }
-      console.log(allData);
-     
-    } 
+    //   for(i=1; i<=length;i++){
+    //     elData = document.getElementById(`el${i}`).value
+    //     dlData = document.getElementById(`dl${i}`).value
+    //     e=`el${i}`;
+    //     d=`dl${i}`;
+    //     allData.push({e:elData,d:dlData})
+    //   }
+    //   console.log(allData);
+    //   word_matching = document.getElementById("results");
+    //   if(!htmlGenerated){
+    //     // title = document.getElementById("title");
+    //     // title.innerHTML = title_input; 
+    //     word_matching.innerHTML += '<td \s id="d1">'+array_dl[0]+'</td >\n </tr>\n <tr\s id="row2">\n \t<td >\n \t\t<div\s id="t2"class="ltarget"></div>\n \t</td >\n \t<td \s id="d2">'+array_dl[1]+'</td >\n </tr>\n</table>'
+    //     word_matching.innerHTML += '<div id = "program1" style="border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;"> <span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span> </div> </div></div>'
+    //     htmlGenerated = true;
+    //   }
+    // } 
 
     function hide_user_input(){
       user_input = document.getElementsByClassName("inputBoxes")
@@ -153,6 +180,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
 
     function add_more() {
+      htmlGenerated = false;
       i++;
       inputs = document.getElementsByClassName("inputBoxes")[0];
       row = document.createElement("div");
