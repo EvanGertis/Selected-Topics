@@ -46,27 +46,6 @@
                     <div class="row">
                       Description 2: <input id="dl2" type="text" value="">
                     </div>
-                    <div class="row">
-                      Key Term 3: <input id="el3" type="text" value="">
-                    </div>
-                    <div class="row">
-                      Description 3: <input id="dl3" type="text" value="">
-                    </div>
-                    <div class="row">
-                      Key Term 4: <input id="el4" type="text" value="">
-                    </div>
-                    <div class="row">
-                      Description 4: <input id="dl4" type="text" value="">
-                    </div>
-                    <div class="row">
-                      Key Term 5: <input id="el5" type="text" value="">
-                    </div>
-                    <div class="row">
-                      Description 5: <input id="dl5" type="text" value="">
-                    </div>
-                    <span style="padding: 3px">
-                      <button id ="one" class="button" type="button" onClick="process_input()">generate html</button>
-                    </span>
                 </div>
             </div>
             </div>
@@ -165,6 +144,19 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         user_input[0].parentNode.removeChild(user_input[0])
       }
 
+    }
+
+    function add_more() {
+
+      inputs = document.getElementById("inputBoxes");
+      row = document.createElement("div");
+      row.setAttribute("class","row");
+      inputs.appendChildNode(row);
+      key = document.createElement("input");
+      key.setAttribute("id","el"+i);
+      description = document.createElement("input");
+      description.setAttribute("id","dl"+i);
+      inputs.appendChildNode(description);
     }
 
     function render_html(){
