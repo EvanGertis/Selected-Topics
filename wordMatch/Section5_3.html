@@ -74,11 +74,6 @@ $(init);
 $( window ).unload(function() {
   removeStorage.removeItem("someVarKey1");
 });
-function reset() {
-    var someVarName = true;
-sessionStorage.setItem("someVarKey1", someVarName);
-window.location.reload();
-}
 function init() {
       document.getElementById('resetButton').style.display = 'none';
 document.getElementById("resetButton").style.visibility = "hidden";
@@ -101,7 +96,19 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     var numberOfInputs = 2;
     // initially no addtional inputs have been added.
     var addMore = false;
+    // initially html is not rendered
+    var htmlRendered = false;
       
+    function reset() {
+      // reset the htmGenerated to false.
+      htmlGenerated = false;
+      htmlRendered  = false;
+      numberOfInputs = 2;
+      var someVarName = true;
+      sessionStorage.setItem("someVarKey1", someVarName);
+      window.location.reload();
+    }
+
     function generate_html() {
 
       //have we added more?
@@ -126,7 +133,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
         let text = title + "\n";
-        for (let i = 0; i < elArray.length; i++) {
+        for (let i = numberOfInputs; i < elArray.length; i++) {
             text += `${elArray[i]}:${dlArray[i]}\n`;
         }
 
@@ -141,21 +148,26 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         html = '';
 
         //create key inputs
-        for (let i = 0; i < elArray.length; i++){
+        for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
           html += '<div id="s';
-          html +=i;
+          id   = (1+i-numberOfInputs);
+          html += id;
           html +='\" class=\"draggyBox-small\">';
-          html += elArray[i];
+          html += elArray[i-numberOfInputs];
           html +='</div>\n';
         }
   
         //create description inputs
-        html += '<table id=\"tablestyle\"><td >\n'
-        for (let i = 0; i < dlArray.length; i++){
+        html += '<table id=\"tablestyle\">'
+        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
+          html += '<td id="row';
+          id   = (1+i-numberOfInputs);
+          html += id;
+          html +='">\n';
           html += '\t\t<div id=\"t';
-          html +=i;
+          html +=i-numberOfInputs;
           html +='" class=\"ltarget\"></div>\n \t</td >\n \t<td  id=\"d2\">'
-          html +=dlArray[i];
+          html +=dlArray[i-numberOfInputs];
           html +='</td >\n </tr>\n';
         }
         html += '</table>';
@@ -225,15 +237,19 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
 
     function render_html(){
-      textarea  = document.getElementById("generated_html_textarea");
-      generated_html = textarea.value;
-      console.log(generated_html);
-      results = document.getElementById("results");
-      rendered_html = document.createElement("div");
-      rendered_html.setAttribute("id","rendered_html");
-      rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
-      rendered_html.innerHTML +=  generated_html;
-      results.appendChild(rendered_html);
+      // was html rendered?
+      if(!htmlRendered){
+        textarea  = document.getElementById("generated_html_textarea");
+        generated_html = textarea.value;
+        console.log(generated_html);
+        maincontentstyle = document.getElementById("maincontentstyle");
+        rendered_html = document.createElement("div");
+        rendered_html.setAttribute("id","rendered_html");
+        rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
+        rendered_html.innerHTML +=  generated_html;
+        maincontentstyle.appendChild(rendered_html);
+        htmlRendered = true;
+      }
     }
 </script>
    
