@@ -154,45 +154,59 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     
       //has the html already been generated? 
       if(!htmlGenerated){
-        let text = title + "\n";
-        for (let i = numberOfInputs; i < elArray.length; i++) {
-            text += `${elArray[i]}:${dlArray[i]}\n`;
-        }
-
         //fetch the results box
         results = document.getElementById("results");
-
+        
         //create textarea
         textarea = document.createElement("textarea");
         textarea.setAttribute("id","generated_html_textarea");
         
         // initialize blank html
-        html = '';
+        let html = '';
+        html += '<div id=\"maincontentstyle\">\n'
+        html += '\t<center>\n'
+        html += '\t\t<div id=\"boxstyle\">\n'
+        html += '\t\t\t<h3 id=\"h3style\">'+title+"</h3>\n";
 
         //create key inputs
+        html += '\t\t\t\t<center>\n'
+        html += '\t\t\t\t\t<div class="source">\n' 
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
-          html += '<div id="s';
+          html += '\t\t\t\t\t\t<div id="s';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='\" class=\"draggyBox-small\">';
-          html += elArray[i-numberOfInputs];
-          html +='</div>\n';
+          html +='\" class=\"draggyBox-small\">\n';
+          html += `\t\t\t\t\t\t\t${elArray[i-numberOfInputs]}\n`;
+          html +='\t\t\t\t\t\t</div>\n';
         }
+        html += '\t\t\t\t\t</div>\n'
+        html += '\t\t\t\t\t</center>\n'
   
         //create description inputs
-        html += '<table id=\"tablestyle\">'
+        html += '\t\t\t\t\t<table id=\"tablestyle\">\n'
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
-          html += '<td id="row';
+          html +='\t\t\t\t\t\t<tr>\n'
+          html += '\t\t\t\t\t\t<td id="row';
           id   = (1+i-numberOfInputs);
           html += id;
           html +='">\n';
-          html += '\t\t<div id=\"t';
+          html += '\t\t\t\t\t\t\t<div id=\"t';
           html += id;
-          html +='" class=\"ltarget\"></div>\n \t</td >\n \t<td  id=\"d2\">'
-          html +=dlArray[i-numberOfInputs];
-          html +='</td >\n </tr>\n';
+          html +='" class=\"ltarget\">'
+          html +='</div>\n' 
+          html +='\t\t\t\t\t\t</td >\n'
+          html +='\t\t\t\t\t\t<td id=\"d'
+          html += id
+          html += '\">\n'
+          html +=`\t\t\t\t\t\t\t${dlArray[i-numberOfInputs]}\n`;
+          html +='\t\t\t\t\t\t\t</td >\n' 
+          html +='\t\t\t\t\t\t</tr>\n';
         }
-        html += '</table>';
+        html += '\t\t\t\t\t</table>\n';
+        html += '\t\t\t\t</center>\n'
+        html += '\t\t</div>\n'
+        html += '\t</center>\n'
+        html += '</div>'
 
         // html generation is done.
         htmlGenerated = true;
