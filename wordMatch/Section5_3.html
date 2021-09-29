@@ -86,10 +86,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
 }
 </script>
     <script>
-      function one() {
-        jAlert(answer, 'Correct Match');
-      }
-      
     // initially html is not generated.
     var htmlGenerated = false;
     // number of inputs start out as 2.
@@ -98,6 +94,8 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     var addMore = false;
     // initially html is not rendered
     var htmlRendered = false;
+    // initialize the answer.
+    var answer = '';
       
     function reset() {
       // reset the htmGenerated to false.
@@ -109,7 +107,27 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       window.location.reload();
     }
 
+    function show_answer() {
+      jAlert(answer, 'Correct Match');
+    }
+
     function generate_html() {
+      // retrieve the keys and descriptions. Then load them into their respective arrays.
+      const e_inputs = document.querySelectorAll("[id^='el']");
+      const d_inputs = document.querySelectorAll("[id^='dl']");
+      let elArray = [];
+      let dlArray = [];
+      const title = document.getElementById('title_input').value;
+      for (let i = numberOfInputs; i < elArray.length; i++) {
+          text += `${elArray[i]}:${dlArray[i]}\n`;
+          answer += elArray[i];
+          answer += ':';
+          answer += dlArray[i];
+          answer += '\n';
+      }
+
+      console.log("generating answer");
+      console.log(answer);
 
       //have we added more?
       if(addMore && htmlGenerated){
@@ -124,11 +142,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     
       //has the html already been generated? 
       if(!htmlGenerated){
-        const e_inputs = document.querySelectorAll("[id^='el']");
-        const d_inputs = document.querySelectorAll("[id^='dl']");
-        const title = document.getElementById('title_input').value;
-        let elArray = [];
-        let dlArray = [];
         e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
         d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
@@ -181,7 +194,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         controls = document.createElement("div");
         controls.setAttribute("id","program1");
         controls.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
-        controls.innerHTML +=  '<span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span>';
+        controls.innerHTML +=  '<span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span>';
         results.appendChild(controls);
       }
     }
