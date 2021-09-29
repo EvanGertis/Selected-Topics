@@ -105,9 +105,9 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     function generate_html() {
 
       //have we added more?
-      if(addMore){
+      if(addMore && htmlGenerated){
         // then delete the old textarea.
-        textarea = document.getElementById("generated_html");
+        textarea = document.getElementById("generated_html_textarea");
         textarea.remove();
         // delete the controls.
         controls = document.getElementById("program1");
@@ -135,7 +135,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
 
         //create textarea
         textarea = document.createElement("textarea");
-        textarea.setAttribute("id","generated_html");
+        textarea.setAttribute("id","generated_html_textarea");
         
         // initialize blank html
         html = '';
@@ -172,14 +172,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         controls.innerHTML +=  '<span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="one()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button><button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span> </span>';
         results.appendChild(controls);
       }
-    }
-
-    function hide_user_input(){
-      user_input = document.getElementsByClassName("inputBoxes")
-      while(user_input.length > 0){
-        user_input[0].parentNode.removeChild(user_input[0])
-      }
-
     }
 
     function add_more() {
@@ -233,10 +225,15 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
 
     function render_html(){
-      renderedHTML  = document.getElementById("renderedHTML");
-      console.log("render_html");
-      html = document.getElementById("html");
-      renderedHTML.innerHTML = html.value;
+      textarea  = document.getElementById("generated_html_textarea");
+      generated_html = textarea.value;
+      console.log(generated_html);
+      results = document.getElementById("results");
+      rendered_html = document.createElement("div");
+      rendered_html.setAttribute("id","rendered_html");
+      rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
+      rendered_html.innerHTML +=  generated_html;
+      results.appendChild(rendered_html);
     }
 </script>
    
