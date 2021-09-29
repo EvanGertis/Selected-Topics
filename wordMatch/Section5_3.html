@@ -108,6 +108,23 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
 
     function show_answer() {
+      // retrieve the keys and descriptions. Then load them into their respective arrays.
+      const e_inputs = document.querySelectorAll("[id^='el']");
+      const d_inputs = document.querySelectorAll("[id^='dl']");
+      let elArray = [];
+      let dlArray = [];
+      const title = document.getElementById('title_input').value;
+      e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
+      d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
+
+      //reset the answer once the generate_html() is called.
+      answer = '';
+      for (let i = 0; i < elArray.length; i++) {
+          answer += `${elArray[i]}`;
+          answer += ':';
+          answer += `${dlArray[i]}`;
+          answer += '\n';
+      }
       jAlert(answer, 'Correct Match');
     }
 
@@ -118,13 +135,8 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       let elArray = [];
       let dlArray = [];
       const title = document.getElementById('title_input').value;
-      for (let i = numberOfInputs; i < elArray.length; i++) {
-          text += `${elArray[i]}:${dlArray[i]}\n`;
-          answer += elArray[i];
-          answer += ':';
-          answer += dlArray[i];
-          answer += '\n';
-      }
+      e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
+      d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
       console.log("generating answer");
       console.log(answer);
@@ -142,9 +154,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     
       //has the html already been generated? 
       if(!htmlGenerated){
-        e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
-        d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
-
         let text = title + "\n";
         for (let i = numberOfInputs; i < elArray.length; i++) {
             text += `${elArray[i]}:${dlArray[i]}\n`;
