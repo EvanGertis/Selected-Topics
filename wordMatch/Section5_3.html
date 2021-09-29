@@ -161,27 +161,29 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         html = '';
 
         //create key inputs
-        var html_1 = ''
-        var html_2 = '<table id=\"tablestyle\">'
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
-          html_1 += '<div id="s';
-          var id   = (1+i-numberOfInputs);
-          html_1 += id;
-          html_1 +='\" class=\"draggyBox-small\">';
-          html_1 += elArray[i-numberOfInputs];
-          html_1 +='</div>\n';
-
-          html_2 += '<td id="row';
-          html_2 += id;
-          html_2 +='">\n';
-          html_2 += '\t\t<div id=\"t';
-          html_2 +=i-numberOfInputs;
-          html_2 +='" class=\"ltarget\"></div>\n \t</td >\n \t<td  id=\"d2\">'
-          html_2 +=dlArray[i-numberOfInputs];
-          html_2 +='</td >\n </tr>\n';
+          html += '<div id="s';
+          id   = (1+i-numberOfInputs);
+          html += id;
+          html +='\" class=\"draggyBox-small\">';
+          html += elArray[i-numberOfInputs];
+          html +='</div>\n';
         }
-
-        html = html_1 + html_2 + '</table>'
+  
+        //create description inputs
+        html += '<table id=\"tablestyle\">'
+        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
+          html += '<td id="row';
+          id   = (1+i-numberOfInputs);
+          html += id;
+          html +='">\n';
+          html += '\t\t<div id=\"t';
+          html += id;
+          html +='" class=\"ltarget\"></div>\n \t</td >\n \t<td  id=\"d2\">'
+          html +=dlArray[i-numberOfInputs];
+          html +='</td >\n </tr>\n';
+        }
+        html += '</table>';
 
         // html generation is done.
         htmlGenerated = true;
