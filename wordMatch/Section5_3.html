@@ -19,7 +19,7 @@
   gtag('config', 'UA-89940905-27');
 </script>
 
-<script type="text/javascript" src="../logging.js"></script>
+<!-- <script type="text/javascript" src="../logging.js"></script> -->
 </head>
 
 
@@ -138,9 +138,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
       d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
-      console.log("generating answer");
-      console.log(answer);
-
       //have we added more?
       if(addMore && htmlGenerated){
         // then delete the old textarea.
@@ -175,7 +172,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
           html += '\t\t\t\t\t\t<div id="s';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='\" class=\"draggyBox-small ui-draggable\">\n';
+          html +='\" class=\"draggyBox-small\">\n';
           html += `\t\t\t\t\t\t\t${elArray[i-numberOfInputs]}\n`;
           html +='\t\t\t\t\t\t</div>\n';
         }
@@ -277,7 +274,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       if(!htmlRendered){
         textarea  = document.getElementById("generated_html_textarea");
         generated_html = textarea.value;
-        console.log(generated_html);
         maincontentstyle = document.getElementById("maincontentstyle");
         rendered_html = document.createElement("div");
         rendered_html.setAttribute("id","rendered_html");
@@ -289,10 +285,27 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       }
       update_draggy_boxes();
     }
-    
+
     function update_draggy_boxes(){
-      $("[class^=draggy]").draggable();
+      console.log("calling jquery-ui")
+      $.getScript("wordMatch/jquery-ui.min.js", function(data, textStatus, jqxhr) {
+          console.log("xxxxxxxxxxxxxxxxxxxxx");
+          console.log(data); // data returned
+          console.log(textStatus); // success
+          console.log(jqxhr.status); // 200
+          console.log('Load was performed.');
+          console.log("xxxxxxxxxxxxxxxxxxxxx");
+        });
+        $.getScript("wordMatch/jquery-ui.min.js", function(data, textStatus, jqxhr) {
+          console.log("xxxxxxxxxxxxxxxxxxxxx");
+          console.log(data); // data returned
+          console.log(textStatus); // success
+          console.log(jqxhr.status); // 200
+          console.log('Load was performed.');
+          console.log("xxxxxxxxxxxxxxxxxxxxx");
+        });
     }
+    
 </script>
    
 <script type="text/javascript" src="GetElementPosition3.js"></script>
