@@ -175,7 +175,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
           html += '\t\t\t\t\t\t<div id="s';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='\" class=\"draggyBox-small\">\n';
+          html +='\" class=\"draggyBox-small ui-draggable\">\n';
           html += `\t\t\t\t\t\t\t${elArray[i-numberOfInputs]}\n`;
           html +='\t\t\t\t\t\t</div>\n';
         }
@@ -287,6 +287,11 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         maincontentstyle.appendChild(rendered_html);
         htmlRendered = true;
       }
+      update_draggy_boxes();
+    }
+    
+    function update_draggy_boxes(){
+      $("[class^=draggy]").draggable();
     }
 </script>
    
