@@ -287,11 +287,12 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         maincontentstyle.appendChild(rendered_html);
         htmlRendered = true;
       }
-      update_draggy_boxes();
+      update_jq_ui();
     }
     
-    function update_draggy_boxes(){
+    function update_jq_ui(){
       $("[class^=draggy]").draggable();
+      //TODO update ui-droppable targets
     }
 </script>
    
