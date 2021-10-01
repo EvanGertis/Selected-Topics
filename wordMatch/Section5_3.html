@@ -19,7 +19,7 @@
   gtag('config', 'UA-89940905-27');
 </script>
 
-<script type="text/javascript" src="../logging.js"></script>
+<!-- <script type="text/javascript" src="../logging.js"></script> -->
 </head>
 
 
@@ -138,9 +138,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
       d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
-      console.log("generating answer");
-      console.log(answer);
-
       //have we added more?
       if(addMore && htmlGenerated){
         // then delete the old textarea.
@@ -166,7 +163,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         html += '<div id=\"maincontentstyle\">\n'
         html += '\t<center>\n'
         html += '\t\t<div id=\"boxstyle\">\n'
-        html += '\t\t\t<h3 id=\"h3style\">'+title+"</h3>\n";
+        html += '\t\t\t<h3 id=\"title\">'+title+"</h3>\n";
 
         //create key inputs
         html += '\t\t\t\t<center>\n'
@@ -175,7 +172,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
           html += '\t\t\t\t\t\t<div id="s';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='\" class=\"draggyBox-small ui-draggable\">\n';
+          html +='\" class=\"draggyBox-small\">\n';
           html += `\t\t\t\t\t\t\t${elArray[i-numberOfInputs]}\n`;
           html +='\t\t\t\t\t\t</div>\n';
         }
@@ -293,12 +290,29 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         header += '</'
         header += 'script>\n<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments)};\tgtag(\"js\", new Date());\tgtag(\"config\", \"UA-89940905-27\");\n'
         header += '</'
-        header += 'script>\n<script type=\"text/javascript\" src=\"../logging.js\">'
+        header += 'script>\n'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery-1.7.2.min.js">'
+        header += '</'
+        header += 'script>'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery-ui.min.js">'
+        header += '</'
+        header += 'script>'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.ui.touch-punch.min.js">'
+        header += '</'
+        header += 'script>'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.alerts.js">'
+        header += '</'
+        header += 'script>'
+        header += '<link href="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">'
+        header += '<script type=\"text/javascript\" src=\"../logging.js\">'
         header += '</'
         header += 'script>\n</head>\n\t\t<body>';
         new_tab_html = header;
         new_tab_html += rendered_html.innerHTML;
         footer = '\n\t\t</body>\n</html>\n';
+        footer += '<script type="text/javascript" src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/GetElementPosition.3.js">'
+        footer += '</'
+        footer += 'script>'
         new_tab_html += footer;
         console.log(new_tab_html);
         new_window.document.write(new_tab_html);
@@ -313,6 +327,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       });
       //TODO update ui-droppable targets
     }
+    
 </script>
    
 <script type="text/javascript" src="GetElementPosition3.js"></script>
