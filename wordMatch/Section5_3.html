@@ -278,6 +278,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         textarea  = document.getElementById("generated_html_textarea");
         generated_html = textarea.value;
         console.log(generated_html);
+        var new_window = window.open('');
         maincontentstyle = document.getElementById("maincontentstyle");
         rendered_html = document.createElement("div");
         rendered_html.setAttribute("id","rendered_html");
@@ -286,13 +287,21 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         rendered_html.innerHTML +='<span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button> </span>';
         maincontentstyle.appendChild(rendered_html);
         htmlRendered = true;
-        var new_window = window.open('');
-        // header = '<!DOCTYPE HTML>\n<html lang="en">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel="stylesheet" type="text/css" href="boxes.css?v=9999" />\n\t\t<script type="text/javascript" src="event1.js?v=9999"></script>\n<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>\n<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments)};\tgtag(\"js\", new Date());\tgtag(\"config\", \"UA-89940905-27\");\n</script>\n<script type="text/javascript" src="../logging.js"></script>\n</head>\n\t\t<body>'
-        // new_tab_html += header;
-        // new_tab_html += rendered_html;
-        // footer = '\n\t\t</body>\n</html>\n';
-        // new_tab_html += footer;
-        // new_window.document.write(rendered_html.outerHTML);
+        header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"boxes.css?v=9999\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
+        header += '</'
+        header += 'script>\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-89940905-27\">'
+        header += '</'
+        header += 'script>\n<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments)};\tgtag(\"js\", new Date());\tgtag(\"config\", \"UA-89940905-27\");\n'
+        header += '</'
+        header += 'script>\n<script type=\"text/javascript\" src=\"../logging.js\">'
+        header += '</'
+        header += 'script>\n</head>\n\t\t<body>';
+        new_tab_html = header;
+        new_tab_html += rendered_html.innerHTML;
+        footer = '\n\t\t</body>\n</html>\n';
+        new_tab_html += footer;
+        console.log(new_tab_html);
+        new_window.document.write(new_tab_html);
       }
       update_jq_ui();
     }
