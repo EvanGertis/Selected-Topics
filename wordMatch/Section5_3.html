@@ -270,6 +270,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
     }
 
     function render_html(){
+      console.log("printing render html");
       // was html rendered?
       if(!htmlRendered){
         textarea  = document.getElementById("generated_html_textarea");
@@ -282,7 +283,8 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
         rendered_html.innerHTML +=  generated_html;
         rendered_html.innerHTML +='<span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button> </span>';
-        maincontentstyle.appendChild(rendered_html);
+        results = document.getElementById("results");
+        results.replaceChildren(rendered_html);
         htmlRendered = true;
         header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"boxes.css?v=9999\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
         header += '</'
