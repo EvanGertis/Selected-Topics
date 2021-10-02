@@ -208,7 +208,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         // html generation is done.
         htmlGenerated = true;
         textarea.value = html;
-        results.appendChild(textarea);
+        results.replaceChildren(textarea);;
 
         // Generate reset, show answer, , and render html buttons
         controls = document.createElement("div");
