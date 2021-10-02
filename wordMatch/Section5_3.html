@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
   <head>
-    <title>Word Matching Exercise</title>
+    <title>Word Match Generator</title>
     <style>
     *:focus {outline: 2px solid blue; outline-offset: 2px;}
     details {padding:3px;}
@@ -26,7 +26,7 @@
   <body>
     <div id="maincontentstyle">
         <div id="boxstyle">
-          <h3 id= "title">Section 5.2 Word Matching Exercise</h3>
+          <h3 id= "title">Word Match Generator</h3>
           <div class="row">
             <div id="inputs" class="column column-1">
                 <div id="inputBoxes" class="inputBoxes">
@@ -214,7 +214,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         controls = document.createElement("div");
         controls.setAttribute("id","program1");
         controls.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
-        controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span>';
+        controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button> <span id = "audio" style=""> <a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"/> </a> </span>';
         results.appendChild(controls);
       }
     }
@@ -313,6 +313,10 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         footer += '<script type="text/javascript" src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/GetElementPosition.3.js">'
         footer += '</'
         footer += 'script>'
+        footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");audioOn = true; speak(" ");}return false;});});'
+        footer += '</'
+        footer += 'script>'
+        footer += '<img id="bg" src="file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
         new_tab_html += footer;
         console.log(new_tab_html);
         new_window.document.write(new_tab_html);
@@ -332,35 +336,17 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
    
 <script type="text/javascript" src="GetElementPosition3.js"></script>
    <script>
-//    $(function(){
-//  if ('speechSynthesis' in window) {
-//    speechSynthesis.onvoiceschanged = function() {
-//      var $voicelist = $('#voices');
-//
-//      if($voicelist.find('option').length == 0) {
-//        speechSynthesis.getVoices().forEach(function(voice, index) {
-//          var $option = $('<option>')
-//          .val(index)
-//          .html(voice.name + (voice.default ? ' (default)' :''));
-//
-//          $voicelist.append($option);
-//        });
-//
-//        $voicelist.material_select();
-//      }
-//    }
-//  } 
-//});     
+  
 
 audioOn = false;
 $(function() {
   $('.menulink').click(function(){
     if (audioOn) {
-      $("#bg").attr('src',"audioOff.png");  
+      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png");  
       audioOn = false;
     }
     else {
-      $("#bg").attr('src',"audioOn.png");
+      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");
       audioOn = true; speak(" ");
     }
     return false;
