@@ -304,10 +304,10 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       footer += '<script type="text/javascript" src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/GetElementPosition.3.js">'
       footer += '</'
       footer += 'script>'
-      footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");audioOn = true; speak(" ");}return false;});});'
+      footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"../audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"../audioOn.png");audioOn = true; speak(" ");}return false;});});'
       footer += '</'
       footer += 'script>'
-      footer += '<img id="bg" src="file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
+      footer += '<img id="bg" src="../audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
       new_tab_html += footer;
       console.log(new_tab_html);
       new_window.document.write(new_tab_html);
@@ -332,11 +332,11 @@ audioOn = false;
 $(function() {
   $('.menulink').click(function(){
     if (audioOn) {
-      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png");  
+      $("#bg").attr('src',"../audioOff.png");  
       audioOn = false;
     }
     else {
-      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");
+      $("#bg").attr('src',"../audioOn.png");
       audioOn = true; speak(" ");
     }
     return false;
