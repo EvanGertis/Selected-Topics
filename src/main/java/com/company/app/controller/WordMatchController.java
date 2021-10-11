@@ -1,7 +1,7 @@
 package com.company.app.controller;
 
-//ChapterController.java
-//Author: Evan Gertis 04/20/2021
+//WordMatchController.java
+//Author: Evan Gertis 10/11/2021
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,22 +22,25 @@ import com.company.app.model.WordMatch;
 
 @Controller
 public class WordMatchController {
-	private static final Logger logger = LogManager.getLogger(WordMatchController.class);
+	private static final Logger logger =  LogManager.getLogger(WordMatchController.class);
 	private final WordMatchService WordMatchService;
 	
 	@Autowired
 	public WordMatchController(WordMatchService WordMatchService) {
+		logger.info("visiting word match");
 		this.WordMatchService = WordMatchService;
 	}
 	
 	@PostMapping("/wordmatch")
 	public void saveWordMatch(@RequestBody WordMatch wordMatch) {
 		// chapter = WordMatchService.save(chapter);
-		logger.debug("calling word match");
+		logger.info("calling word match");
+		logger.info(wordMatch);
 	}
 
 	@RequestMapping("/wordmatch")
     public String getWordMatch(Model model) {
+		logger.info("visiting word match");
         // logger.info("Request to /chapter/{}",id);
         // Chapter chapter = chapterService.findById(id);
         // model.addAttribute("word_match", chapter);

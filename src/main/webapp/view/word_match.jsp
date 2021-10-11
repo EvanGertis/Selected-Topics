@@ -230,8 +230,10 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
                 console.log("content was not save successfully");
             }
         }
-        xhr.send('{"content":"'
-                +html_content+'"}');
+        console.log('{"content":\"'
+                +html_content.value+'\"}');
+        xhr.send('{"content":\"'
+                +html_content.value+'\"}');
     }
 
     function add_more() {
