@@ -16,29 +16,9 @@ import lombok.Data;
 @Entity
 @Table(name="visualization")
 @Data
-public class Visualization {
+public class WordMatch {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public int id;
-    
-    private String visualization;
-    
-    private int exerciseId;
-
-	public String getVisualization() {
-		return visualization;
-	}
-
-	public void setVisualization(String visualization) {
-		this.visualization = visualization;
-	}
-
-	public int getExerciseId() {
-		return exerciseId;
-	}
-
-	public void setExerciseId(int exerciseId) {
-		this.exerciseId = exerciseId;
-	}
 }

@@ -1,19 +1,16 @@
 package com.company.app.repository;
 
 /*
- * AVRepository.java
+ * VisualizationRepository.java
  * Author: Evan Gertis
  */
-
-import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.company.app.model.AV;
+import com.company.app.model.WordMatch;
 
 @Repository
-public interface AVRepository extends JpaRepository<AV, Integer> {
-	AV findById(int id);
-	List<AV> findAll();
+public interface WordMatchRepository extends JpaRepository<WordMatch, Integer> {
+	WordMatch findById(int id);
 }
