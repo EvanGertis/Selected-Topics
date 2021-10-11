@@ -1,4 +1,3 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE HTML>
 <html lang="en">
@@ -9,7 +8,7 @@
     details {padding:3px;}
     </style>
     <link rel="stylesheet" type="text/css" href="boxes.css?v=9999" />
-    <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/event1.js?v=9999"></script>
+    <script type="text/javascript" src="event1.js?v=9999"></script>
   
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>
@@ -65,10 +64,10 @@
 
 
     
-<script src="${pageContext.request.contextPath}/static/js/jquery-1.7.2.min.js"></script>
+<script src="jquery-1.7.2.min.js"></script>
 
-<script src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script><script src="${pageContext.request.contextPath}/static/js/jquery.alerts.js"></script><link href="${pageContext.request.contextPath}/static/js/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />  
+<script src="jquery-ui.min.js"></script>
+<script src="jquery.ui.touch-punch.min.js"></script><script src="jquery.alerts.js"></script><link href="jquery.alerts.css" rel="stylesheet" type="text/css" media="screen" />  
 
 <script type="text/javascript">
 $(init);
@@ -294,32 +293,32 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         header += 'script>\n<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments)};\tgtag(\"js\", new Date());\tgtag(\"config\", \"UA-89940905-27\");\n'
         header += '</'
         header += 'script>\n'
-        header += '<script src="${pageContext.request.contextPath}/static/js/jquery-1.7.2.min.js">'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery-1.7.2.min.js">'
         header += '</'
         header += 'script>'
-        header += '<script src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js">'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery-ui.min.js">'
         header += '</'
         header += 'script>'
-        header += '<script src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js">'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.ui.touch-punch.min.js">'
         header += '</'
         header += 'script>'
-        header += '<script src="${pageContext.request.contextPath}/static/js/jquery.alerts.js">'
+        header += '<script src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.alerts.js">'
         header += '</'
         header += 'script>'
-        header += '<link href="${pageContext.request.contextPath}/static/js/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">'
-        header += '<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/logging.js\">'
+        header += '<link href="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">'
+        header += '<script type=\"text/javascript\" src=\"../logging.js\">'
         header += '</'
         header += 'script>\n</head>\n\t\t<body>';
         new_tab_html = header;
         new_tab_html += rendered_html.innerHTML;
         footer = '\n\t\t</body>\n</html>\n';
-        footer += '<script type="text/javascript" src="${pageContext.request.contextPath}/static/images/GetElementPosition.3.js">'
+        footer += '<script type="text/javascript" src="file:///D:/Sel.%20Topic%20in%20Csc/wordMatch/GetElementPosition.3.js">'
         footer += '</'
         footer += 'script>'
-        footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
+        footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");audioOn = true; speak(" ");}return false;});});'
         footer += '</'
         footer += 'script>'
-        footer += '<img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
+        footer += '<img id="bg" src="file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
         new_tab_html += footer;
         console.log(new_tab_html);
         new_window.document.write(new_tab_html);
@@ -327,9 +326,17 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       update_jq_ui();
     }
     
+    function update_jq_ui(){
+      $("[class^=draggy]").draggable();
+      $(".ltarget").droppable({
+        accept: ".ltarget"
+      });
+      //TODO update ui-droppable targets
+    }
+    
 </script>
    
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script>
+<script type="text/javascript" src="GetElementPosition3.js"></script>
    <script>
   
 
@@ -337,11 +344,11 @@ audioOn = false;
 $(function() {
   $('.menulink').click(function(){
     if (audioOn) {
-      $("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOff.png");  
+      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOff.png");  
       audioOn = false;
     }
     else {
-      $("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOn.png");
+      $("#bg").attr('src',"file:///D:/Sel.%20Topic%20in%20Csc/audioOn.png");
       audioOn = true; speak(" ");
     }
     return false;
@@ -351,5 +358,3 @@ $(function() {
 
    </body>
 </html>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/js/chapter.js"></script>
