@@ -303,7 +303,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
       // Append the rendered html to the results tab
       results.appendChild(rendered_html);
       htmlRendered = true;
-      header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/static/js/boxes.css\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
+      header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/static/css/boxes.css\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
       header += '</'
       header += 'script>\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-89940905-27\">'
       header += '</'
