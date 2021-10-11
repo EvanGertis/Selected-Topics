@@ -8,7 +8,7 @@
     *:focus {outline: 2px solid blue; outline-offset: 2px;}
     details {padding:3px;}
     </style>
-    <link rel="stylesheet" type="text/css" href="boxes.css?v=9999" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/boxes.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/event1.js?v=9999"></script>
   
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -287,7 +287,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         results = document.getElementById("results");
         results.replaceChildren(rendered_html);
         htmlRendered = true;
-        header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"boxes.css?v=9999\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
+        header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/static/css/boxes.css\" />\n\t\t<script type=\"text/javascript\" src=\"event1.js?v=9999\">';
         header += '</'
         header += 'script>\n<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-89940905-27\">'
         header += '</'
