@@ -150,18 +150,18 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         
         // initialize blank html
         let html = '';
-        html += '<div id=\"maincontentstyle\">\n'
+        html += '<div id=\'maincontentstyle\'>\n'
         html += '\t<center>\n'
-        html += '\t\t<div id=\"boxstyle\">\n'
-        html += '\t\t\t<h3 id=\"title\">'+title+"</h3>\n";
+        html += '\t\t<div id=\'boxstyle\'>\n'
+        html += '\t\t\t<h3 id=\'title\'>'+title+"</h3>\n";
         //create key inputs
         html += '\t\t\t\t<center>\n'
-        html += '\t\t\t\t\t<div class="source">\n' 
+        html += '\t\t\t\t\t<div class=\'source\'>\n' 
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
-          html += '\t\t\t\t\t\t<div id="s';
+          html += '\t\t\t\t\t\t<div id=\'s';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='\" class=\"draggyBox-small\">\n';
+          html +='\' class=\'draggyBox-small\'>\n';
           console.log(elArray[i-numberOfInputs]);
           html += '\t\t\t\t\t\t\t'
           html += elArray[i-numberOfInputs]
@@ -172,21 +172,21 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         html += '\t\t\t\t\t</center>\n'
   
         //create description inputs
-        html += '\t\t\t\t\t<table id=\"tablestyle\">\n'
+        html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
           html +='\t\t\t\t\t\t<tr>\n'
-          html += '\t\t\t\t\t\t<td id="row';
+          html += '\t\t\t\t\t\t<td id=\'row';
           id   = (1+i-numberOfInputs);
           html += id;
-          html +='">\n';
-          html += '\t\t\t\t\t\t\t<div id=\"t';
+          html +='\'>\n';
+          html += '\t\t\t\t\t\t\t<div id=\'t';
           html += id;
-          html +='" class=\"ltarget\">'
+          html +='\' class=\'ltarget\'>'
           html +='</div>\n' 
           html +='\t\t\t\t\t\t</td >\n'
-          html +='\t\t\t\t\t\t<td id=\"d'
+          html +='\t\t\t\t\t\t<td id=\'d'
           html += id
-          html += '\">\n'
+          html += '\'>\n'
           html += '\t\t\t\t\t\t\t';
           console.log(dlArray[i-numberOfInputs]);
           html += dlArray[i-numberOfInputs];
@@ -217,6 +217,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
 
     
     function saveContent(){
+        console.log("calling save content");
         var html_content = document.getElementById("generated_html_textarea");
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/wordmatch", true);
@@ -232,8 +233,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         }
         console.log('{"content":\"'
                 +html_content.value+'\"}');
-        xhr.send('{"content":\"'
-                +html_content.value+'\"}');
+        xhr.send(JSON.stringify({content: html_content.value}));
     }
 
     function add_more() {
