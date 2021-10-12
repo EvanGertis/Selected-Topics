@@ -210,7 +210,7 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
         controls.setAttribute("id","program1");
         controls.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
         controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>';
-        controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()">post</button>';
+        controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()"> Post </button>';
         results.appendChild(controls);
       }
     }

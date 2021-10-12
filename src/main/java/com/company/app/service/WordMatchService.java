@@ -1,7 +1,7 @@
 package com.company.app.service;
 
 /*
- * VisualizationService.java
+ * WordMatchService.java
  * Author: Evan Gertis
  */
 import org.apache.logging.log4j.LogManager;
@@ -41,7 +41,6 @@ public class WordMatchService {
 				FileWriter myWriter = new FileWriter("word_match.html");
 				myWriter.write(cleanedHTML);
 				myWriter.close();
-				System.out.println("Successfully wrote to the file.");
 			} catch (IOException e) {
 				System.out.println("An error occurred.");
 				e.printStackTrace();
@@ -63,8 +62,6 @@ public class WordMatchService {
 			FileWriter myWriter = new FileWriter(file);
 			myWriter.write(cleanedHTML);
 			myWriter.close();
-			//TODO add method to write file name with new index
-			System.out.println("File already exists.");
 		}
 		} catch (IOException e) {
 		System.out.println("An error occurred.");
