@@ -1,5 +1,0 @@
-INSERT INTO chapter (id, title, av_id) VALUES (2,'Graphs and Game Trees',1);
-INSERT INTO EXERCISE (id,chapter_id,exercise,answer,question,one,two,three,has_visualization) VALUES (5,2,'TicTacToe.PNG',3,"In what order will the search tree be constructed using DFS?","1->2->7->8->9->3->10->11->6->12->13->14->15->4->5","1->2->3->4->5->6->7->8->9->10->11->12->13->14","1->2->5->11->6->12->3->7->8->13->4->9->10->14",1);
-INSERT INTO EXERCISE (id,chapter_id,exercise,answer,question,one,two,three,has_visualization) VALUES (6,2,'TicTacToe.PNG',2,'In what order will the search tree be constructed using BFS?','1->2->5->11->6->12->3->7->8->13->4->9->10->14','1->2->3->4->6->6->7->8->9->10->11->12->13->14','1->2->7->8->9->3->10->11->6->12->13->14->15->4->5',1);
-INSERT INTO visualization (id,visualization,exercise_id) VALUES (4,'DFS',5);
-INSERT INTO visualization (id,visualization,exercise_id) VALUES (3,'BFS',6);

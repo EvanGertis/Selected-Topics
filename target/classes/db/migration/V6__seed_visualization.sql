@@ -1,1 +1,0 @@
-INSERT INTO visualization (id,visualization,exercise_id) VALUES (1,'treeTraversal',1);
