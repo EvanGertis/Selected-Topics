@@ -43,4 +43,9 @@ public class WordMatchController {
         return "word_match";
     }
 
+	@RequestMapping("/wordmatch/{id}")
+    public String getWordMatch(@PathVariable String id ,Model model) {
+        return "word_match"+id;
+    }
+
 }

@@ -1,5 +1,0 @@
-1 procedure DFS(G, v) is
-2    label v as discovered
-3    for all directed edges from v to w that are in G.adjacentEdges(v) do
-4        if vertex w is not labeled as discovered then
-5            recursively call DFS(G, w)

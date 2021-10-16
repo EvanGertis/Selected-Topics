@@ -31,14 +31,14 @@ public class WordMatchService {
 	public void saveContent(WordMatch wordMatch){
 		logger.info(wordMatch);
 		try {
-		File file = new File("wordmatch0.html");
+		File file = new File("./src/main/webapp/view/word_match0.jsp");
 		String html = wordMatch.toString();
 		String cleanedHTML = html.replace("WordMatch(content=","").replace(")","");
 		logger.info(cleanedHTML);
 		if (file.createNewFile()) {
 			System.out.println("File created: " + file.getName());
 			try {
-				FileWriter myWriter = new FileWriter("word_match.html");
+				FileWriter myWriter = new FileWriter("word_match.jsp");
 				myWriter.write(cleanedHTML);
 				myWriter.close();
 			} catch (IOException e) {
@@ -51,15 +51,15 @@ public class WordMatchService {
 			index = index.substring(0, index.indexOf("."));
 			Integer parsedInt = Integer.parseInt(index);
 			System.out.println(parsedInt);
-			Stream<Path> files = Files.list(Paths.get("./"));
+			Stream<Path> files = Files.list(Paths.get("./src/main/webapp/view/"));
 			Long numberOfFiles = files.map(Path.class::cast)
-			                          .filter(path -> path.getFileName().toString().startsWith("wordmatch"))
+			                          .filter(path -> path.getFileName().toString().startsWith("word_match"))
 			                          .count();
 			fileName = fileName.replace(index,numberOfFiles.toString());
 			System.out.println(numberOfFiles);
 			System.out.println("fileName should have been printed by now");
 			file = new File(fileName);
-			FileWriter myWriter = new FileWriter(file);
+			FileWriter myWriter = new FileWriter("./src/main/webapp/view/"+file);
 			myWriter.write(cleanedHTML);
 			myWriter.close();
 		}
