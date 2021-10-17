@@ -9,6 +9,10 @@
     var addMore = false;
     // initialize the answer.
     var answer = '';
+
+    // saved variables
+    var saved = false
+    var saved_id = 0
     
     function reset() {
     // reset the htmGenerated to false.
@@ -61,6 +65,7 @@
         
         // initialize blank html
         header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/static/css/boxes.css\" />\n\t\t<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/event1.js\">';
+        header += "<link rel=\"stylesheet\" type=\"text/css\" href=\"${pageContext.request.contextPath}/static/css/style.css\" />"
         header += '</'
         header += 'script>\n'
         header += '<script async src=\"https://www.googletagmanager.com/gtag/js?id=UA-89940905-27\">'
@@ -175,9 +180,12 @@
         controls = document.createElement("div");
         controls.setAttribute("id","program1");
         controls.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
-        controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>';
-        controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()"> Post </button>';
-        results.appendChild(controls);
+        controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>\n';
+        controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()"> Save </button>\n';
+        controls.innerHTML +=  `<button id=\"view_button\" class=\"button\" style=\" display: none;\"><a href=\"${window.location.href}/${saved_id}\"> view</a> </button>\n`;
+        if(document.getElementById("renderHTMLButton"))
+            results.parentNode.replaceChild(controls);
+        results.parentNode.appendChild(controls);
     }
     }
 
@@ -192,6 +200,11 @@
         {
             if(xhr.readyState == 4 && xhr.status == 201) {
                 console.log("content saved");
+                saved = true;
+                view_button = document.getElementById("view_button");
+                view_button.style.display = "inline";
+                saved_id++;
+                view_button.href = `${window.location.href}/${saved_id}`
             }
             else{
                 console.log("content was not save successfully");
@@ -268,8 +281,12 @@
     rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
     rendered_html.innerHTML +=  generated_html;
     results = document.getElementById("results");
+
+    if(document.getElementById("rendered_html"))
+        results.parentNode.appendChild(rendered_html);
+
     // Append the rendered html to the results tab
-    results.appendChild(rendered_html);
+    results.parentNode.appendChild(rendered_html);
     header = '<!DOCTYPE HTML>\n<html lang=\"en\">\n\t<head>\n\t\t<title>Word Matching Exercise</title>\n\t\t<style>\n*:focus {outline: 2px solid blue; outline-offset: 2px;}\n\t\tdetails {padding:3px;}\n\t\t</style>\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\"static/css/boxes.css\" />\n\t\t<script type=\"text/javascript\" src=\"static/js/event1.js\">';
     header += '</'
     header += 'script>\n'
@@ -279,25 +296,7 @@
     // header += '<script>\n\t window.dataLayer = window.dataLayer || [];\n\t function gtag(){dataLayer.push(arguments)};\tgtag(\"js\", new Date());\tgtag(\"config\", \"UA-89940905-27\");\n'
     // header += '</'
     // header += 'script>\n'
-    header += '<script src="static/js/jquery-1.7.2.min.js">'
-    header += '</'
-    header += 'script>\n'
-    header += '<script src="static/js/jquery-ui.min.js">'
-    header += '</'
-    header += 'script>\n'
-    header += '<script src="static/js/jquery.ui.touch-punch.min.js">'
-    header += '</'
-    header += 'script>\m'
-    header += '<script src="static/js/event1.js">'
-    header += '</'
-    header += 'script>\n'
-    header += '<script src="static/js/jquery.alerts.js">'
-    header += '</'
-    header += 'script>\n'
-    header += '<link href="static/js/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">'
-    header += '<script type=\"text/javascript\" src=\"static/js/logging.js\">'
-    header += '</'
-    header += 'script>\n</head>\n\t\t<body>';
+    header += '</head>\n\t\t<body>';
     new_tab_html = header;
     new_tab_html += rendered_html.innerHTML;
     footer = '\n\t\t</body>\n</html>\n';
@@ -305,9 +304,25 @@
     footer += '</'
     footer += 'script>'
     footer += '<script type=\"text/javascript\" src=\"static/js/word_match.js\">'
-    footer += '<script type="text/javascript" src="static/js/jquery.ui.touch-punch.min.js">'
+    footer += '<script src="static/js/jquery-1.7.2.min.js">'
     footer += '</'
-    footer += 'script>'
+    footer += 'script>\n'
+    footer += '<script src="static/js/jquery-ui.min.js">'
+    footer += '</'
+    footer += 'script>\n'
+    footer += '<script src="static/js/jquery.ui.touch-punch.min.js">'
+    footer += '</'
+    footer += 'script>\m'
+    footer += '<script src="static/js/event1.js">'
+    footer += '</'
+    footer += 'script>\n'
+    footer += '<script src="static/js/jquery.alerts.js">'
+    footer += '</'
+    footer += 'script>\n'
+    footer += '<link href="static/js/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">'
+    footer += '<script type=\"text/javascript\" src=\"static/js/logging.js\">'
+    footer += '</'
+    footer += 'script>\n'
     // footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
     // footer += '</'
     // footer += 'script>'

@@ -38,7 +38,7 @@ public class WordMatchService {
 		if (file.createNewFile()) {
 			System.out.println("File created: " + file.getName());
 			try {
-				FileWriter myWriter = new FileWriter("word_match.jsp");
+				FileWriter myWriter = new FileWriter("./src/main/webapp/view/word_match0.jsp");
 				myWriter.write(cleanedHTML);
 				myWriter.close();
 			} catch (IOException e) {

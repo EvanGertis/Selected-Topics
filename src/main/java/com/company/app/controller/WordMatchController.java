@@ -33,9 +33,9 @@ public class WordMatchController {
 	}
 	
 	@PostMapping("/wordmatch")
-	public void saveWordMatch(@RequestBody WordMatch wordMatch) {
+	public ResponseEntity<?> saveWordMatch(@RequestBody WordMatch wordMatch) {
 		wordMatchService.saveContent(wordMatch);
-		// return new HttpStatus.Created();
+		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED, HttpStatus.CREATED);
 	}
 
 	@RequestMapping("/wordmatch")

@@ -9,6 +9,7 @@
     details {padding:3px;}
     </style>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/boxes.css" />
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css" />
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/event1.js"></script>
   
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
@@ -28,35 +29,37 @@
     <div id="maincontentstyle">
         <div id="boxstyle">
           <h3 id= "title">Word Match Generator</h3>
-          <div class="row">
-            <div id="inputs" class="column column-1">
-                <div id="inputBoxes" class="inputBoxes">
-                    <title>Input:</title>
-                    <div class="row">
-                      Title: <input id= "title_input" type="text"> <br>
-                    </div>  
-                    <div class="row">
-                      Key Term 1: <input id="el1" type="text" value=""> <br>
-                    </div>
-                    <div class="row">
-                      Description 1: <input id="dl1" type="text" value=""> <br>
-                    </div>
-                    <div class="row">
-                      Key Term 2: <input id="el2" type="text" value=""> <br>
-                    </div>
-                    <div class="row">
-                      Description 2: <input id="dl2" type="text" value=""> <br>
-                    </div>
-                </div>
-                <span style="padding: 3px">
-                  <button id ="one" class="button" type="button" onClick="add_more()">add more</button>
-                </span>
-                <span style="padding: 3px">
-                  <button id ="one" class="button" type="button" onClick="generate_html()">generate html</button>
-                </span>
+          <div>
+            <div id="inputs">
+                <center>
+                  <div id="inputBoxes" class="inputBoxes">
+                      <title>Input:</title>
+                      <div class="row">
+                        Title: <input id= "title_input" type="text"> <br>
+                      </div>  
+                      <div class="row">
+                        Key Term 1: <input id="el1" type="text" value=""> <br>
+                      </div>
+                      <div class="row">
+                        Description 1: <input id="dl1" type="text" value=""> <br>
+                      </div>
+                      <div class="row">
+                        Key Term 2: <input id="el2" type="text" value=""> <br>
+                      </div>
+                      <div class="row">
+                        Description 2: <input id="dl2" type="text" value=""> <br>
+                      </div>
+                  </div>
+                  <span style="padding: 3px">
+                    <button id ="one" class="button" type="button" onClick="add_more()">add more</button>
+                  </span>
+                  <span style="padding: 3px">
+                    <button id ="one" class="button" type="button" onClick="generate_html()">generate html</button>
+                  </span>
+                </center>
+              </div>
+              </div>
             </div>
-            </div>
-          </div>
           <div id="results" class="row">
           </div>
           <div id="renderedHTML" class="row">

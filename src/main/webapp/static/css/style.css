@@ -56,3 +56,7 @@ html,body {
   stroke: #ccc;
   stroke-width: 1.5px;
 }
+
+textarea {
+  width: 100%;
+}
