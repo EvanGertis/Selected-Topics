@@ -32,21 +32,25 @@
           <div>
             <div id="inputs">
                 <center>
-                  <div id="inputBoxes" class="inputBoxes">
+                  <div id="inputBoxes">
                       <title>Input:</title>
-                      <div class="row">
+                      <div>
                         Title: <input id= "title_input" type="text"> <br>
                       </div>  
-                      <div class="row">
+                      <br>
+                      <div>
                         Key Term 1: <input id="el1" type="text" value=""> <br>
                       </div>
-                      <div class="row">
+                      <br>
+                      <div>
                         Description 1: <input id="dl1" type="text" value=""> <br>
                       </div>
-                      <div class="row">
+                      <br>
+                      <div>
                         Key Term 2: <input id="el2" type="text" value=""> <br>
                       </div>
-                      <div class="row">
+                      <br>
+                      <div>
                         Description 2: <input id="dl2" type="text" value=""> <br>
                       </div>
                   </div>

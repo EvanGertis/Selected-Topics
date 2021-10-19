@@ -116,6 +116,9 @@
 
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
+        console.log(dlArray)
+        dlArray = shuffle(dlArray);
+        console.log(dlArray)
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
         html +='\t\t\t\t\t\t<tr>\n'
         html += '\t\t\t\t\t\t<td id=\'row';
@@ -168,7 +171,7 @@
         // footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
         // footer += '</'
         // footer += 'script>'
-        footer += '<img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">'
+        footer += '<img id=\"bg\" src=\"${pageContext.request.contextPath}/static/images/audioOff.png\" height=\"30\" width=\"30\" style=\"margin-bottom:-10px; padding-bottom:-20px;\">'
         html += footer;
 
         // html generation is done.
@@ -227,10 +230,12 @@
 
     //fetch the input boxes.
     inputs = document.getElementById("inputBoxes");
+
+    // create newline
+    br = document.createElement("br");
     
     //create a new row for a key term.
     row = document.createElement("div");
-    row.setAttribute("class","row");
 
     // set the key term text.
     row.innerHTML = "Key Term ";
@@ -243,15 +248,16 @@
 
     //add the key to the row.
     row.appendChild(key);
+    row.after(br);
 
     //create a row for the new description.
     row2 = document.createElement("div");
-    row2.setAttribute("class","row");
 
     // set the description text.
     row2.innerHTML = "Description  "
     row2.innerHTML+=numberOfInputs;
     row2.innerHTML+=" :";
+    row2.after(br);
 
     // create the description input
     description = document.createElement("input");
@@ -312,7 +318,7 @@
     footer += 'script>\n'
     footer += '<script src="static/js/jquery.ui.touch-punch.min.js">'
     footer += '</'
-    footer += 'script>\m'
+    footer += 'script>\n'
     footer += '<script src="static/js/event1.js">'
     footer += '</'
     footer += 'script>\n'
@@ -329,5 +335,13 @@
     new_tab_html += footer;
     console.log(new_tab_html);
     new_window.document.write(new_tab_html);
+    }
+
+    function shuffle(a){
+        for(let j,i=a.length;i>1;){
+         j=Math.floor(Math.random()*i--);
+         if (i!=j) [a[i],a[j]]=[a[j],a[i]]
+        }
+        return a
     }
 // }
