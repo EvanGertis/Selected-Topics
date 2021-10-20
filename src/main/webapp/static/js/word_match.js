@@ -168,9 +168,9 @@
         footer += '<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js\">'
         footer += '</'
         footer += 'script>'
-        // footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
-        // footer += '</'
-        // footer += 'script>'
+        footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
+        footer += '</'
+        footer += 'script>'
         footer += '<img id=\"bg\" src=\"${pageContext.request.contextPath}/static/images/audioOff.png\" height=\"30\" width=\"30\" style=\"margin-bottom:-10px; padding-bottom:-20px;\">'
         html += footer;
 
