@@ -23,28 +23,35 @@
     window.location.reload();
     }
 
-    function show_answer() {
-    // retrieve the keys and descriptions. Then load them into their respective arrays.
-    const e_inputs = document.querySelectorAll("[id^='el']");
-    const d_inputs = document.querySelectorAll("[id^='dl']");
-    let elArray = [];
-    let dlArray = [];
-    const title = document.getElementById('title').value;
-    e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
-    d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
+    function set_answer(){
+        // retrieve the keys and descriptions. Then load them into their respective arrays.
+        const e_inputs = document.querySelectorAll("[id^='el']");
+        const d_inputs = document.querySelectorAll("[id^='dl']");
+        let elArray = [];
+        let dlArray = [];
+        const title = document.getElementById('title').value;
+        e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
+        d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
-    //reset the answer once the generate_html() is called.
-    answer = '';
-    for (let i = 0; i < elArray.length; i++) {
-        answer += elArray[i];
-        answer += ':';
-        answer += dlArray[i];
-        answer += '\n';
+        //reset the answer once the generate_html() is called.
+        answer = '';
+        for (let i = 0; i < elArray.length; i++) {
+            answer += elArray[i];
+            answer += ':';
+            answer += dlArray[i];
+            anser  += ' '
+        }
     }
-    jAlert(answer, 'Correct Match');
+
+    function show_answer() {
+        set_answer()
+        jAlert(answer, 'Correct Match');
     }
 
     function generate_html() {
+    // calculate answer
+    set_answer()
+
     // retrieve the keys and descriptions. Then load them into their respective arrays.
     const e_inputs = document.querySelectorAll("[id^='el']");
     const d_inputs = document.querySelectorAll("[id^='dl']");
@@ -180,15 +187,20 @@
         footer += '}'
         footer += '</script>'
         footer += '  <script>'
-        footer += '  answer = "Loop Body: is the part of the body that contains the statements to be repeated. '
+        footer += '  answer = '
+        footer += '\"'
+        footer += answer
+        console.log(answer)
+        footer += '\"'
+        footer += ';'
         // footer += '\n'
-        footer += ' Iteration: is one time execution of the loop body.'
+        // footer += ' Iteration: is one time execution of the loop body.'
         // footer += '\n'
-        footer += 'Loop Continuation Condition: is a Boolean expression that controls the execution of the loop.'
+        // footer += 'Loop Continuation Condition: is a Boolean expression that controls the execution of the loop.'
         // footer += '\n'
-        footer += 'Infinite Loop: is a loop that runs forever due to an error in the code.'
+        // footer += 'Infinite Loop: is a loop that runs forever due to an error in the code.'
         // footor += '\n'
-        footer += 'Off-by-one: is an error in the program that causes the loop body to be executed one more or less time."'
+        // footer += 'Off-by-one: is an error in the program that causes the loop body to be executed one more or less time."'
         footer += '  function show_answer() {'
         footer += '	  jAlert(answer, \'Correct Match\');'
         footer += '  }'
@@ -332,6 +344,7 @@
     }
 
     function render_html(){
+    
     textarea  = document.getElementById("generated_html_textarea");
     // Set the generate html to the value from the textarea.
     generated_html = textarea.value;
