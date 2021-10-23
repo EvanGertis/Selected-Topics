@@ -17,6 +17,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 import java.nio.file.Files;
+import java.util.Base64;
 
 
 @Service
@@ -32,14 +33,17 @@ public class WordMatchService {
 		logger.info(wordMatch);
 		try {
 		File file = new File("./src/main/webapp/view/word_match0.jsp");
-		String html = wordMatch.toString();
-		String cleanedHTML = html.replace("WordMatch(content=","").replace(")","");
+		logger.info("Decoding String");
+		String cleanedHTML = wordMatch.toString().replace("WordMatch(content=","").replace(")","");
 		logger.info(cleanedHTML);
+		byte[] decodedBytes = Base64.getDecoder().decode(cleanedHTML.getBytes());
+		String html = new String(decodedBytes, "UTF-8");
+		logger.info(html);
 		if (file.createNewFile()) {
 			System.out.println("File created: " + file.getName());
 			try {
 				FileWriter myWriter = new FileWriter("./src/main/webapp/view/word_match0.jsp");
-				myWriter.write(cleanedHTML);
+				myWriter.write(html);
 				myWriter.close();
 			} catch (IOException e) {
 				System.out.println("An error occurred.");
@@ -60,7 +64,7 @@ public class WordMatchService {
 			System.out.println("fileName should have been printed by now");
 			file = new File(fileName);
 			FileWriter myWriter = new FileWriter("./src/main/webapp/view/"+file);
-			myWriter.write(cleanedHTML);
+			myWriter.write(html);
 			myWriter.close();
 		}
 		} catch (IOException e) {
