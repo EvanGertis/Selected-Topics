@@ -95,7 +95,6 @@ if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first ti
 </script>
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/word_match.js"></script>
-<s/cript>    
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script>
 <script> 
   
