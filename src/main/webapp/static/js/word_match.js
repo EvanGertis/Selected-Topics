@@ -39,7 +39,7 @@
             answer += elArray[i];
             answer += ':';
             answer += dlArray[i];
-            anser  += ' '
+            answer  += ' '
         }
     }
 
@@ -134,7 +134,7 @@
         html +='\'>\n';
         html += '\t\t\t\t\t\t\t<div id=\'t';
         html += id;
-        html +='\' class=\'ltarget\'>'
+        html +='\' class=\'ltarget ui-droppable\'>'
         html +='</div>\n' 
         html +='\t\t\t\t\t\t</td >\n'
         html +='\t\t\t\t\t\t<td id=\'d'
