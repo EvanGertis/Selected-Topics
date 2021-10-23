@@ -43,6 +43,16 @@
         }
     }
 
+    function populate_numbers_array(footer, dlArray){
+        console.log("populating numbers")
+        dlArray.forEach(i => {
+            footer += i.replace ( /[^\d.]/g, '' );
+            footer += ',';
+            console.log("adding "+i+" to the numbers array")
+        })
+        return footer
+    }
+
     function show_answer() {
         set_answer()
         jAlert(answer, 'Correct Match');
@@ -182,7 +192,12 @@
         footer += 'document.getElementById("resetButton").style.visibility = "hidden";'
         footer += 'if (false && sessionStorage.getItem("someVarKey1"))'
         footer += '$("#one").focus();'
-        footer += 'var numbers = [3, 4, 5, 1, 2];'
+        footer += 'var numbers = ['
+        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
+            footer += dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            footer += ',';
+        } 
+        footer += '];'
         footer += 'initialize(numbers);'
         footer += '}'
         footer += '</script>'
