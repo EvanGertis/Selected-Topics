@@ -115,7 +115,7 @@
   if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first time
   $("#one").focus();
   var numbers = [3, 4, 5, 1, 2];
-  initialize(numbers);
+//   initialize(numbers);
   
   
   }

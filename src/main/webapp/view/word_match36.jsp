@@ -36,7 +36,7 @@
 							<div id='t1' class='ltarget ui-droppable'></div>
 						</td >
 						<td id='d1'>
-							d1
+							d2
 							</td >
 						</tr>
 						<tr>
@@ -44,7 +44,7 @@
 							<div id='t2' class='ltarget ui-droppable'></div>
 						</td >
 						<td id='d2'>
-							d2
+							d1
 							</td >
 						</tr>
 					</table>
