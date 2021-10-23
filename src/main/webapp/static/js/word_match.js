@@ -173,7 +173,7 @@
         footer += 'function init() {'
         footer += '	document.getElementById(\'resetButton\').style.display = \'none\';'
         footer += 'document.getElementById("resetButton").style.visibility = "hidden";'
-        footer += 'if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first time'
+        footer += 'if (false && sessionStorage.getItem("someVarKey1"))'
         footer += '$("#one").focus();'
         footer += 'var numbers = [3, 4, 5, 1, 2];'
         footer += 'initialize(numbers);'
