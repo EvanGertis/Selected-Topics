@@ -84,7 +84,7 @@
 				</center>
 		</div>
 	</center>
-</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer(">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset(">Reset</button></span>
+</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button></span>
 		</body>
 </html>
 <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/word_match.js"></script><script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script><script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script><script>audioOn = false; $(function( {$('.menulink'.click(function({if (audioOn {$("#bg".attr('src',"${pageContext.request.contextPath}/static/images/audioOff.png";  audioOn = false;}else {$("#bg".attr('src',"${pageContext.request.contextPath}/static/images/audioOn.png";audioOn = true; speak(" ";}return false;};};</script><img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">
