@@ -88,75 +88,75 @@
 		</body>
 </html>
 
-  <script src="${pageContext.request.contextPath}/static/js/jquery-1.7.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-1.7.2.min.js"></script>
   
-  <script src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js"></script>
-  <script src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script><script src="${pageContext.request.contextPath}/static/jsjquery.alerts.js"></script><link href="${pageContext.request.contextPath}/static/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">  
-  
-  <script type="text/javascript">
-  $(init);
-  $( window ).unload(function() {
-  removeStorage.removeItem("someVarKey1");
-  });
-  function reset() {
-	var someVarName = true;
-  sessionStorage.setItem("someVarKey1", someVarName);
-  window.location.reload();
+<script src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script><script src="${pageContext.request.contextPath}/static/jsjquery.alerts.js"></script><link href="${pageContext.request.contextPath}/static/css/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen">  
+
+<script type="text/javascript">
+$(init);
+$( window ).unload(function() {
+removeStorage.removeItem("someVarKey1");
+});
+function reset() {
+  var someVarName = true;
+sessionStorage.setItem("someVarKey1", someVarName);
+window.location.reload();
+}
+function init() {
+	document.getElementById('resetButton').style.display = 'none';
+document.getElementById("resetButton").style.visibility = "hidden";
+if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first time
+$("#one").focus();
+var numbers = [3, 4, 5, 1, 2];
+initialize(numbers);
+
+
+}
+</script>
+  <script>
+  answer = "Loop Body: is the part of the body that contains the statements to be repeated.\nIteration: is one time execution of the loop body.\nLoop Continuation Condition: is a Boolean expression that controls the execution of the loop.\nInfinite Loop: is a loop that runs forever due to an error in the code.\nOff-by-one: is an error in the program that causes the loop body to be executed one more or less time."
+  function show_answer() {
+	  jAlert(answer, 'Correct Match');
   }
-  function init() {
-	  document.getElementById('resetButton').style.display = 'none';
-  document.getElementById("resetButton").style.visibility = "hidden";
-  if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first time
-  $("#one").focus();
-  var numbers = [3, 4, 5, 1, 2];
-  initialize(numbers);
-  
-  
+</script>
+ 
+<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script>
+ <script>
+//    $(function(){
+//  if ('speechSynthesis' in window) {
+//    speechSynthesis.onvoiceschanged = function() {
+//      var $voicelist = $('#voices');
+//
+//      if($voicelist.find('option').length == 0) {
+//        speechSynthesis.getVoices().forEach(function(voice, index) {
+//          var $option = $('<option>')
+//          .val(index)
+//          .html(voice.name + (voice.default ? ' (default)' :''));
+//
+//          $voicelist.append($option);
+//        });
+//
+//        $voicelist.material_select();
+//      }
+//    }
+//  } 
+//});     
+
+audioOn = false;
+$(function() {
+$('.menulink').click(function(){
+  if (audioOn) {
+	$("#bg").attr('src',"audioOff.png");  
+	audioOn = false;
   }
-  </script>
-	<script>
-	answer = "Loop Body: is the part of the body that contains the statements to be repeated.\nIteration: is one time execution of the loop body.\nLoop Continuation Condition: is a Boolean expression that controls the execution of the loop.\nInfinite Loop: is a loop that runs forever due to an error in the code.\nOff-by-one: is an error in the program that causes the loop body to be executed one more or less time."
-	function one() {
-		jAlert(answer, 'Correct Match');
-	}
-  </script>
-   
-  <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script>
-   <script>
-  //    $(function(){
-  //  if ('speechSynthesis' in window) {
-  //    speechSynthesis.onvoiceschanged = function() {
-  //      var $voicelist = $('#voices');
-  //
-  //      if($voicelist.find('option').length == 0) {
-  //        speechSynthesis.getVoices().forEach(function(voice, index) {
-  //          var $option = $('<option>')
-  //          .val(index)
-  //          .html(voice.name + (voice.default ? ' (default)' :''));
-  //
-  //          $voicelist.append($option);
-  //        });
-  //
-  //        $voicelist.material_select();
-  //      }
-  //    }
-  //  } 
-  //});     
-  
-  audioOn = false;
-  $(function() {
-  $('.menulink').click(function(){
-	if (audioOn) {
-	  $("#bg").attr('src',"audioOff.png");  
-	  audioOn = false;
-	}
-	else {
-	  $("#bg").attr('src',"audioOn.png");
-	  audioOn = true; speak(" ");
-	}
-	return false;
-  });
-  });
-   </script>   
-  
-   
+  else {
+	$("#bg").attr('src',"audioOn.png");
+	audioOn = true; speak(" ");
+  }
+  return false;
+});
+});
+ </script>   
+
+ 
