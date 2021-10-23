@@ -134,7 +134,7 @@
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
         console.log(dlArray)
-        dlArray = shuffle(dlArray);
+        // dlArray = shuffle(dlArray);
         console.log(dlArray)
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
         html +='\t\t\t\t\t\t<tr>\n'
