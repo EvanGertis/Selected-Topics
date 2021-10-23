@@ -159,19 +159,69 @@
         html += 'button>'
         html += '</span>'
         footer = '\n\t\t</body>\n</html>\n';
-        footer += '<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/word_match.js\">'
-        footer += '</'
-        footer += 'script>'
-        footer += '<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/GetElementPosition3.js\">'
-        footer += '</'
-        footer += 'script>'
-        footer += '<script type=\"text/javascript\" src=\"${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js\">'
-        footer += '</'
-        footer += 'script>'
-        footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
-        footer += '</'
-        footer += 'script>'
-        footer += '<img id=\"bg\" src=\"${pageContext.request.contextPath}/static/images/audioOff.png\" height=\"30\" width=\"30\" style=\"margin-bottom:-10px; padding-bottom:-20px;\">'
+        footer += ''
+        footer += '<script type="text/javascript">'
+        footer += '$(init);'
+        footer += '$( window ).unload(function() {'
+        footer += 'removeStorage.removeItem("someVarKey1");'
+        footer += '});'
+        footer += 'function reset() {'
+        footer += '  var someVarName = true;'
+        footer += 'sessionStorage.setItem("someVarKey1", someVarName);'
+        footer += 'window.location.reload();'
+        footer += '}'
+        footer += 'function init() {'
+        footer += '	document.getElementById(\'resetButton\').style.display = \'none\';'
+        footer += 'document.getElementById("resetButton").style.visibility = "hidden";'
+        footer += 'if (false && sessionStorage.getItem("someVarKey1")) // No focus for the first time'
+        footer += '$("#one").focus();'
+        footer += 'var numbers = [3, 4, 5, 1, 2];'
+        footer += 'initialize(numbers);'
+        footer += '}'
+        footer += '</script>'
+        footer += '  <script>'
+        footer += '  answer = "Loop Body: is the part of the body that contains the statements to be repeated.\nIteration: is one time execution of the loop body.\nLoop Continuation Condition: is a Boolean expression that controls the execution of the loop.\nInfinite Loop: is a loop that runs forever due to an error in the code.\nOff-by-one: is an error in the program that causes the loop body to be executed one more or less time."'
+        footer += '  function show_answer() {'
+        footer += '	  jAlert(answer, \'Correct Match\');'
+        footer += '  }'
+        footer += '</script>'
+        footer += ' '
+        footer += '<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script>'
+        footer += ' <script>'
+        footer += '//    $(function(){'
+        footer += '//  if (\'speechSynthesis\' in window) {'
+        footer += '//    speechSynthesis.onvoiceschanged = function() {'
+        footer += '//      var $voicelist = $(\'#voices\');'
+        footer += '//'
+        footer += '//      if($voicelist.find(\'option\').length == 0) {'
+        footer += '//        speechSynthesis.getVoices().forEach(function(voice, \'index) {'
+        footer += '//          var $option = $(\'<option>\')'
+        footer += '//          .val(index)'
+        footer += '//          .html(voice.name + (voice.default ? \' (default)\' :\'\'));'
+        footer += '//'
+        footer += '//          $voicelist.append($option);'
+        footer += '//        });'
+        footer += '//'
+        footer += '//        $voicelist.material_select();'
+        footer += '//      }'
+        footer += '//    }'
+        footer += '//  } '
+        footer += '//});     '
+        footer += 'audioOn = false;'
+        footer += '$(function() {'
+        footer += '$(\'.menulink\').click(function(){'
+        footer += '  if (audioOn) {'
+        footer += '	$("#bg").attr(\'src\',"audioOff.png");  '
+        footer += '	audioOn = false;'
+        footer += '  }'
+        footer += '  else {'
+        footer += '	$("#bg").attr(\'src\',"audioOn.png");'
+        footer += '	audioOn = true; speak(" ");'
+        footer += '  }'
+        footer += '  return false;'
+        footer += '});'
+        footer += '});'
+        footer += ' </script>   '
         html += footer;
 
         // html generation is done.
@@ -196,6 +246,8 @@
     function saveContent(){
         console.log("calling save content");
         var html_content = document.getElementById("generated_html_textarea");
+        var b64_string   = btoa(html_content.value) 
+        console.log(b64_string)
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "/wordmatch", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
@@ -214,8 +266,8 @@
             }
         }
         console.log('{"content":\"'
-                +html_content.value+'\"}');
-        xhr.send(JSON.stringify({content: html_content.value}));
+                +b64_string+'\"}');
+        xhr.send(JSON.stringify({content: b64_string}));
     }
 
     function add_more() {
