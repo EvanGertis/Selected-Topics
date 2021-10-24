@@ -23,26 +23,6 @@
     window.location.reload();
     }
 
-    function set_answer(){
-        // retrieve the keys and descriptions. Then load them into their respective arrays.
-        const e_inputs = document.querySelectorAll("[id^='el']");
-        const d_inputs = document.querySelectorAll("[id^='dl']");
-        let elArray = [];
-        let dlArray = [];
-        const title = document.getElementById('title').value;
-        e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
-        d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
-
-        //reset the answer once the generate_html() is called.
-        answer = '';
-        for (let i = 0; i < elArray.length; i++) {
-            answer += elArray[i];
-            answer += ':';
-            answer += dlArray[i];
-            answer  += ' '
-        }
-    }
-
     function populate_numbers_array(footer, dlArray){
         console.log("populating numbers")
         dlArray.forEach(i => {
@@ -54,13 +34,10 @@
     }
 
     function show_answer() {
-        set_answer()
         jAlert(answer, 'Correct Match');
     }
 
     function generate_html() {
-    // calculate answer
-    set_answer()
 
     // retrieve the keys and descriptions. Then load them into their respective arrays.
     const e_inputs = document.querySelectorAll("[id^='el']");
@@ -118,6 +95,11 @@
         //create key inputs
         html += '\t\t\t\t<center>\n'
         html += '\t\t\t\t\t<div class=\'source\'>\n' 
+        console.log("The value of the dlArray is")
+        console.log(dlArray)
+        console.log("The value of the elArray is")
+        console.log(elArray)
+        dlArray = shuffle(dlArray);
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
         html += '\t\t\t\t\t\t<div id=\'s';
         id   = (1+i-numberOfInputs);
@@ -133,9 +115,6 @@
 
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
-        console.log(dlArray)
-        // dlArray = shuffle(dlArray);
-        console.log(dlArray)
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
         html +='\t\t\t\t\t\t<tr>\n'
         html += '\t\t\t\t\t\t<td id=\'row';
@@ -204,6 +183,13 @@
         footer += '  <script>'
         footer += '  answer = '
         footer += '\"'
+        answer = '';
+        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++) {
+            answer += elArray[i-numberOfInputs];
+            answer += ':';
+            answer += dlArray[i-numberOfInputs];
+            answer  += ' '
+        }
         footer += answer
         console.log(answer)
         footer += '\"'
