@@ -187,7 +187,7 @@
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++) {
             answer += elArray[i-numberOfInputs];
             answer += ':';
-            answer += dlArray[i-numberOfInputs];
+            answer += dlArray[numberOfInputs-i];
             answer  += ' '
         }
         footer += answer
