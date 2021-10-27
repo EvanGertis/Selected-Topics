@@ -23,13 +23,14 @@ import java.util.Base64;
 @Service
 public class WordMatchService {
 	private static final Logger logger =  LogManager.getLogger(WordMatchService.class);
+	Integer parsedInt;
 
 	
 	@Autowired
 	WordMatchService(){
 	}
 
-	public void saveContent(WordMatch wordMatch){
+	public Integer saveContent(WordMatch wordMatch){
 		logger.info(wordMatch);
 		try {
 		File file = new File("./src/main/webapp/view/word_match0.jsp");
@@ -71,5 +72,6 @@ public class WordMatchService {
 		System.out.println("An error occurred.");
 		e.printStackTrace();
 		}
+		return parsedInt;
 	}
 }

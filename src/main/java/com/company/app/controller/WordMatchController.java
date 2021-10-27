@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.http.HttpStatus;
+import java.util.ArraysList;
 
 import com.company.app.service.WordMatchService;
 import com.company.app.model.WordMatch;
@@ -33,9 +34,15 @@ public class WordMatchController {
 	}
 	
 	@PostMapping("/wordmatch")
-	public ResponseEntity<?> saveWordMatch(@RequestBody WordMatch wordMatch) {
-		wordMatchService.saveContent(wordMatch);
-		return new ResponseEntity<HttpStatus>(HttpStatus.CREATED, HttpStatus.CREATED);
+	public ResponseEntity<Objectr> saveWordMatch(@RequestBody WordMatch wordMatch) {
+		Integer index = wordMatchService.saveContent(wordMatch);
+		List<JSONObject> entities = new ArrayList<JSONObject>();
+        for (Entity n : entityList) {
+            JSONObject entity = new JSONObject();
+            entity.put("id", index);
+            entities.add(entity);
+        }
+		return new ResponseEntity<Object>(entities, HttpStatus.CREATED);
 	}
 
 	@RequestMapping("/wordmatch")

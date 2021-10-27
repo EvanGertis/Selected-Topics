@@ -273,8 +273,10 @@
         xhr.open("POST", "/wordmatch", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function()
-        {
+        {   
             if(xhr.readyState == 4 && xhr.status == 201) {
+                console.log(xhr.status)
+                console.log(xhr.response.JSON)
                 console.log("content saved");
                 saved = true;
                 view_button = document.getElementById("view_button");
@@ -283,6 +285,8 @@
                 view_button.href = `${window.location.href}/${saved_id}`
             }
             else{
+                console.log(xhr.status)
+                console.log(xhr.response)
                 console.log("content was not save successfully");
             }
         }
