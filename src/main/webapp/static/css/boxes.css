@@ -383,3 +383,7 @@ textarea {
 flex: 50%;
 text-align: center;
 }
+
+input {
+    width: 100%;
+}

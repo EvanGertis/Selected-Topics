@@ -31,36 +31,31 @@
           <h3 id= "title">Word Match Generator</h3>
           <div>
             <div id="inputs">
-                <center>
                   <div id="inputBoxes">
                       <title>Input:</title>
                       <div>
-                        Title: <input id= "title_input" type="text"> <br>
+                        Title: <input id= "title_input" type="text">
                       </div>  
-                      <br>
+                      
                       <div>
-                        Key Term 1: <input id="el1" type="text" value=""> <br>
+                        Key Term 1: <input id="el1" type="text" value="">
                       </div>
-                      <br>
                       <div>
-                        Description 1: <input id="dl1" type="text" value=""> <br>
+                        Description 1: <input id="dl1" type="text" value=""> 
                       </div>
-                      <br>
                       <div>
-                        Key Term 2: <input id="el2" type="text" value=""> <br>
+                        Key Term 2: <input id="el2" type="text" value=""> 
                       </div>
-                      <br>
                       <div>
-                        Description 2: <input id="dl2" type="text" value=""> <br>
+                        Description 2: <input id="dl2" type="text" value=""> 
                       </div>
                   </div>
                   <span style="padding: 3px">
-                    <button id ="one" class="button" type="button" onClick="add_more()">add more</button>
+                    <button id ="add_more" class="button" type="button" onClick="add_more()">Add More</button>
                   </span>
                   <span style="padding: 3px">
-                    <button id ="one" class="button" type="button" onClick="generate_html()">generate html</button>
+                    <button id ="one" class="button" type="button" onClick="generate_html()">Generate Html</button>
                   </span>
-                </center>
               </div>
               </div>
             </div>
