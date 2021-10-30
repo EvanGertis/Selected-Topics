@@ -276,13 +276,14 @@
         {   
             if(xhr.readyState == 4 && xhr.status == 201) {
                 console.log(xhr.status)
-                console.log(xhr.response.JSON)
                 console.log("content saved");
                 saved = true;
                 view_button = document.getElementById("view_button");
                 view_button.style.display = "inline";
-                saved_id++;
-                view_button.href = `${window.location.href}/${saved_id}`
+                console.log('JSON.parse(xhr.response).id ' + JSON.parse(xhr.response).id)
+                saved_id = JSON.parse(xhr.response).id
+                console.log('saved_id ' +saved_id)
+                view_button.children[0].href = `${window.location.href}/${saved_id}`
             }
             else{
                 console.log(xhr.status)
