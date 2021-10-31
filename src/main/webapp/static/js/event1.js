@@ -44,6 +44,7 @@ function initialize(numbers) {
   totalCount = numbers.length;
   
   for (var i = 0; i < numbers.length; i++) {
+    console.log("'#s' + (i + 1) is matched with "+numbers[i])
     $('#s' + (i + 1)).data('number', numbers[i]).draggable( {
       containment: '#boxstyle',
       cursor: 'move',
@@ -53,7 +54,8 @@ function initialize(numbers) {
 
   // Create the slots
     for ( var i = 0; i < numbers.length; i++ ) {
-    $('#t' + (i + 1)).data('number', i + 1).droppable( {
+    console.log("'#t' + (i + 1) is matched with "+numbers[i])
+    $('#t' + (i + 1)).data('number', numbers[i]).droppable( {
       hoverClass: 'hovered',
       drop: handDrop
     } );
@@ -73,12 +75,12 @@ function handDrop(event, ui) {
 //    $('#d' + targetNumber).css("background", "goldenrod");
 //    $('#d' + targetNumber).css("color", "white");
 //    $('#t' + targetNumber).css("background", "goldenrod");
-    $('#d' + targetNumber).css("border-top", "1px solid");
-    $('#d' + targetNumber).css("border-bottom", "1px solid");
-    $('#d' + targetNumber).css("border-color", "white");
-    $('#d' + targetNumber).css("background", "#3F5E17");
-    $('#d' + targetNumber).css("color", "white");
-    $('#t' + targetNumber).css("background", "#3F5E17");
+    // $('#d' + targetNumber).css("border-top", "1px solid");
+    // $('#d' + targetNumber).css("border-bottom", "1px solid");
+    // $('#d' + targetNumber).css("border-color", "white");
+    // $('#d' + targetNumber).css("background", "#3F5E17");
+    // $('#d' + targetNumber).css("color", "white");
+    // $('#t' + targetNumber).css("background", "#3F5E17");
     
           document.getElementById('resetButton').style.display = 'inline';
  document.getElementById("resetButton").style.visibility = "visible";

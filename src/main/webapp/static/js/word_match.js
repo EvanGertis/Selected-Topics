@@ -48,6 +48,7 @@
     e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
     d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
 
+
     //has the html already been generated? 
     if(!htmlGenerated){
         //fetch the results box
@@ -103,7 +104,8 @@
         elArray = shuffleKeys(elArray);
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
 	        html += '\t\t\t\t\t\t<div id=\'s';
-	        id   = elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+	        id   = i-numberOfInputs+1;//elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log("id "+id)
 	        html += id;
 	        html +='\' class=\'draggyBox-small ui-draggable\'>\n';
 	        html += '\t\t\t\t\t\t\t'
@@ -120,10 +122,11 @@
 
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
-        for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
+        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
             html +='\t\t\t\t\t\t<tr>\n'
             html += '\t\t\t\t\t\t<td id=\'row';
-            id   = elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            id   =  i-numberOfInputs+1;//dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log("id "+id);
             html += id;
             html +='\'>\n';
             html += '\t\t\t\t\t\t\t<div id=\'t';
@@ -176,8 +179,8 @@
         footer += 'document.getElementById("resetButton").style.visibility = "hidden";'
         footer += 'if (false && sessionStorage.getItem("someVarKey1"))'
         footer += '$("#one").focus();'
-        footer += 'var numbers = ['
         console.log('var numbers = [');
+        footer += 'var numbers = ['
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
             footer += dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
             console.log(dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' ))
@@ -262,7 +265,7 @@
         // Generate reset, show answer, , and render html buttons
         controls = document.createElement("div");
         controls.setAttribute("id","program1");
-        controls.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
+        controls.setAttribute("style","border: 1px solid #EB0D1B; width: 450px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
         controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>\n';
         controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()"> Save </button>\n';
         controls.innerHTML +=  `<button id=\"view_button\" class=\"button\" style=\" display: none;\"><a href=\"${window.location.href}/${saved_id}\"> view</a> </button>\n`;
@@ -285,13 +288,14 @@
         {   
             if(xhr.readyState == 4 && xhr.status == 201) {
                 console.log(xhr.status)
-                console.log(xhr.response.JSON)
                 console.log("content saved");
                 saved = true;
                 view_button = document.getElementById("view_button");
                 view_button.style.display = "inline";
-                saved_id++;
-                view_button.href = `${window.location.href}/${saved_id}`
+                console.log('JSON.parse(xhr.response).id ' + JSON.parse(xhr.response).id)
+                saved_id = JSON.parse(xhr.response).id
+                console.log('saved_id ' +saved_id)
+                view_button.children[0].href = `${window.location.href}/${saved_id}`
             }
             else{
                 console.log(xhr.status)
@@ -371,7 +375,7 @@
 
     rendered_html = document.createElement("div");
     rendered_html.setAttribute("id","rendered_html");
-    rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 360px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
+    rendered_html.setAttribute("style","border: 1px solid #EB0D1B; width: 450px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
     rendered_html.innerHTML +=  generated_html;
     results = document.getElementById("results");
 
