@@ -99,41 +99,46 @@
         console.log(dlArray)
         console.log("The value of the elArray is")
         console.log(elArray)
-        dlArray = shuffle(dlArray);
+        dlArray = shuffleDescriptions(dlArray);
+        elArray = shuffleKeys(elArray);
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
-        html += '\t\t\t\t\t\t<div id=\'s';
-        id   = (1+i-numberOfInputs);
-        html += id;
-        html +='\' class=\'draggyBox-small ui-draggable\'>\n';
-        html += '\t\t\t\t\t\t\t'
-        html += elArray[i-numberOfInputs]
-        html += '\n';
-        html +='\t\t\t\t\t\t</div>\n';
+	        html += '\t\t\t\t\t\t<div id=\'s';
+	        id   = elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+	        html += id;
+	        html +='\' class=\'draggyBox-small ui-draggable\'>\n';
+	        html += '\t\t\t\t\t\t\t'
+	        html += elArray[i-numberOfInputs]
+	        html += '\n';
+	        html +='\t\t\t\t\t\t</div>\n';
         }
+        console.log("The value of the dlArray is")
+        console.log(dlArray)
+        console.log("The value of the elArray is")
+        console.log(elArray)
         html += '\t\t\t\t\t</div>\n'
         html += '\t\t\t\t\t</center>\n'
 
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
-        for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
-        html +='\t\t\t\t\t\t<tr>\n'
-        html += '\t\t\t\t\t\t<td id=\'row';
-        id   = (1+i-numberOfInputs);
-        html += id;
-        html +='\'>\n';
-        html += '\t\t\t\t\t\t\t<div id=\'t';
-        html += id;
-        html +='\' class=\'ltarget ui-droppable\'>'
-        html +='</div>\n' 
-        html +='\t\t\t\t\t\t</td >\n'
-        html +='\t\t\t\t\t\t<td id=\'d'
-        html += id
-        html += '\'>\n'
-        html += '\t\t\t\t\t\t\t';
-        html += dlArray[i-numberOfInputs];
-        html += '\n';
-        html +='\t\t\t\t\t\t\t</td >\n' 
-        html +='\t\t\t\t\t\t</tr>\n';
+        for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
+            html +='\t\t\t\t\t\t<tr>\n'
+            html += '\t\t\t\t\t\t<td id=\'row';
+            id   = elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            html += id;
+            html +='\'>\n';
+            html += '\t\t\t\t\t\t\t<div id=\'t';
+            html += id;
+            html +='\' class=\'ltarget ui-droppable\'>'
+            html +='</div>\n' 
+            html +='\t\t\t\t\t\t</td >\n'
+            html +='\t\t\t\t\t\t<td id=\'d'
+            html += id
+            html += '\'>\n'
+            html += '\t\t\t\t\t\t\t';
+            html += dlArray[i-numberOfInputs];
+            html += '\n';
+            html +='\t\t\t\t\t\t\t</td >\n' 
+            html +='\t\t\t\t\t\t</tr>\n';
         }
         html += '\t\t\t\t\t</table>\n';
         html += '\t\t\t\t</center>\n'
@@ -172,10 +177,14 @@
         footer += 'if (false && sessionStorage.getItem("someVarKey1"))'
         footer += '$("#one").focus();'
         footer += 'var numbers = ['
+        console.log('var numbers = [');
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
             footer += dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log(dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' ))
             footer += ',';
-        } 
+            console.log(',')
+        }
+        console.log('];') 
         footer += '];'
         footer += 'initialize(numbers);'
         footer += '}'
@@ -187,7 +196,7 @@
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++) {
             answer += elArray[i-numberOfInputs];
             answer += ':';
-            answer += dlArray[numberOfInputs-i];
+            answer += dlArray[i-numberOfInputs];
             answer  += ' '
         }
         footer += answer
@@ -276,14 +285,13 @@
         {   
             if(xhr.readyState == 4 && xhr.status == 201) {
                 console.log(xhr.status)
+                console.log(xhr.response.JSON)
                 console.log("content saved");
                 saved = true;
                 view_button = document.getElementById("view_button");
                 view_button.style.display = "inline";
-                console.log('JSON.parse(xhr.response).id ' + JSON.parse(xhr.response).id)
-                saved_id = JSON.parse(xhr.response).id
-                console.log('saved_id ' +saved_id)
-                view_button.children[0].href = `${window.location.href}/${saved_id}`
+                saved_id++;
+                view_button.href = `${window.location.href}/${saved_id}`
             }
             else{
                 console.log(xhr.status)
@@ -416,11 +424,23 @@
     new_window.document.write(new_tab_html);
     }
 
-    function shuffle(a){
+    rand = Math.random();
+    function shuffleDescriptions(a){
         for(let j,i=a.length;i>1;){
-         j=Math.floor(Math.random()*i--);
+         j=Math.floor(rand*i--);
          if (i!=j) [a[i],a[j]]=[a[j],a[i]]
         }
+        console.log("shuffled dlarray")
+        console.log(a)
+        return a
+    }
+    function shuffleKeys(a){
+        for(let j,i=a.length;i>1;){
+         j=Math.floor(rand*i--);
+         if (i!=j) [a[i],a[j]]=[a[j],a[i]]
+        }
+        console.log("shuffled elarray")
+        console.log(a)
         return a
     }
 // }
