@@ -104,7 +104,8 @@
         elArray = shuffleKeys(elArray);
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
 	        html += '\t\t\t\t\t\t<div id=\'s';
-	        id   = elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+	        id   = i-numberOfInputs+1;//elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log("id "+id)
 	        html += id;
 	        html +='\' class=\'draggyBox-small ui-draggable\'>\n';
 	        html += '\t\t\t\t\t\t\t'
@@ -122,24 +123,25 @@
         //create description inputs
         html += '\t\t\t\t\t<table id=\'tablestyle\'>\n'
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
-        html +='\t\t\t\t\t\t<tr>\n'
-        html += '\t\t\t\t\t\t<td id=\'row';
-        id   =  dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
-        html += id;
-        html +='\'>\n';
-        html += '\t\t\t\t\t\t\t<div id=\'t';
-        html += id;
-        html +='\' class=\'ltarget ui-droppable\'>'
-        html +='</div>\n' 
-        html +='\t\t\t\t\t\t</td >\n'
-        html +='\t\t\t\t\t\t<td id=\'d'
-        html += id
-        html += '\'>\n'
-        html += '\t\t\t\t\t\t\t';
-        html += dlArray[i-numberOfInputs];
-        html += '\n';
-        html +='\t\t\t\t\t\t\t</td >\n' 
-        html +='\t\t\t\t\t\t</tr>\n';
+            html +='\t\t\t\t\t\t<tr>\n'
+            html += '\t\t\t\t\t\t<td id=\'row';
+            id   =  i-numberOfInputs+1;//dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log("id "+id);
+            html += id;
+            html +='\'>\n';
+            html += '\t\t\t\t\t\t\t<div id=\'t';
+            html += id;
+            html +='\' class=\'ltarget ui-droppable\'>'
+            html +='</div>\n' 
+            html +='\t\t\t\t\t\t</td >\n'
+            html +='\t\t\t\t\t\t<td id=\'d'
+            html += id
+            html += '\'>\n'
+            html += '\t\t\t\t\t\t\t';
+            html += dlArray[i-numberOfInputs];
+            html += '\n';
+            html +='\t\t\t\t\t\t\t</td >\n' 
+            html +='\t\t\t\t\t\t</tr>\n';
         }
         html += '\t\t\t\t\t</table>\n';
         html += '\t\t\t\t</center>\n'
