@@ -1,5 +1,1 @@
-com\company\app\model\WordMatch.class
-com\company\app\Application.class
-com\frugalis\Spring\Boot\Resources\ResourceConfigs.class
-com\company\app\service\WordMatchService.class
-com\company\app\controller\WordMatchController.class
+com/company/app/model/View.class
