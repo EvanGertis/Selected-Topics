@@ -89,11 +89,12 @@ function handDrop(event, ui) {
     $('#t' + targetNumber).css("color", "white");
 
     for (var i = 0; i < copyNumbers.length; i++) {
+        console.log(`${copyNumbers[i]} == ${sourceNumber}`)
         if (copyNumbers[i] == sourceNumber)
             break;
     }
-
-    speak($('#s' + (i + 1)).text() + ". " + $('#d' + targetNumber).text());
+    console.log(`${$('#s' + sourceNumber).text()} + ". " + ${$('#d' + copyNumbers[i]).text()}`)
+    speak($('#s' + sourceNumber).text() + ". " + $('#d' + sourceNumber).text());
     // jAlert('Done', "Test");
 
     correctCards++;

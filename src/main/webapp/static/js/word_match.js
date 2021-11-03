@@ -236,7 +236,6 @@
         footer += '          var $option = $(\'<option>\')'
         footer += '          .val(index)'
         footer += '          .html(voice.name + (voice.default ? \' (default)\' :\'\'));'
-        footer += ''
         footer += '          $voicelist.append($option);'
         footer += '        });'
         footer += ''
@@ -425,9 +424,6 @@
     footer += '<script type=\"text/javascript\" src=\"static/js/logging.js\">'
     footer += '</'
     footer += 'script>\n'
-    // footer += '<script>audioOn = false; $(function() {$(\'.menulink\').click(function(){if (audioOn) {$("#bg").attr(\'src\',\"${pageContext.request.contextPath}/static/images/audioOff.png\");  audioOn = false;}else {$(\"#bg\").attr(\'src\',"${pageContext.request.contextPath}/static/images/audioOn.png");audioOn = true; speak(" ");}return false;});});'
-    // footer += '</'
-    // footer += 'script>'
     new_tab_html += footer;
     console.log(new_tab_html);
     new_window.document.write(new_tab_html);

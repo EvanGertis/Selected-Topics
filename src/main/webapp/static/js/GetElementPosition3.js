@@ -357,6 +357,10 @@ function speak(text) {
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
 //    alert(getOsVersion() + " " + voices[0].name);
+    console.log("voices")
+    console.log("******")
+    console.log(voices)
+    console.log("******")
 
     osName = getOsVersion();
     msg.voice = voices[0]; // For Windows 7, and all other default
