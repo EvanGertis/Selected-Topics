@@ -286,7 +286,7 @@
         var b64_string   = btoa(html_content.value) 
         console.log(b64_string)
         var xhr = new XMLHttpRequest();
-        xhr.open("POST", "/wordmatch", true);
+        xhr.open("POST", "/wordmatchgenerator", true);
         xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
         xhr.onreadystatechange = function()
         {   
