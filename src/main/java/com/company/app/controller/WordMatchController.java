@@ -30,7 +30,7 @@ public class WordMatchController {
 		this.wordMatchService = wordMatchService;
 	}
 	
-	@PostMapping("/wordmatchgenerator_generate_jsp")
+	@PostMapping("/wordmatchgenerator")
 	public ResponseEntity<View> saveWordMatchJSP(@RequestBody WordMatch wordMatch) {
 		logger.info("Processing word match from client");
 		logger.info(wordMatch);
@@ -43,18 +43,18 @@ public class WordMatchController {
 		return new ResponseEntity<View>(view, HttpStatus.CREATED);
 	}
 
-	@PostMapping("/wordmatchgenerator_generate_html")
-	public ResponseEntity<View> saveWordMatchAsHTML(@RequestBody WordMatch wordMatch) {
-		logger.info("Processing word match from client");
-		logger.info(wordMatch);
-		Long Id = wordMatchService.saveHTML(wordMatch);
-        View view = new View();
-        logger.info("New view created with id {}",Id);
-        logger.info("View object before {}",view);
-        view.setId(Id);
-        logger.info("View object after {}",view);
-		return new ResponseEntity<View>(view, HttpStatus.CREATED);
-	}
+	// @PostMapping("/wordmatchgenerator")
+	// public ResponseEntity<View> saveWordMatchAsHTML(@RequestBody WordMatch wordMatch) {
+	// 	logger.info("Processing word match from client");
+	// 	logger.info(wordMatch);
+	// 	Long Id = wordMatchService.saveHTML(wordMatch);
+    //     View view = new View();
+    //     logger.info("New view created with id {}",Id);
+    //     logger.info("View object before {}",view);
+    //     view.setId(Id);
+    //     logger.info("View object after {}",view);
+	// 	return new ResponseEntity<View>(view, HttpStatus.CREATED);
+	// }
 
 	@RequestMapping("/wordmatchgenerator")
     public String getWordMatch(Model model) {

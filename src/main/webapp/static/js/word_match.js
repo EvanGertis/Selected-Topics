@@ -101,9 +101,8 @@
         console.log("The value of the elArray is")
         console.log(elArray)
         dlArray = shuffleDescriptions(dlArray);
-        elArray = shuffleKeys(elArray);
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
-	        html += '\t\t\t\t\t\t<div id=\'s';
+            html += '\t\t\t\t\t\t<div id=\'s';
 	        id   = i-numberOfInputs+1;//elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
             console.log("id "+id)
 	        html += id;
@@ -113,6 +112,7 @@
 	        html += '\n';
 	        html +='\t\t\t\t\t\t</div>\n';
         }
+        elArray = shuffleKeys(elArray);
         console.log("The value of the dlArray is")
         console.log(dlArray)
         console.log("The value of the elArray is")
