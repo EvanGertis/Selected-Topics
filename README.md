@@ -2,9 +2,11 @@
 # algorthmic intuition
 
 ## Term Paper
-1. [Algorithmic Intuition](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/term-paper/algorithmic-intuition.pdf)
+1. [Word Match Generator](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/Research_Materials/Word_Match_Generator.pdf)
 
 ## Research
+1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
+2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
 2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
 
