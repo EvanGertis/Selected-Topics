@@ -19,17 +19,31 @@
 		<body><div id='maincontentstyle'>
 	<center>
 		<div id='boxstyle'>
-			<h3 id='title'></h3>
+			<h3 id='title'>T</h3>
 				<center>
 					<div class='source'>
+						<div id='s1' class='draggyBox-small ui-draggable'>
+							k1
+						</div>
+						<div id='s2' class='draggyBox-small ui-draggable'>
+							k2
+						</div>
 					</div>
 					</center>
 					<table id='tablestyle'>
+						<tr>
+						<td id='row1'>
+							<div id='t1' class='ltarget ui-droppable'></div>
+						</td >
+						<td id='d1'>
+							d1
+							</td >
+						</tr>
 					</table>
 				</center>
 		</div>
 	</center>
-</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer(">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset(">Reset</button></span>
+</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button></span><span id="audio" style=""><a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"></a></span>
 		</body>
 </html>
-<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/word_match.js"></script><script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script><script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script><img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;">
+<script type="text/javascript">$(init);$( window ).unload(function() {removeStorage.removeItem("someVarKey1");});function reset() {  var someVarName = true;sessionStorage.setItem("someVarKey1", someVarName);window.location.reload();}function init() {	document.getElementById('resetButton').style.display = 'none';document.getElementById("resetButton").style.visibility = "hidden";if (false && sessionStorage.getItem("someVarKey1"))$("#one").focus();var numbers = [1,];initialize(numbers);}</script>  <script>  answer = "k1:d1 ";  function show_answer() {	  jAlert(answer, 'Correct Match');  }</script> <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script> <script>    $(function(){  if ('speechSynthesis' in window) {    speechSynthesis.onvoiceschanged = function() {      var $voicelist = $('#voices');      if($voicelist.find('option').length == 0) {        speechSynthesis.getVoices().forEach(function(voice, index) {          var $option = $('<option>')          .val(index)          .html(voice.name + (voice.default ? ' (default)' :''));          $voicelist.append($option);        });        $voicelist.form_select();      }    }  } });     audioOn = false;$(function() {$('.menulink').click(function(){  if (audioOn) {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOff.png");  	audioOn = false;  }  else {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOn.png");	audioOn = true; speak(" ");  }  return false;});}); </script>   

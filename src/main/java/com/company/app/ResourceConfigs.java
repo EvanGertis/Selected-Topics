@@ -10,7 +10,8 @@ public class ResourceConfigs implements WebMvcConfigurer
     private static final String[] CLASSPATH_RESOURCE_LOCATIONS =
     {
         "classpath:/htmlFiles/",
-        "classpath:/static/"
+        "classpath:/static/",
+        "classpath:/static/images"
     };
 
     @Override
