@@ -38,13 +38,29 @@ var correctCards = 0;
 var totalCount;
 var copyNumbers;
 
+
+function indexOf(i, numbers) {
+  for (var j = 0; j < numbers.length; j++)
+    if (numbers[j] == i)
+       return j;
+  return -1;
+}
+
 function initialize(numbers) {
+  // Get new numbers
+  tempNumbers = [];
+  for (var i = 0; i < numbers.length; i++)
+    tempNumbers.push(numbers[i]);
+
+  numbers = [];
+  for (var i = 0; i < tempNumbers.length; i++)
+    numbers.push(indexOf(i + 1, tempNumbers) + 1);
+
   copyNumbers = numbers;
   correctCards = 0;
   totalCount = numbers.length;
   
   for (var i = 0; i < numbers.length; i++) {
-    console.log("'#s' + (i + 1) is matched with "+numbers[i])
     $('#s' + (i + 1)).data('number', numbers[i]).draggable( {
       containment: '#boxstyle',
       cursor: 'move',
@@ -54,8 +70,7 @@ function initialize(numbers) {
 
   // Create the slots
     for ( var i = 0; i < numbers.length; i++ ) {
-    console.log("'#t' + (i + 1) is matched with "+numbers[i])
-    $('#t' + (i + 1)).data('number', numbers[i]).droppable( {
+    $('#t' + (i + 1)).data('number', i + 1).droppable( {
       hoverClass: 'hovered',
       drop: handDrop
     } );
@@ -75,12 +90,12 @@ function handDrop(event, ui) {
 //    $('#d' + targetNumber).css("background", "goldenrod");
 //    $('#d' + targetNumber).css("color", "white");
 //    $('#t' + targetNumber).css("background", "goldenrod");
-    // $('#d' + targetNumber).css("border-top", "1px solid");
-    // $('#d' + targetNumber).css("border-bottom", "1px solid");
-    // $('#d' + targetNumber).css("border-color", "white");
-    // $('#d' + targetNumber).css("background", "#3F5E17");
-    // $('#d' + targetNumber).css("color", "white");
-    // $('#t' + targetNumber).css("background", "#3F5E17");
+    $('#d' + targetNumber).css("border-top", "1px solid");
+    $('#d' + targetNumber).css("border-bottom", "1px solid");
+    $('#d' + targetNumber).css("border-color", "white");
+    $('#d' + targetNumber).css("background", "#3F5E17");
+    $('#d' + targetNumber).css("color", "white");
+    $('#t' + targetNumber).css("background", "#3F5E17");
     
           document.getElementById('resetButton').style.display = 'inline';
  document.getElementById("resetButton").style.visibility = "visible";
@@ -89,12 +104,11 @@ function handDrop(event, ui) {
     $('#t' + targetNumber).css("color", "white");
 
     for (var i = 0; i < copyNumbers.length; i++) {
-        console.log(`${copyNumbers[i]} == ${sourceNumber}`)
         if (copyNumbers[i] == sourceNumber)
             break;
     }
-    console.log(`${$('#s' + sourceNumber).text()} + ". " + ${$('#d' + copyNumbers[i]).text()}`)
-    speak($('#s' + sourceNumber).text() + ". " + $('#d' + sourceNumber).text());
+
+    speak($('#s' + (i + 1)).text() + ". " + $('#d' + targetNumber).text());
     // jAlert('Done', "Test");
 
     correctCards++;

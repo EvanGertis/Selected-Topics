@@ -54,7 +54,7 @@
                     <button id ="add_more" class="button" type="button" onClick="add_more()">Add More</button>
                   </span>
                   <span style="padding: 3px">
-                    <button id ="one" class="button" type="button" onClick="generate_html()">Generate Html</button>
+                    <button id ="one" class="button" type="button" onClick="generate_html()">Generate HTML</button>
                   </span>
               </div>
               </div>

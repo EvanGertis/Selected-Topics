@@ -44,9 +44,15 @@
     const d_inputs = document.querySelectorAll("[id^='dl']");
     let elArray = [];
     let dlArray = [];
+
+    dlArrayNumbers = []; // Liang: added to track numbers
+
     const title = document.getElementById('title_input').value;
     e_inputs.forEach( i => { if(i.value) elArray.push(i.value) });
     d_inputs.forEach( i => { if(i.value) dlArray.push(i.value) });
+
+    for (var i = 0; i < dlArray.length; i++)
+      dlArrayNumbers.push("d" + (i + 1));
 
 
     //has the html already been generated? 
@@ -101,6 +107,9 @@
         console.log("The value of the elArray is")
         console.log(elArray)
         dlArray = shuffleDescriptions(dlArray);
+
+
+
         for (let i = numberOfInputs; i < elArray.length+numberOfInputs; i++){
             html += '\t\t\t\t\t\t<div id=\'s';
 	        id   = i-numberOfInputs+1;//elArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
@@ -187,8 +196,8 @@
         console.log('var numbers = [');
         footer += 'var numbers = ['
         for (let i = numberOfInputs; i < dlArray.length+numberOfInputs; i++){
-            footer += dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' );
-            console.log(dlArray[i-numberOfInputs].replace ( /[^\d.]/g, '' ))
+            footer += dlArrayNumbers[i-numberOfInputs].replace ( /[^\d.]/g, '' );
+            console.log(dlArrayNumbers[i-numberOfInputs].replace ( /[^\d.]/g, '' ))
             footer += ',';
             console.log(',')
         }
@@ -270,7 +279,7 @@
         controls = document.createElement("div");
         controls.setAttribute("id","program1");
         controls.setAttribute("style","border: 1px solid #EB0D1B; width: 450px; font-family: courier; font-size: 100.5%; margin: 0px auto; border: 1px; text-align: center; margin-top: 5px;");
-        controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>\n';
+        // controls.innerHTML +=  '<button id = "renderHTMLButton" class="button" type="button" onClick="render_html()">Render html</button>\n';
         controls.innerHTML +=  '<button id = "submit" class="button" type="button" onClick="saveContent()"> Save </button>\n';
         controls.innerHTML +=  `<button id=\"view_button\" class=\"button\" style=\" display: none;\"><a href=\"${window.location.href}/${saved_id}\"> view</a> </button>\n`;
         if(document.getElementById("renderHTMLButton"))
@@ -433,7 +442,7 @@
     function shuffleDescriptions(a){
         for(let j,i=a.length;i>1;){
          j=Math.floor(rand*i--);
-         if (i!=j) [a[i],a[j]]=[a[j],a[i]]
+         if (i!=j) { [a[i],a[j]]=[a[j],a[i]]; [dlArrayNumbers[i],dlArrayNumbers[j]]=[dlArrayNumbers[j],dlArrayNumbers[i]]; }
         }
         console.log("shuffled dlarray")
         console.log(a)
