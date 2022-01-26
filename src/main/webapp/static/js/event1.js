@@ -44,7 +44,7 @@ function initialize(numbers) {
   totalCount = numbers.length;
   
   for (var i = 0; i < numbers.length; i++) {
-    console.log("'#s' + (i + 1) is matched with "+numbers[i])
+    console.log("'#s' + "+(i + 1)+" is matched with "+numbers[i])
     $('#s' + (i + 1)).data('number', numbers[i]).draggable( {
       containment: '#boxstyle',
       cursor: 'move',
@@ -54,7 +54,7 @@ function initialize(numbers) {
 
   // Create the slots
     for ( var i = 0; i < numbers.length; i++ ) {
-    console.log("'#t' + (i + 1) is matched with "+numbers[i])
+    console.log("'#t' + "+(i + 1)+" is matched with "+numbers[i])
     $('#t' + (i + 1)).data('number', numbers[i]).droppable( {
       hoverClass: 'hovered',
       drop: handDrop
@@ -82,8 +82,8 @@ function handDrop(event, ui) {
     // $('#d' + targetNumber).css("color", "white");
     // $('#t' + targetNumber).css("background", "#3F5E17");
     
-          document.getElementById('resetButton').style.display = 'inline';
- document.getElementById("resetButton").style.visibility = "visible";
+    document.getElementById('resetButton').style.display = 'inline';
+    document.getElementById("resetButton").style.visibility = "visible";
  
 //    $('#t' + targetNumber).css("background", "goldenrod");
     $('#t' + targetNumber).css("color", "white");
@@ -93,6 +93,8 @@ function handDrop(event, ui) {
         if (copyNumbers[i] == sourceNumber)
             break;
     }
+    console.log(sourceNumber)
+    console.log(copyNumbers[i])
     console.log(`${$('#s' + sourceNumber).text()} + ". " + ${$('#d' + copyNumbers[i]).text()}`)
     speak($('#s' + sourceNumber).text() + ". " + $('#d' + sourceNumber).text());
     // jAlert('Done', "Test");
