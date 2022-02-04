@@ -1,0 +1,62 @@
+<wordmatch>
+<exercise>
+<question>
+      <keyterm>
+      K1
+      </keyterm>
+      <description>
+      D1
+      </description>
+</question>
+<question>
+      <keyterm>
+      K2
+      </keyterm>
+      <description>
+      D2
+      </description>
+</question>
+<question>
+      <keyterm>
+      K3
+      </keyterm>
+      <description>
+      D3
+      </description>
+</question>
+</exercise>
+<exercise>
+<question>
+      <keyterm>
+      K21
+      </keyterm>
+      <description>
+      D21
+      </description>
+</question>
+<question>
+      <keyterm>
+      K22
+      </keyterm>
+      <description>
+      D22
+      </description>
+</question>
+<question>
+      <keyterm>
+      K23
+      </keyterm>
+      <description>
+      D23
+      </description>
+</question>
+<question>
+      <keyterm>
+      K24
+      </keyterm>
+      <description>
+      D24
+      </description>
+</question>
+</exercise>
+</wordmatch>

@@ -18,6 +18,9 @@ import java.nio.file.Paths;
 import java.util.stream.Stream;
 import java.nio.file.Files;
 import java.util.Base64;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
 
 
 @Service
@@ -63,15 +66,94 @@ public class WordMatchService {
 				System.out.println(numberOfFiles);
 				System.out.println("fileName should have been printed by now");
 				file = new File(fileName);
-				FileWriter myWriter = new FileWriter("./src/main/webapp/view/"+file);
+				String JSPfileName = "./src/main/webapp/view/"+file;
+				FileWriter myWriter = new FileWriter(JSPfileName);
 				myWriter.write(html);
 				myWriter.close();
+				// Write JSP file to HTML
+				// File path is passed as parameter
+				File jspFile = new File(JSPfileName);
+				
+				// Note:  Double backquote is to avoid compiler
+				// interpret words
+				// like \test as \t (ie. as a escape sequence)
+				
+				// Creating an object of BufferedReader class
+				BufferedReader br
+				= new BufferedReader(new FileReader(jspFile));
+				
+				// Declaring a string variable
+				String st;
+				// Condition holds true till
+				// there is character in a string
+				String htmlFileName = JSPfileName.replace("jsp","html");
+				File htmlFile = new File(htmlFileName);
+				String content = "Writing To File";
+				if (!htmlFile.exists()) {
+					htmlFile.createNewFile();
+				} 
+				try {
+					FileWriter fw = new FileWriter(htmlFile.getAbsoluteFile());
+					BufferedWriter bw = new BufferedWriter(fw);
+					while ((st = br.readLine()) != null) {
+						System.out.println(st);
+						bw.write(st);
+				}
+				bw.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+				System.out.println("Done");
+				// try 
+				// {
+				// 	JSPtoHTML(JSPfileName);
+				// }
+				// catch (IOException e) {
+				// 	System.out.println("An error occurred.");
+				// 	e.printStackTrace();
+				// }	
 			}
 		} catch (IOException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
 		return numberOfFiles;
+	}
+
+	public void JSPtoHTML(String fileNameForJSP) throws Exception {
+		// File path is passed as parameter
+		File file = new File(fileNameForJSP);
+		
+		// Note:  Double backquote is to avoid compiler
+		// interpret words
+		// like \test as \t (ie. as a escape sequence)
+		
+		// Creating an object of BufferedReader class
+		BufferedReader br
+		= new BufferedReader(new FileReader(file));
+		
+		// Declaring a string variable
+		String st;
+		// Condition holds true till
+		// there is character in a string
+		String htmlFileName = fileNameForJSP.replace("jsp","html");
+		File htmlFile = new File(htmlFileName);
+		String content = "Writing To File";
+		if (!htmlFile.exists()) {
+			htmlFile.createNewFile();
+		} 
+		try {
+			FileWriter fw = new FileWriter(htmlFile.getAbsoluteFile());
+			BufferedWriter bw = new BufferedWriter(fw);
+			while ((st = br.readLine()) != null) {
+				System.out.println(st);
+				bw.write(st);
+		}
+		bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Done");
 	}
 
 	public Long saveHTML(WordMatch wordMatch){
