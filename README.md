@@ -2,34 +2,21 @@
 # algorthmic intuition
 
 ## Term Paper
-1. [Algorithmic Intuition](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/term-paper/algorithmic-intuition.pdf)
+1. [Word Match Generator](https://github.com/EvanGertis/Selected-Topics/blob/master/paper/Word_Match_Generator_Thesis_3rd_draft.pdf)
 
 ## Research
-1. [Designing Educationally Effective Algorithm Visualizations](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/DesigningEducationallyEffectiveAlgorithmVisualizations.pdf)
-2. [TOCE](https://github.com/EvanGertis/AlgorithmicIntuition/blob/master/papers/TOCE.pdf)
-
-## Demonstration
-1. [youtube video demonstration 1](https://www.youtube.com/watch?v=KFO0vJ1Ihwg)
-2. [youtube video demonstration 2](https://www.youtube.com/watch?v=Eysu65LyC04)
+[WordMatching](https://github.com/EvanGertis/Selected-Topics/blob/master/research/WordMatching/
+1. Effectiveness Of Make a Match
+2. Improved Reading Skills by Students at PPEP TEC High School who  used Fast ForWord® Products
+3. The Effect of Using Word Games on Primary Stage Students Achievement in English Language Vocabulary in Jordan
+4. Online Learning Accessibility during the COVID-19 Pandemic
+5. Shahzad2021_Article_EffectsOfCOVID-19InE-learningO
 
 ## Stack
 - Spring Boot 2.2.0.RELEASE
 - Servlet API 2.5
 - JSP, HTML, JS, CSS
 - Tomcat 9
-
-## Windows Set up
-``` bash
-set AV_DATABASE_URL=jdbc:mysql://localhost:3306/AlgorithmVisualization?serverTimezone=UTC
-set DATABASE_USER=root
-set DATABASE_PASSWORD=test123
-set AV_SCHEMA=AlgorithmVisualization
-```
-
-## Docker
-```bash
-docker run -p 3307:3306 -e MYSQL_ROOT_PASSWORD=test123 -e MYSQL_DATABASE=AlgorithmVisualization mysql:5.7
-```
 
 ## Install
 1. To clean and build maven project, use:
@@ -41,7 +28,7 @@ docker run -p 3307:3306 -e MYSQL_ROOT_PASSWORD=test123 -e MYSQL_DATABASE=Algorit
     $ mvn spring-boot:run
     ```
 ## Example
-[Algorithmic Visualization App](https://algorithmic-intuition.herokuapp.com/avs/show/1)
+[Word Match Live Example](https://liveexample.pearsoncmg.com/wordmatch/Section5_2.html)
 ## Author
 Evan Gertis
 
