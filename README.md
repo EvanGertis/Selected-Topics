@@ -1,7 +1,7 @@
 
-# algorthmic intuition
+# Word Match Generator
 
-## Term Paper
+## Thesis Paper
 1. [Word Match Generator](https://github.com/EvanGertis/Selected-Topics/blob/master/paper/Word_Match_Generator_Thesis_3rd_draft.pdf)
 
 ## Research
