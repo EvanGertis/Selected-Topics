@@ -1,1 +1,68 @@
-PCFET0NUWVBFIEhUTUw+CjxodG1sIGxhbmc9ImVuIj4KCTxoZWFkPgoJCTx0aXRsZT5Xb3JkIE1hdGNoaW5nIEV4ZXJjaXNlPC90aXRsZT4KCQk8c3R5bGU+Cio6Zm9jdXMge291dGxpbmU6IDJweCBzb2xpZCBibHVlOyBvdXRsaW5lLW9mZnNldDogMnB4O30KCQlkZXRhaWxzIHtwYWRkaW5nOjNweDt9CgkJPC9zdHlsZT4KCQk8bGluayByZWw9InN0eWxlc2hlZXQiIHR5cGU9InRleHQvY3NzIiBocmVmPSIke3BhZ2VDb250ZXh0LnJlcXVlc3QuY29udGV4dFBhdGh9L3N0YXRpYy9jc3MvYm94ZXMuY3NzIiAvPgoJCTxzY3JpcHQgdHlwZT0idGV4dC9qYXZhc2NyaXB0IiBzcmM9IiR7cGFnZUNvbnRleHQucmVxdWVzdC5jb250ZXh0UGF0aH0vc3RhdGljL2pzL2V2ZW50MS5qcyI+PGxpbmsgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgaHJlZj0iJHtwYWdlQ29udGV4dC5yZXF1ZXN0LmNvbnRleHRQYXRofS9zdGF0aWMvY3NzL3N0eWxlLmNzcyIgLz48L3NjcmlwdD4KPHNjcmlwdCBhc3luYyBzcmM9Imh0dHBzOi8vd3d3Lmdvb2dsZXRhZ21hbmFnZXIuY29tL2d0YWcvanM/aWQ9VUEtODk5NDA5MDUtMjciPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iJHtwYWdlQ29udGV4dC5yZXF1ZXN0LmNvbnRleHRQYXRofS9zdGF0aWMvanMvanF1ZXJ5LTEuNy4yLm1pbi5qcyI+PC9zY3JpcHQ+CjxzY3JpcHQgc3JjPSIke3BhZ2VDb250ZXh0LnJlcXVlc3QuY29udGV4dFBhdGh9L3N0YXRpYy9qcy9qcXVlcnktdWkubWluLmpzIj48L3NjcmlwdD4KPHNjcmlwdCBzcmM9IiR7cGFnZUNvbnRleHQucmVxdWVzdC5jb250ZXh0UGF0aH0vc3RhdGljL2pzL2pxdWVyeS51aS50b3VjaC1wdW5jaC5taW4uanMiPjwvc2NyaXB0Pgo8c2NyaXB0IHNyYz0iJHtwYWdlQ29udGV4dC5yZXF1ZXN0LmNvbnRleHRQYXRofS9zdGF0aWMvanMvZXZlbnQxLmpzIj48L3NjcmlwdD4KPHNjcmlwdCBzcmM9IiR7cGFnZUNvbnRleHQucmVxdWVzdC5jb250ZXh0UGF0aH0vc3RhdGljL2pzL2pxdWVyeS5hbGVydHMuanMiPjwvc2NyaXB0Pgo8bGluayBocmVmPSIke3BhZ2VDb250ZXh0LnJlcXVlc3QuY29udGV4dFBhdGh9L3N0YXRpYy9qcy9qcXVlcnkuYWxlcnRzLmNzcyIgcmVsPSJzdHlsZXNoZWV0IiB0eXBlPSJ0ZXh0L2NzcyIgbWVkaWE9InNjcmVlbiI+PHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iJHtwYWdlQ29udGV4dC5yZXF1ZXN0LmNvbnRleHRQYXRofS9zdGF0aWMvanMvbG9nZ2luZy5qcyI+PC9zY3JpcHQ+CjwvaGVhZD4KCQk8Ym9keT48ZGl2IGlkPSdtYWluY29udGVudHN0eWxlJz4KCTxjZW50ZXI+CgkJPGRpdiBpZD0nYm94c3R5bGUnPgoJCQk8aDMgaWQ9J3RpdGxlJz50aXRsZTwvaDM+CgkJCQk8Y2VudGVyPgoJCQkJCTxkaXYgY2xhc3M9J3NvdXJjZSc+CgkJCQkJCTxkaXYgaWQ9J3MxJyBjbGFzcz0nZHJhZ2d5Qm94LXNtYWxsIHVpLWRyYWdnYWJsZSc+CgkJCQkJCQlrMQoJCQkJCQk8L2Rpdj4KCQkJCQkJPGRpdiBpZD0nczInIGNsYXNzPSdkcmFnZ3lCb3gtc21hbGwgdWktZHJhZ2dhYmxlJz4KCQkJCQkJCWsyCgkJCQkJCTwvZGl2PgoJCQkJCTwvZGl2PgoJCQkJCTwvY2VudGVyPgoJCQkJCTx0YWJsZSBpZD0ndGFibGVzdHlsZSc+CgkJCQkJCTx0cj4KCQkJCQkJPHRkIGlkPSdyb3cxJz4KCQkJCQkJCTxkaXYgaWQ9J3QxJyBjbGFzcz0nbHRhcmdldCc+PC9kaXY+CgkJCQkJCTwvdGQgPgoJCQkJCQk8dGQgaWQ9J2QxJz4KCQkJCQkJCWQxCgkJCQkJCQk8L3RkID4KCQkJCQkJPC90cj4KCQkJCQkJPHRyPgoJCQkJCQk8dGQgaWQ9J3JvdzInPgoJCQkJCQkJPGRpdiBpZD0ndDInIGNsYXNzPSdsdGFyZ2V0Jz48L2Rpdj4KCQkJCQkJPC90ZCA+CgkJCQkJCTx0ZCBpZD0nZDInPgoJCQkJCQkJZDIKCQkJCQkJCTwvdGQgPgoJCQkJCQk8L3RyPgoJCQkJCTwvdGFibGU+CgkJCQk8L2NlbnRlcj4KCQk8L2Rpdj4KCTwvY2VudGVyPgo8L2Rpdj48c3BhbiBzdHlsZT0icGFkZGluZzogM3B4Ij4gPGJ1dHRvbiBpZCA9Im9uZSIgY2xhc3M9ImJ1dHRvbiIgdHlwZT0iYnV0dG9uIiBvbkNsaWNrPSJzaG93X2Fuc3dlcigpIj5TaG93IEFuc3dlcjwvYnV0dG9uPiA8YnV0dG9uIGlkID0gInJlc2V0QnV0dG9uIiBjbGFzcz0iYnV0dG9uIiB0eXBlPSJidXR0b24iIG9uQ2xpY2s9InJlc2V0KCkiPlJlc2V0PC9idXR0b24+PC9zcGFuPgoJCTwvYm9keT4KPC9odG1sPgo8c2NyaXB0IHR5cGU9InRleHQvamF2YXNjcmlwdCI+JChpbml0KTskKCB3aW5kb3cgKS51bmxvYWQoZnVuY3Rpb24oKSB7cmVtb3ZlU3RvcmFnZS5yZW1vdmVJdGVtKCJzb21lVmFyS2V5MSIpO30pO2Z1bmN0aW9uIHJlc2V0KCkgeyAgdmFyIHNvbWVWYXJOYW1lID0gdHJ1ZTtzZXNzaW9uU3RvcmFnZS5zZXRJdGVtKCJzb21lVmFyS2V5MSIsIHNvbWVWYXJOYW1lKTt3aW5kb3cubG9jYXRpb24ucmVsb2FkKCk7fWZ1bmN0aW9uIGluaXQoKSB7CWRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZXNldEJ1dHRvbicpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoInJlc2V0QnV0dG9uIikuc3R5bGUudmlzaWJpbGl0eSA9ICJoaWRkZW4iO2lmIChmYWxzZSAmJiBzZXNzaW9uU3RvcmFnZS5nZXRJdGVtKCJzb21lVmFyS2V5MSIpKSAvLyBObyBmb2N1cyBmb3IgdGhlIGZpcnN0IHRpbWUkKCIjb25lIikuZm9jdXMoKTt2YXIgbnVtYmVycyA9IFszLCA0LCA1LCAxLCAyXTtpbml0aWFsaXplKG51bWJlcnMpO308L3NjcmlwdD4gIDxzY3JpcHQ+ICBhbnN3ZXIgPSAiTG9vcCBCb2R5OiBpcyB0aGUgcGFydCBvZiB0aGUgYm9keSB0aGF0IGNvbnRhaW5zIHRoZSBzdGF0ZW1lbnRzIHRvIGJlIHJlcGVhdGVkLgpJdGVyYXRpb246IGlzIG9uZSB0aW1lIGV4ZWN1dGlvbiBvZiB0aGUgbG9vcCBib2R5LgpMb29wIENvbnRpbnVhdGlvbiBDb25kaXRpb246IGlzIGEgQm9vbGVhbiBleHByZXNzaW9uIHRoYXQgY29udHJvbHMgdGhlIGV4ZWN1dGlvbiBvZiB0aGUgbG9vcC4KSW5maW5pdGUgTG9vcDogaXMgYSBsb29wIHRoYXQgcnVucyBmb3JldmVyIGR1ZSB0byBhbiBlcnJvciBpbiB0aGUgY29kZS4KT2ZmLWJ5LW9uZTogaXMgYW4gZXJyb3IgaW4gdGhlIHByb2dyYW0gdGhhdCBjYXVzZXMgdGhlIGxvb3AgYm9keSB0byBiZSBleGVjdXRlZCBvbmUgbW9yZSBvciBsZXNzIHRpbWUuIiAgZnVuY3Rpb24gc2hvd19hbnN3ZXIoKSB7CSAgakFsZXJ0KGFuc3dlciwgJ0NvcnJlY3QgTWF0Y2gnKTsgIH08L3NjcmlwdD4gPHNjcmlwdCB0eXBlPSJ0ZXh0L2phdmFzY3JpcHQiIHNyYz0iJHtwYWdlQ29udGV4dC5yZXF1ZXN0LmNvbnRleHRQYXRofS9zdGF0aWMvanMvR2V0RWxlbWVudFBvc2l0aW9uMy5qcyI+PC9zY3JpcHQ+IDxzY3JpcHQ+Ly8gICAgJChmdW5jdGlvbigpey8vICBpZiAoJ3NwZWVjaFN5bnRoZXNpcycgaW4gd2luZG93KSB7Ly8gICAgc3BlZWNoU3ludGhlc2lzLm9udm9pY2VzY2hhbmdlZCA9IGZ1bmN0aW9uKCkgey8vICAgICAgdmFyICR2b2ljZWxpc3QgPSAkKCcjdm9pY2VzJyk7Ly8vLyAgICAgIGlmKCR2b2ljZWxpc3QuZmluZCgnb3B0aW9uJykubGVuZ3RoID09IDApIHsvLyAgICAgICAgc3BlZWNoU3ludGhlc2lzLmdldFZvaWNlcygpLmZvckVhY2goZnVuY3Rpb24odm9pY2UsICdpbmRleCkgey8vICAgICAgICAgIHZhciAkb3B0aW9uID0gJCgnPG9wdGlvbj4nKS8vICAgICAgICAgIC52YWwoaW5kZXgpLy8gICAgICAgICAgLmh0bWwodm9pY2UubmFtZSArICh2b2ljZS5kZWZhdWx0ID8gJyAoZGVmYXVsdCknIDonJykpOy8vLy8gICAgICAgICAgJHZvaWNlbGlzdC5hcHBlbmQoJG9wdGlvbik7Ly8gICAgICAgIH0pOy8vLy8gICAgICAgICR2b2ljZWxpc3QubWF0ZXJpYWxfc2VsZWN0KCk7Ly8gICAgICB9Ly8gICAgfS8vICB9IC8vfSk7ICAgICBhdWRpb09uID0gZmFsc2U7JChmdW5jdGlvbigpIHskKCcubWVudWxpbmsnKS5jbGljayhmdW5jdGlvbigpeyAgaWYgKGF1ZGlvT24pIHsJJCgiI2JnIikuYXR0cignc3JjJywiYXVkaW9PZmYucG5nIik7ICAJYXVkaW9PbiA9IGZhbHNlOyAgfSAgZWxzZSB7CSQoIiNiZyIpLmF0dHIoJ3NyYycsImF1ZGlvT24ucG5nIik7CWF1ZGlvT24gPSB0cnVlOyBzcGVhaygiICIpOyAgfSAgcmV0dXJuIGZhbHNlO30pO30pOyA8L3NjcmlwdD4gICA=
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>Word Matching Exercise</title>
+		<style>
+*:focus {outline: 2px solid blue; outline-offset: 2px;}
+		details {padding:3px;}
+		</style>
+		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/boxes.css" />
+		<script type="text/javascript" src="${pageContext.request.contextPath}/static/js/event1.js"><link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/style.css" /></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-89940905-27"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-1.7.2.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery-ui.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.ui.touch-punch.min.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/event1.js"></script>
+<script src="${pageContext.request.contextPath}/static/js/jquery.alerts.js"></script>
+<link href="${pageContext.request.contextPath}/static/js/jquery.alerts.css" rel="stylesheet" type="text/css" media="screen"><script type="text/javascript" src="${pageContext.request.contextPath}/static/js/logging.js"></script>
+</head>
+		<body><div id='maincontentstyle'>
+	<center>
+		<div id='boxstyle'>
+			<h3 id='title'></h3>
+				<center>
+					<div class='source'>
+						<div id='s1' class='draggyBox-small ui-draggable'>
+							k1
+						</div>
+						<div id='s2' class='draggyBox-small ui-draggable'>
+							k2
+						</div>
+						<div id='s3' class='draggyBox-small ui-draggable'>
+							k3
+						</div>
+					</div>
+					</center>
+					<table id='tablestyle'>
+						<tr>
+						<td id='row1'>
+							<div id='t1' class='ltarget ui-droppable'></div>
+						</td >
+						<td id='d1'>
+							d1
+							</td >
+						</tr>
+						<tr>
+						<td id='row2'>
+							<div id='t2' class='ltarget ui-droppable'></div>
+						</td >
+						<td id='d2'>
+							d3
+							</td >
+						</tr>
+						<tr>
+						<td id='row3'>
+							<div id='t3' class='ltarget ui-droppable'></div>
+						</td >
+						<td id='d3'>
+							d2
+							</td >
+						</tr>
+					</table>
+				</center>
+		</div>
+	</center>
+</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button></span><span id="audio" style=""><a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"></a></span>
+		</body>
+</html>
+<script type="text/javascript">$(init);$( window ).unload(function() {removeStorage.removeItem("someVarKey1");});function reset() {  var someVarName = true;sessionStorage.setItem("someVarKey1", someVarName);window.location.reload();}function init() {	document.getElementById('resetButton').style.display = 'none';document.getElementById("resetButton").style.visibility = "hidden";if (false && sessionStorage.getItem("someVarKey1"))$("#one").focus();var numbers = [1,3,2,];initialize(numbers);}</script>  <script>  answer = "k1:d1 k3:d3 k2:d2 ";  function show_answer() {	  jAlert(answer, 'Correct Match');  }</script> <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script> <script>    $(function(){  if ('speechSynthesis' in window) {    speechSynthesis.onvoiceschanged = function() {      var $voicelist = $('#voices');      if($voicelist.find('option').length == 0) {        speechSynthesis.getVoices().forEach(function(voice, index) {          var $option = $('<option>')          .val(index)          .html(voice.name + (voice.default ? ' (default)' :''));          $voicelist.append($option);        });        $voicelist.form_select();      }    }  } });     audioOn = false;$(function() {$('.menulink').click(function(){  if (audioOn) {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOff.png");  	audioOn = false;  }  else {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOn.png");	audioOn = true; speak(" ");  }  return false;});}); </script>   

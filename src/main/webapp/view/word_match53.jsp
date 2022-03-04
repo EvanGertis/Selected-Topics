@@ -19,14 +19,17 @@
 		<body><div id='maincontentstyle'>
 	<center>
 		<div id='boxstyle'>
-			<h3 id='title'>title</h3>
+			<h3 id='title'>HTML Structure</h3>
 				<center>
 					<div class='source'>
 						<div id='s1' class='draggyBox-small ui-draggable'>
-							k1
+							DOCTYPE
 						</div>
 						<div id='s2' class='draggyBox-small ui-draggable'>
-							k2
+							html
+						</div>
+						<div id='s3' class='draggyBox-small ui-draggable'>
+							body
 						</div>
 					</div>
 					</center>
@@ -36,7 +39,8 @@
 							<div id='t1' class='ltarget ui-droppable'></div>
 						</td >
 						<td id='d1'>
-							d1
+															<pre>element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks tables lists, etc.
+								</pre>
 							</td >
 						</tr>
 						<tr>
@@ -44,14 +48,24 @@
 							<div id='t2' class='ltarget ui-droppable'></div>
 						</td >
 						<td id='d2'>
-							d2
+															<pre>an "information" to the browser about what document type to expect.
+								</pre>
+							</td >
+						</tr>
+						<tr>
+						<td id='row3'>
+							<div id='t3' class='ltarget ui-droppable'></div>
+						</td >
+						<td id='d3'>
+															<pre>the element is everything from the starting to the end tag.
+								</pre>
 							</td >
 						</tr>
 					</table>
 				</center>
 		</div>
 	</center>
-</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button></span>
+</div><span style="padding: 3px"> <button id ="one" class="button" type="button" onClick="show_answer()">Show Answer</button> <button id = "resetButton" class="button" type="button" onClick="reset()">Reset</button></span><span id="audio" style=""><a href="" title="Turns Text-to-Speech Output On or Off" class="menulink" style="text-decoration: none;"><img id="bg" src="${pageContext.request.contextPath}/static/images/audioOff.png" height="30" width="30" style="margin-bottom:-10px; padding-bottom:-20px;"></a></span>
 		</body>
 </html>
-<script type="text/javascript">$(init);$( window ).unload(function() {removeStorage.removeItem("someVarKey1");});function reset() {  var someVarName = true;sessionStorage.setItem("someVarKey1", someVarName);window.location.reload();}function init() {	document.getElementById('resetButton').style.display = 'none';document.getElementById("resetButton").style.visibility = "hidden";if (false && sessionStorage.getItem("someVarKey1"))$("#one").focus();var numbers = [1,2,];initialize(numbers);}</script>  <script>  answer = "k1:d1 k2:d2 ";  function show_answer() {	  jAlert(answer, 'Correct Match');  }</script> <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script> <script>//    $(function(){//  if ('speechSynthesis' in window) {//    speechSynthesis.onvoiceschanged = function() {//      var $voicelist = $('#voices');////      if($voicelist.find('option').length == 0) {//        speechSynthesis.getVoices().forEach(function(voice, 'index) {//          var $option = $('<option>')//          .val(index)//          .html(voice.name + (voice.default ? ' (default)' :''));////          $voicelist.append($option);//        });////        $voicelist.material_select();//      }//    }//  } //});     audioOn = false;$(function() {$('.menulink').click(function(){  if (audioOn) {	$("#bg").attr('src',"audioOff.png");  	audioOn = false;  }  else {	$("#bg").attr('src',"audioOn.png");	audioOn = true; speak(" ");  }  return false;});}); </script>   
+<script type="text/javascript">$(init);$( window ).unload(function() {removeStorage.removeItem("someVarKey1");});function reset() {  var someVarName = true;sessionStorage.setItem("someVarKey1", someVarName);window.location.reload();}function init() {	document.getElementById('resetButton').style.display = 'none';document.getElementById("resetButton").style.visibility = "hidden";if (false && sessionStorage.getItem("someVarKey1"))$("#one").focus();var numbers = [3,1,2,];initialize(numbers);}</script>  <script>  answer = "body:element contains all the contents of an HTML document, such as headings, paragraphs, images, hyperlinks tables lists, etc. DOCTYPE:an "information" to the browser about what document type to expect. html:the element is everything from the starting to the end tag. ";  function show_answer() {	  jAlert(answer, 'Correct Match');  }</script> <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/GetElementPosition3.js"></script> <script>    $(function(){  if ('speechSynthesis' in window) {    speechSynthesis.onvoiceschanged = function() {      var $voicelist = $('#voices');      if($voicelist.find('option').length == 0) {        speechSynthesis.getVoices().forEach(function(voice, index) {          var $option = $('<option>')          .val(index)          .html(voice.name + (voice.default ? ' (default)' :''));          $voicelist.append($option);        });        $voicelist.form_select();      }    }  } });     audioOn = false;$(function() {$('.menulink').click(function(){  if (audioOn) {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOff.png");  	audioOn = false;  }  else {	$("#bg").attr('src',"${pageContext.request.contextPath}/static/images/audioOn.png");	audioOn = true; speak(" ");  }  return false;});}); </script>   
