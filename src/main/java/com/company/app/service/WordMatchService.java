@@ -103,15 +103,7 @@ public class WordMatchService {
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
-				System.out.println("Done");
-				// try 
-				// {
-				// 	JSPtoHTML(JSPfileName);
-				// }
-				// catch (IOException e) {
-				// 	System.out.println("An error occurred.");
-				// 	e.printStackTrace();
-				// }	
+				System.out.println("Done");	
 			}
 		} catch (IOException e) {
 			System.out.println("An error occurred.");

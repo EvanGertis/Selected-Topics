@@ -14,14 +14,14 @@
     var saved = false
     var saved_id = 0
     
-    function reset() {
-    // reset the htmGenerated to false.
-    htmlGenerated = false;
-    numberOfInputs = 2;
-    var someVarName = true;
-    sessionStorage.setItem("someVarKey1", someVarName);
-    window.location.reload();
-    }
+    // function reset() {
+    // // reset the htmGenerated to false.
+    // htmlGenerated = false;
+    // numberOfInputs = 2;
+    // var someVarName = true;
+    // sessionStorage.setItem("someVarKey1", someVarName);
+    // window.location.reload();
+    // }
 
     function populate_numbers_array(footer, dlArray){
         console.log("populating numbers")
